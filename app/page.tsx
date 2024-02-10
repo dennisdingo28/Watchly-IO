@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <main>
       <Container>
-        <div className="h-[500px] flex justify-between">
+        <div className="flex justify-between">
           <h1 className="font-bold">Watchly IO</h1>
           <nav className="flex gap-2">
             <p className="text-sm cursor-pointer tracking-tighter font-medium">docs</p>
