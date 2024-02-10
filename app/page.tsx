@@ -1,5 +1,6 @@
 import { Container } from "@/components/Container";
 import "./globals.css"
+import { WaitingList } from "./components/waiting-list/WaitingList";
 
 export default function Home() {
   return (
@@ -16,7 +17,7 @@ export default function Home() {
         </div>
       
         <div className="h-[700px]"></div>
-        <p>dasuhudas</p>
+        <WaitingList/>
       </Container>
     </main>
   );
