@@ -3,7 +3,10 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/components/providers/Providers";
 
-const poppins = Poppins({ subsets:["latin"], weight:["100", "200", "300", "400", "500", "600", "700", "800", "900"]});
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+});
 
 export const metadata: Metadata = {
   title: "Watchly.IO",
@@ -17,10 +20,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={poppins.className + "bg-[#bcd4de]"}>
-        <Providers>
-          {children}
-        </Providers>
+      <body className={poppins.className + "bg-[#bcd4de] antialiased"}>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
