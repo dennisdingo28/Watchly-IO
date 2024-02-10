@@ -1,16 +1,15 @@
 "use client"
 
+import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input"
 import { cn } from "@/lib/utils";
-import { Roboto } from "next/font/google";
-
-const roboto = Roboto({ subsets:["latin"], weight:["100", "300", "400", "500", "700", "900"]});
-
+import { SatelliteDishIcon } from "lucide-react";
 
 export const WaitingForm = () =>{
     return (
-        <form action="">
-            <Input autoFocus type="email" className={cn(roboto.className, "border-none tracking-wider text-[1.2em] text-center outline-none")} placeholder="@email"/>
+        <form className="flex items-center justify-center gap-2" action="">
+            <Input autoFocus type="email" className={cn("max-w-[400px] border-2 border-purple tracking-wider text-[1em] text-center outline-none")} placeholder="@email"/>
+            <Button><SatelliteDishIcon className="animate-pulse"/></Button>
         </form>
     )
 }
