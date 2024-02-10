@@ -1,8 +1,8 @@
 import { FC } from "react";
 import Image from "next/image";
 import NavLink from "./NavLink";
-import { Button } from "@/components/ui/button";
 import MobileLinks from "./MobileLinks";
+import Link from "next/link";
 
 interface NavbarProps {}
 
@@ -22,9 +22,12 @@ const Navbar: FC<NavbarProps> = ({}) => {
         <MobileLinks />
       </div>
 
-      <Button variant="link" className="hidden sm:flex">
+      <Link
+        href="/login"
+        className="hidden sm:flex text-sm font-medium border-b-2 border-white hover:border-black transition-colors"
+      >
         Login
-      </Button>
+      </Link>
     </nav>
   );
 };
