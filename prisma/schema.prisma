@@ -9,3 +9,10 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+
+model EarlyUser {
+  id String @id @default(cuid())
+  email String @unique
+  createdAt DateTime @default(now())
+}

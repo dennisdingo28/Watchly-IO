@@ -13,7 +13,7 @@ export const WaitingList = () =>{
                 <SendIcon className="w-7 h-7 text-purple"/>
             </div>
             <div className="w-[80px] h-[4px] bg-purple mx-auto rounded-sm"/>
-            <p className="text-[.9em] text-darkGray text-center mt-3 mb-5 font-medium">Enroll now and get a special feature on realease day!</p>
+            <p className="text-[.9em] text-darkGray text-center mt-3 mb-5 font-medium">Enroll now and get a special feature on release day!</p>
             <WaitingForm/>
         </div>
     )
