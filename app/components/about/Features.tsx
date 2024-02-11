@@ -2,7 +2,7 @@ import { Feature } from "./Feature";
 
 export const Features = () => {
   return (
-    <div className="bg-purple p-6 rounded-sm grid grid-cols-2 gap-2">
+    <div className="grid grid-cols-2 gap-2">
       <Feature
         imageUrl="/hero.jpg"
         description="
