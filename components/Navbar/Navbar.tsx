@@ -1,13 +1,9 @@
-import { FC } from "react";
-import Image from "next/image";
 import { NavLink } from "./NavLink";
 import Link from "next/link";
-import { MobileLinks } from "./MobileLinks";
 import { Logo } from "@/components/Logo";
+import { MobileLinks } from "./MobileLinks";
 
-interface NavbarProps {}
-
-export const Navbar: FC<NavbarProps> = ({}) => {
+export const Navbar = () => {
   return (
     <nav className="flex items-center justify-between">
       <Logo/>
