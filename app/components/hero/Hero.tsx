@@ -1,13 +1,10 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
-import { FC } from "react";
 
-interface HeroProps {}
-
-const Hero: FC<HeroProps> = ({}) => {
+export const Hero = () => {
   return (
-    <div className="bg-gradient-to-t from-[#d9d7fe] to-white py-5 rounded-md shadow-darkGray shadow-2xl">
+    <div className="py-5 rounded-md">
       <h1 className="text-5xl font-semibold text-center">
         Empowering Your <span className="text-purple">Digital</span> Success
       </h1>
@@ -36,5 +33,3 @@ const Hero: FC<HeroProps> = ({}) => {
     </div>
   );
 };
-
-export default Hero;

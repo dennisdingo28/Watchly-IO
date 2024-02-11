@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { ReactQuery } from "./React-Query";
+import { ToasterProvider } from "./Toaster";
 
 interface ProviderProps{
     children: React.ReactNode;
@@ -20,6 +21,7 @@ export const Providers = ({children}: ProviderProps) =>{
         <>
             <ReactQuery>
                 {children}
+                <ToasterProvider/>
             </ReactQuery>
         </>
     )
