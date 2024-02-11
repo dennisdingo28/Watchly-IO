@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar/Navbar";
 import { WaitingList } from "./components/waiting-list/WaitingList";
 import { Container } from "@/components/Container";
 import { Hero } from "./components/hero/Hero";
+import { About } from "./components/about/About";
 
 export default function Home() {
   return (
@@ -17,8 +18,10 @@ export default function Home() {
           </div>
         </Container>
       </div>
-
       <Container>
+        <div className="mt-10">
+          <About/>
+        </div>
         <WaitingList />
       </Container>
     </main>
