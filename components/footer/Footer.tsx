@@ -1,4 +1,3 @@
-import { FC } from "react";
 import { Container } from "../Container";
 import Image from "next/image";
 import { FotLink } from "./FotLink";
@@ -6,9 +5,8 @@ import { Mail, Phone } from "lucide-react";
 import { FaTiktok, FaInstagram, FaTwitter, FaFacebook } from "react-icons/fa";
 import Link from "next/link";
 
-interface FooterProps {}
 
-export const Footer: FC<FooterProps> = ({}) => {
+export const Footer = () => {
   return (
     <footer className="bg-gradient-to-t from-darkPurple to-purple">
       <Container className="p-2.5">
