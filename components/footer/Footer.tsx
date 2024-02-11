@@ -4,7 +4,7 @@ import { FotLink } from "./FotLink";
 import { Mail, Phone } from "lucide-react";
 import { FaTiktok, FaInstagram, FaTwitter, FaFacebook } from "react-icons/fa";
 import Link from "next/link";
-
+import { Logo } from "../Logo";
 
 export const Footer = () => {
   return (
@@ -63,15 +63,9 @@ export const Footer = () => {
             </p>
           </div>
         </div>
-        <Link href="/">
-          <Image
-            src="/next.svg"
-            alt="logo"
-            width={160}
-            height={160}
-            className="mx-auto mt-10"
-          />
-        </Link>
+        <div className="mt-10">
+          <Logo />
+        </div>
       </Container>
     </footer>
   );
