@@ -22,16 +22,14 @@ export async function EarlyUser (user: EarlyUserRequest) {
                         email: data.email,
                     },
                 });
-                return  {...earlyUser, message:"You joined the waiting list. Stay tuned!"};
+                return  {...earlyUser, message:"You joined the waiting list and also collected the premium feature. Stay tuned!"};
             }
             
             return {isError: true, message:"Email is already in waiting list"};
         }
 
         return {isError: true, message:"Email was not provided"};
-        
     }catch(err){
-        
         return {isError: true, message:"Something went wrong. Please try again later."};
     }
 }

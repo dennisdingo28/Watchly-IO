@@ -6,6 +6,7 @@ import { Hero } from "./components/hero/Hero";
 import { Card } from "./components/hero/Card";
 import { Hammer, Lightbulb, ShieldCheck } from "lucide-react";
 import { About } from "./components/about/About";
+import Image from "next/image";
 
 export default function Home() {
   return (

@@ -56,7 +56,6 @@ export const WaitingForm = () => {
             <FormItem className="max-w-[400px] w-full">
               <FormControl>
                 <Input
-                  autoFocus
                   disabled={isPending}
                   type="text"
                   className={cn(

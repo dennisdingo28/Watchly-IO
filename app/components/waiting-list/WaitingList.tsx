@@ -18,7 +18,7 @@ export const WaitingList = () => {
       </div>
       <div className="mt-2 w-[80px] h-[4px] bg-purple mx-auto rounded-sm" />
       <p className="text-[.9em] text-darkGray text-center my-3 font-medium">
-        Enroll now and get a special feature on release day!
+        Enroll now to get notified and receive a special feature on release day !
       </p>
       <WaitingForm />
     </div>
