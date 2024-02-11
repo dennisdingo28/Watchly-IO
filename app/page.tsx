@@ -6,7 +6,6 @@ import { Hero } from "./components/hero/Hero";
 import { Card } from "./components/hero/Card";
 import { Hammer, Lightbulb, ShieldCheck } from "lucide-react";
 import { About } from "./components/about/About";
-import Image from "next/image";
 
 export default function Home() {
   return (
@@ -20,7 +19,7 @@ export default function Home() {
         <Hero />
         <div className="bg-gradient-to-b from-[#d9d7fe] to-white pt-5">
           <Container>
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-center gap-5">
+            <div className="flex flex-col sm:flex-row sm:justify-center gap-5 h-full">
               <Card
                 title="Credibility"
                 icon={<ShieldCheck />}

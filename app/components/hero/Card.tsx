@@ -10,7 +10,7 @@ interface CardProps {
 
 export const Card: FC<CardProps> = ({ title, color, icon, description }) => {
   return (
-    <div className="p-2.5 bg-lightGray rounded-md flex gap-2.5">
+    <div className="p-2.5 bg-lightGray rounded-md flex gap-2.5 ">
       <div
         className={cn(
           "self-start flex items-center justify-center rounded-full p-2.5 text-white",
