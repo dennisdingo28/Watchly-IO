@@ -23,25 +23,25 @@ export default function Home() {
               title="Credibility"
               icon={<ShieldCheck />}
               description="We deliver on our promises every time with our guarantee."
-              color="6ad9c6"
+              color="bg-[#6ad9c6]"
             />
             <Card
               title="Creativity"
               icon={<Hammer />}
               description="We bring innovation to every project for your bussiness."
-              color="ffd67a"
+              color="bg-[#ffd67a]"
             />
             <Card
               title="Curiosity"
               icon={<Lightbulb />}
               description="We stay ahead in the over-evolving digital landscapes."
-              color="776df2"
+              color="bg-[#776df2]"
             />
           </div>
         </Container>
       </div>
       <Container>
-        <About/>
+        <About />
         <WaitingList />
       </Container>
     </main>

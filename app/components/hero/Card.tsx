@@ -14,7 +14,7 @@ export const Card: FC<CardProps> = ({ title, color, icon, description }) => {
       <div
         className={cn(
           "self-start flex items-center justify-center rounded-full p-2.5 text-white",
-          ` bg-[#${color}]`
+          `${color}`
         )}
       >
         {icon}
