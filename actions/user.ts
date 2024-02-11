@@ -9,18 +9,29 @@ export async function EarlyUser (user: EarlyUserRequest) {
         const {success, data} = EarlyUserValidator.safeParse(user);
         
         if(success){
-            const earlyUser = await db.earlyUser.create({
-                data:{
+            const alreadyEarlyUser = await db.earlyUser.findUnique({
+                where:{
                     email: data.email,
                 },
             });
 
-            return  {...earlyUser};
+            if(!alreadyEarlyUser)
+            {
+                const earlyUser = await db.earlyUser.create({
+                    data:{
+                        email: data.email,
+                    },
+                });
+                return  {...earlyUser, message:"You joined the waiting list. Stay tuned!"};
+            }
+            
+            return {isError: true, message:"Email is already in waiting list"};
         }
 
-        throw new Error("Invalid payload");
+        return {isError: true, message:"Email was not provided"};
         
     }catch(err){
-        return {isError: true, message:(err as Error).message};
+        
+        return {isError: true, message:"Something went wrong. Please try again later."};
     }
 }

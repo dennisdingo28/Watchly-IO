@@ -2,11 +2,8 @@ import { Container } from "@/components/Container";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
-import { FC } from "react";
 
-interface HeroProps {}
-
-const Hero: FC<HeroProps> = ({}) => {
+export const Hero = () => {
   return (
     <div className="bg-gradient-to-t from-[#d9d7fe] to-white">
       <Container>
@@ -37,5 +34,3 @@ const Hero: FC<HeroProps> = ({}) => {
     </div>
   );
 };
-
-export default Hero;

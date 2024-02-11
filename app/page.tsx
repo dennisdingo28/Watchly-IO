@@ -2,9 +2,10 @@ import "./globals.css";
 import { Navbar } from "@/components/navbar/Navbar";
 import { WaitingList } from "./components/waiting-list/WaitingList";
 import { Container } from "@/components/Container";
-import Hero from "./components/hero/Hero";
+import { Hero } from "./components/hero/Hero";
 import { Card } from "./components/hero/Card";
 import { Hammer, Lightbulb, ShieldCheck } from "lucide-react";
+import { About } from "./components/about/About";
 
 export default function Home() {
   return (
@@ -40,6 +41,7 @@ export default function Home() {
         </Container>
       </div>
       <Container>
+        <About/>
         <WaitingList />
       </Container>
     </main>
