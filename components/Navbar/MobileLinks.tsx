@@ -7,6 +7,7 @@ import {
   DropdownMenuSeparator,
 } from "../ui/dropdown-menu";
 import { Menu } from "lucide-react";
+import Link from "next/link";
 
 interface MobileLinksProps {}
 
@@ -19,16 +20,24 @@ export const MobileLinks: FC<MobileLinksProps> = ({}) => {
 
       <DropdownMenuContent className="">
         <DropdownMenuItem>
-          <span className="text-sm font-medium">About</span>
+          <Link href="/" className="text-sm font-medium">
+            About
+          </Link>
         </DropdownMenuItem>
         <DropdownMenuItem>
-          <span className="text-sm font-medium">Services</span>
+          <Link href="/" className="text-sm font-medium">
+            Services
+          </Link>
         </DropdownMenuItem>
         <DropdownMenuItem>
-          <span className="text-sm font-medium">Contact</span>
+          <Link href="/" className="text-sm font-medium">
+            Contact
+          </Link>
         </DropdownMenuItem>
         <DropdownMenuItem>
-          <span className="text-sm font-medium">Pricing</span>
+          <Link href="/" className="text-sm font-medium">
+            Pricing
+          </Link>
         </DropdownMenuItem>
 
         <DropdownMenuSeparator />

@@ -12,9 +12,7 @@ export const Footer: FC<FooterProps> = ({}) => {
   return (
     <footer className="bg-gradient-to-t from-darkPurple to-purple">
       <Container className="p-2.5">
-        <Image src="/next.svg" alt="logo" width={160} height={160} />
-
-        <div className="flex justify-around mt-5 h-full">
+        <div className="flex flex-col sm:flex-row sm:items-start justify-around mt-5 h-full">
           <div className="flex flex-col gap-5">
             <h1 className="text-xl text-white font-medium">Menu</h1>
             <div className="space-y-2.5">
@@ -25,7 +23,7 @@ export const Footer: FC<FooterProps> = ({}) => {
             </div>
           </div>
 
-          <div className="flex flex-col gap-5">
+          <div className="mt-10 sm:mt-0 flex flex-col gap-5">
             <h1 className="text-xl text-white font-medium">Contact</h1>
             <div className="space-y-2.5">
               <p className="flex items-center gap-2.5 text-lightGray">
@@ -43,7 +41,7 @@ export const Footer: FC<FooterProps> = ({}) => {
             </div>
           </div>
 
-          <div className="flex flex-col gap-20">
+          <div className="mt-10 sm:mt-0">
             <div className="flex flex-col gap-5 mb-auto">
               <h1 className="text-xl text-white font-medium">Social Media</h1>
               <div className="flex items-center gap-5 text-lightGray">
@@ -62,11 +60,20 @@ export const Footer: FC<FooterProps> = ({}) => {
               </div>
             </div>
 
-            <p className="text-sm text-lightGray">
+            <p className="text-sm text-lightGray mt-10">
               ©Lunatics Lab 2023. All rights reserved.
             </p>
           </div>
         </div>
+        <Link href="/">
+          <Image
+            src="/next.svg"
+            alt="logo"
+            width={160}
+            height={160}
+            className="mx-auto mt-10"
+          />
+        </Link>
       </Container>
     </footer>
   );

@@ -9,13 +9,15 @@ interface NavbarProps {}
 export const Navbar: FC<NavbarProps> = ({}) => {
   return (
     <nav className="flex items-center justify-between">
-      <Image src="/next.svg" alt="logo" width={80} height={80} />
+      <Link href="/">
+        <Image src="/next.svg" alt="logo" width={80} height={80} />
+      </Link>
 
       <div className="hidden sm:flex items-center gap-5">
-        <NavLink label="About" />
-        <NavLink label="Services" />
-        <NavLink label="Contact" />
-        <NavLink label="Pricing" />
+        <NavLink label="About" where="/" />
+        <NavLink label="Services" where="/" />
+        <NavLink label="Contact" where="/" />
+        <NavLink label="Pricing" where="/" />
       </div>
 
       <div className="sm:hidden">
