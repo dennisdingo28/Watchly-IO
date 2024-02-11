@@ -10,7 +10,7 @@ import { Menu } from "lucide-react";
 
 interface MobileLinksProps {}
 
-const MobileLinks: FC<MobileLinksProps> = ({}) => {
+export const MobileLinks: FC<MobileLinksProps> = ({}) => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -43,5 +43,3 @@ const MobileLinks: FC<MobileLinksProps> = ({}) => {
     </DropdownMenu>
   );
 };
-
-export default MobileLinks;

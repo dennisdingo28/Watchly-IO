@@ -6,7 +6,7 @@ interface LinkProps {
   label: string;
 }
 
-const NavLink: FC<LinkProps> = ({ label }) => {
+export const NavLink: FC<LinkProps> = ({ label }) => {
   return (
     <Link
       href="/"
@@ -17,5 +17,3 @@ const NavLink: FC<LinkProps> = ({ label }) => {
     </Link>
   );
 };
-
-export default NavLink;

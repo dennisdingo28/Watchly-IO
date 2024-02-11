@@ -1,12 +1,12 @@
 import { FC } from "react";
 import Image from "next/image";
-import NavLink from "./NavLink";
-import MobileLinks from "./MobileLinks";
+import { NavLink } from "./NavLink";
 import Link from "next/link";
+import { MobileLinks } from "./MobileLinks";
 
 interface NavbarProps {}
 
-const Navbar: FC<NavbarProps> = ({}) => {
+export const Navbar: FC<NavbarProps> = ({}) => {
   return (
     <nav className="flex items-center justify-between">
       <Image src="/next.svg" alt="logo" width={80} height={80} />
@@ -31,5 +31,3 @@ const Navbar: FC<NavbarProps> = ({}) => {
     </nav>
   );
 };
-
-export default Navbar;
