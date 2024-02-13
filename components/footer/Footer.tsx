@@ -5,7 +5,6 @@ import { FaTiktok, FaInstagram, FaTwitter, FaFacebook } from "react-icons/fa";
 import Link from "next/link";
 import { Logo } from "@/components/Logo";
 
-
 export const Footer = () => {
   return (
     <footer className="bg-gradient-to-t from-darkPurple to-purple">
@@ -33,9 +32,12 @@ export const Footer = () => {
               <p className="flex items-center gap-2.5 text-lightGray">
                 <Mail /> Email
               </p>
-              <p className="text-lightGray ml-2.5">
+              <Link
+                href="mailto:moldovanalexismihai06@gmail.com"
+                className="text-lightGray ml-2.5"
+              >
                 moldovanalexismihai06@gmail.com
-              </p>
+              </Link>
             </div>
           </div>
 
@@ -64,7 +66,7 @@ export const Footer = () => {
           </div>
         </div>
         <div className="mt-10">
-          <Logo className="text-[2em]"/>
+          <Logo className="text-[2em]" />
         </div>
       </Container>
     </footer>
