@@ -1,7 +1,14 @@
 "use client";
-import { FormError } from "@/components/FormError";
-import { FormSucces } from "@/components/FormSuccess";
 import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
+import { RegisterSchema, RegisterSchemaType } from "@/validators/register";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { FC, useState, useTransition } from "react";
+import { useForm } from "react-hook-form";
+import { FcGoogle } from "react-icons/fc";
+import { OpenModal } from "../OpenModal";
+import { FormSucces } from "@/components/FormSuccess";
+import { FormError } from "@/components/FormError";
 import {
   Form,
   FormControl,
@@ -11,43 +18,38 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { LoginSchema, LoginSchemaType } from "@/validators/login";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { Separator } from "@radix-ui/react-dropdown-menu";
-import { FC, useState, useTransition } from "react";
-import { useForm } from "react-hook-form";
-import { FcGoogle } from "react-icons/fc";
-import { OpenModal } from "../OpenModal";
 
-interface LoginFormProps {}
+interface RegisterFormProps {}
 
-const LoginForm: FC<LoginFormProps> = ({}) => {
+const RegisterForm: FC<RegisterFormProps> = ({}) => {
   const [error, setError] = useState<string | undefined>("");
   const [succes, setSucces] = useState<string | undefined>("");
   const [isPending, startTransition] = useTransition();
 
-  const form = useForm<LoginSchemaType>({
-    resolver: zodResolver(LoginSchema),
+  const form = useForm<RegisterSchemaType>({
+    resolver: zodResolver(RegisterSchema),
     defaultValues: {
+      name: "",
       email: "",
       password: "",
     },
   });
 
-  const onSubmit = (values: LoginSchemaType) => {
+  const onSubmit = (values: RegisterSchemaType) => {
     setError("");
     setSucces("");
+
     // startTransition(() => {
-    //   login(values, callbackUrl)
+    //   register(values)
     //     .then((data) => {
-    //       console.log(data);
-    //       if (data?.success) {
+    //       if (data.error) {
     //         form.reset();
-    //         setSucces(data?.success);
+    //         setError(data.error);
     //       }
-    //       if (data?.error) {
+
+    //       if (data.success) {
     //         form.reset();
-    //         setError(data?.error);
+    //         setSucces(data.success);
     //       }
     //     })
     //     .catch(() => setError("Something went wrong"));
@@ -57,6 +59,19 @@ const LoginForm: FC<LoginFormProps> = ({}) => {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
+        <FormField
+          control={form.control}
+          name="name"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Name</FormLabel>
+              <FormControl>
+                <Input disabled={isPending} placeholder="John Doe" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
         <FormField
           control={form.control}
           name="email"
@@ -101,11 +116,11 @@ const LoginForm: FC<LoginFormProps> = ({}) => {
               type="submit"
               className="bg-black hover:bg-[#262626] ml-auto"
             >
-              Login
+              Register
             </Button>
-            <OpenModal type="register">
+            <OpenModal type="login">
               <span className="text-xs underline mt-2 cursor-pointer">
-                Don&apos;t have an account?
+                Already have an account?
               </span>
             </OpenModal>
           </div>
@@ -129,4 +144,4 @@ const LoginForm: FC<LoginFormProps> = ({}) => {
   );
 };
 
-export default LoginForm;
+export default RegisterForm;

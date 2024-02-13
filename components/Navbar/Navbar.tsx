@@ -1,8 +1,7 @@
 import { NavLink } from "./NavLink";
-import Link from "next/link";
 import { Logo } from "@/components/Logo";
 import { MobileLinks } from "./MobileLinks";
-import OpenLoginModal from "../modals/openModals/OpenLoginModal";
+import { OpenModal } from "../modals/OpenModal";
 
 export const Navbar = () => {
   return (
@@ -20,11 +19,11 @@ export const Navbar = () => {
         <MobileLinks />
       </div>
 
-      <OpenLoginModal>
+      <OpenModal type="login">
         <p className="hidden sm:flex text-sm font-medium border-b-2 border-white hover:border-black transition-colors">
           Login
         </p>
-      </OpenLoginModal>
+      </OpenModal>
     </nav>
   );
 };
