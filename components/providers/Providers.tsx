@@ -1,28 +1,30 @@
-"use client"
+"use client";
 
 import { useEffect, useState } from "react";
 import { ReactQuery } from "./React-Query";
 import { ToasterProvider } from "./Toaster";
+import { ModalProvider } from "./ModalProvider";
 
-interface ProviderProps{
-    children: React.ReactNode;
+interface ProviderProps {
+  children: React.ReactNode;
 }
 
-export const Providers = ({children}: ProviderProps) =>{
-    const [isMounted, setIsMounted] = useState<boolean>(false);
+export const Providers = ({ children }: ProviderProps) => {
+  const [isMounted, setIsMounted] = useState<boolean>(false);
 
-    useEffect(()=>{
-        setIsMounted(true);
-    },[]);
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
-    if(!isMounted) return null;
+  if (!isMounted) return null;
 
-    return (
-        <>
-            <ReactQuery>
-                {children}
-                <ToasterProvider/>
-            </ReactQuery>
-        </>
-    )
-}
+  return (
+    <>
+      <ReactQuery>
+        {children}
+        <ModalProvider />
+        <ToasterProvider />
+      </ReactQuery>
+    </>
+  );
+};
