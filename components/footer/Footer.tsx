@@ -26,7 +26,9 @@ export const Footer = () => {
               <p className="flex items-center gap-2.5 text-lightGray">
                 <Phone /> Phone
               </p>
-              <p className="text-lightGray ml-2.5">0771616096</p>
+              <Link href="tel:0771616096" className="text-lightGray ml-2.5">
+                0771616096
+              </Link>
             </div>
             <div className="space-y-2.5">
               <p className="flex items-center gap-2.5 text-lightGray">
