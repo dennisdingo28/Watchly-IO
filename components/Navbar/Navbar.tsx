@@ -2,11 +2,12 @@ import { NavLink } from "./NavLink";
 import Link from "next/link";
 import { Logo } from "@/components/Logo";
 import { MobileLinks } from "./MobileLinks";
+import OpenLoginModal from "../modals/openModals/OpenLoginModal";
 
 export const Navbar = () => {
   return (
     <nav className="flex items-center justify-between">
-      <Logo/>
+      <Logo />
 
       <div className="hidden sm:flex items-center gap-5">
         <NavLink label="About" where="/" />
@@ -19,12 +20,11 @@ export const Navbar = () => {
         <MobileLinks />
       </div>
 
-      <Link
-        href="/login"
-        className="hidden sm:flex text-sm font-medium border-b-2 border-white hover:border-black transition-colors"
-      >
-        Login
-      </Link>
+      <OpenLoginModal>
+        <p className="hidden sm:flex text-sm font-medium border-b-2 border-white hover:border-black transition-colors">
+          Login
+        </p>
+      </OpenLoginModal>
     </nav>
   );
 };
