@@ -122,7 +122,7 @@ const LoginForm: FC<LoginFormProps> = ({}) => {
           className="w-full bg-inherit hover:bg-inherit border-2 text-black"
         >
           <FcGoogle className="mr-2 text-xl" />
-          Continue with google
+          Continue with Google
         </Button>
       </form>
     </Form>
