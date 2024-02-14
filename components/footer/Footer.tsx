@@ -63,7 +63,7 @@ export const Footer = () => {
             </div>
 
             <p className="text-sm text-lightGray mt-10">
-              ©Copyright. All rights reserved.
+              © Copyright. All rights reserved.
             </p>
           </div>
         </div>
