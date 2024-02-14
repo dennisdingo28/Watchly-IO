@@ -15,7 +15,7 @@ export const Navbar = () => {
         <NavLink label="Pricing" where="/" />
       </div>
 
-      <div className="sm:hidden">
+      <div className="sm:hidden ml-auto">
         <MobileLinks />
       </div>
 
