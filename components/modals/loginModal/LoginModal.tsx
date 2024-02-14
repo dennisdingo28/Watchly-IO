@@ -7,12 +7,9 @@ import {
 } from "@/components/ui/dialog";
 import { Separator } from "@/components/ui/separator";
 import { useModal } from "@/hooks/use-modal";
-import { FC } from "react";
 import LoginForm from "./LoginForm";
 
-interface LoginModalProps {}
-
-const LoginModal: FC<LoginModalProps> = () => {
+const LoginModal = () => {
   const { isOpen, type, onClose } = useModal();
   const isModalOpen = isOpen && type == "login";
 

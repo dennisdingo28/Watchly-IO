@@ -19,9 +19,8 @@ import { useForm } from "react-hook-form";
 import { FcGoogle } from "react-icons/fc";
 import { OpenModal } from "../OpenModal";
 
-interface LoginFormProps {}
 
-const LoginForm: FC<LoginFormProps> = ({}) => {
+const LoginForm = () => {
   const [error, setError] = useState<string | undefined>("");
   const [succes, setSucces] = useState<string | undefined>("");
   const [isPending, startTransition] = useTransition();
