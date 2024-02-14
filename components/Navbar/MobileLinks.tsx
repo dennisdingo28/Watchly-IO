@@ -8,6 +8,7 @@ import {
 } from "../ui/dropdown-menu";
 import { Menu } from "lucide-react";
 import Link from "next/link";
+import { OpenModal } from "../modals/OpenModal";
 
 interface MobileLinksProps {}
 
@@ -43,7 +44,14 @@ export const MobileLinks: FC<MobileLinksProps> = ({}) => {
         <DropdownMenuSeparator />
 
         <DropdownMenuItem>
-          <span className="text-sm font-medium">Login</span>
+          <OpenModal type="login">
+            <span className="text-sm font-medium">Login</span>
+          </OpenModal>
+        </DropdownMenuItem>
+        <DropdownMenuItem>
+          <OpenModal type="register">
+            <span className="text-sm font-medium">Register</span>
+          </OpenModal>
         </DropdownMenuItem>
         <DropdownMenuItem>
           <span className="text-sm font-medium text-rose-500">Logout</span>
