@@ -20,7 +20,7 @@ export const Navbar = () => {
       </div>
 
       <OpenModal type="login">
-        <p className="hidden sm:flex text-sm font-medium border-b-2 border-white hover:border-black transition-colors">
+        <p className="cursor-pointer hidden sm:flex text-sm font-medium border-b-2 border-white hover:border-black transition-colors">
           Login
         </p>
       </OpenModal>
