@@ -16,7 +16,7 @@ export const Hero = () => {
           inspire, engage and drive success for your bussiness.
         </p>
         <div className="flex items-center justify-center gap-5 mt-5">
-          <Button>Get Free Consultation</Button>
+          <Button>Get Started</Button>
           <Link
             href="/services"
             className="hidden sm:flex text-sm font-medium border-b-2 border-black"
