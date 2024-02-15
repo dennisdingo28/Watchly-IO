@@ -3,9 +3,9 @@ import { Features } from "./Features";
 
 export const About = () => {
   return (
-    <div>
+    <div className="">
       <p className="text-darkGray uppercase tracking-wider text-center mt-10">
-        SERVICES
+        services
       </p>
       <p className="font-bold text-center text-[2em] tracking-wider">
         What <InfoText>We</InfoText> Do?

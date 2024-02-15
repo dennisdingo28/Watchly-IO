@@ -15,17 +15,11 @@ interface MobileLinksProps {}
 
 export const MobileLinks: FC<MobileLinksProps> = ({}) => {
   const [showX, setShowX] = useState(false);
-  console.log(showX);
   return (
     <DropdownMenu onOpenChange={() => setShowX((prevState) => !prevState)}>
       <DropdownMenuTrigger asChild>
-        {!showX ? (
-          <Menu className="cursor-pointer" />
-        ) : (
-          <X className="cursor-pointera" />
-        )}
+        {!showX ? <Menu className="cursor-pointer" /> : <X />}
       </DropdownMenuTrigger>
-
       <DropdownMenuContent className="">
         <DropdownMenuItem>
           <Link href="/" className="text-sm font-medium">
@@ -49,17 +43,18 @@ export const MobileLinks: FC<MobileLinksProps> = ({}) => {
         </DropdownMenuItem>
 
         <DropdownMenuSeparator />
-
-        <DropdownMenuItem>
-          <OpenModal type="login">
+        <OpenModal type="login">
+          <DropdownMenuItem>
             <span className="text-sm font-medium">Login</span>
-          </OpenModal>
-        </DropdownMenuItem>
-        <DropdownMenuItem>
-          <OpenModal type="register">
+          </DropdownMenuItem>
+        </OpenModal>
+
+        <OpenModal type="register">
+          <DropdownMenuItem>
             <span className="text-sm font-medium">Register</span>
-          </OpenModal>
-        </DropdownMenuItem>
+          </DropdownMenuItem>
+        </OpenModal>
+
         <DropdownMenuItem>
           <span className="text-sm font-medium text-rose-500">Logout</span>
         </DropdownMenuItem>
