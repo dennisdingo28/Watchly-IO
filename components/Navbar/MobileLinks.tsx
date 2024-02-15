@@ -1,4 +1,5 @@
-import { FC } from "react";
+"use client";
+import { FC, useState } from "react";
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -6,17 +7,23 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
 } from "../ui/dropdown-menu";
-import { Menu } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { OpenModal } from "../modals/OpenModal";
 
 interface MobileLinksProps {}
 
 export const MobileLinks: FC<MobileLinksProps> = ({}) => {
+  const [showX, setShowX] = useState(false);
+  console.log(showX);
   return (
-    <DropdownMenu>
+    <DropdownMenu onOpenChange={() => setShowX((prevState) => !prevState)}>
       <DropdownMenuTrigger asChild>
-        <Menu className="cursor-pointer" />
+        {!showX ? (
+          <Menu className="cursor-pointer" />
+        ) : (
+          <X className="cursor-pointera" />
+        )}
       </DropdownMenuTrigger>
 
       <DropdownMenuContent className="">
