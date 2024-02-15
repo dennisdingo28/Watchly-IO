@@ -8,7 +8,7 @@ export const About = () => {
         services
       </p>
       <p className="font-bold text-center text-[2em] tracking-wider">
-        What <InfoText>We</InfoText> Do?
+        What <InfoText>We</InfoText> Provide?
       </p>
       <div className="flex justify-center mb-4">
         <p className="text-left xsMd:text-center max-w-[600px]">
