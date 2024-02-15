@@ -21,8 +21,8 @@ const LoginModal = () => {
             Welcome back !
           </DialogTitle>
           <Separator />
-          <LoginForm />
         </DialogHeader>
+        <LoginForm />
       </DialogContent>
     </Dialog>
   );
