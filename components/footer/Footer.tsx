@@ -26,15 +26,20 @@ export const Footer = () => {
               <p className="flex items-center gap-2.5 text-lightGray">
                 <Phone /> Phone
               </p>
-              <p className="text-lightGray ml-2.5">0771616096</p>
+              <Link href="tel:0771616096" className="text-lightGray ml-2.5">
+                0771616096
+              </Link>
             </div>
             <div className="space-y-2.5">
               <p className="flex items-center gap-2.5 text-lightGray">
                 <Mail /> Email
               </p>
-              <p className="text-lightGray ml-2.5">
+              <Link
+                href="mailto:moldovanalexismihai06@gmail.com"
+                className="text-lightGray ml-2.5"
+              >
                 moldovanalexismihai06@gmail.com
-              </p>
+              </Link>
             </div>
           </div>
 
@@ -58,12 +63,12 @@ export const Footer = () => {
             </div>
 
             <p className="text-sm text-lightGray mt-10">
-              ©Lunatics Lab 2023. All rights reserved.
+              © Copyright. All rights reserved.
             </p>
           </div>
         </div>
         <div className="mt-10">
-          <Logo />
+          <Logo className="text-[2em]" />
         </div>
       </Container>
     </footer>

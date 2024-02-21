@@ -3,12 +3,12 @@ import { Features } from "./Features";
 
 export const About = () => {
   return (
-    <div>
+    <div className="">
       <p className="text-darkGray uppercase tracking-wider text-center mt-10">
-        SERVICES
+        services
       </p>
       <p className="font-bold text-center text-[2em] tracking-wider">
-        What <InfoText>We</InfoText> Do?
+        What <InfoText>We</InfoText> Provide?
       </p>
       <div className="flex justify-center mb-4">
         <p className="text-left xsMd:text-center max-w-[600px]">

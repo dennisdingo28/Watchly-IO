@@ -1,4 +1,5 @@
-import { FC } from "react";
+"use client";
+import { FC, useState } from "react";
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -6,18 +7,19 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
 } from "../ui/dropdown-menu";
-import { Menu } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import Link from "next/link";
+import { OpenModal } from "../modals/OpenModal";
 
 interface MobileLinksProps {}
 
 export const MobileLinks: FC<MobileLinksProps> = ({}) => {
+  const [showX, setShowX] = useState(false);
   return (
-    <DropdownMenu>
+    <DropdownMenu onOpenChange={() => setShowX((prevState) => !prevState)}>
       <DropdownMenuTrigger asChild>
-        <Menu className="cursor-pointer" />
+        {!showX ? <Menu className="cursor-pointer" /> : <X />}
       </DropdownMenuTrigger>
-
       <DropdownMenuContent className="">
         <DropdownMenuItem>
           <Link href="/" className="text-sm font-medium">
@@ -41,10 +43,18 @@ export const MobileLinks: FC<MobileLinksProps> = ({}) => {
         </DropdownMenuItem>
 
         <DropdownMenuSeparator />
+        <OpenModal type="login">
+          <DropdownMenuItem>
+            <span className="text-sm font-medium">Login</span>
+          </DropdownMenuItem>
+        </OpenModal>
 
-        <DropdownMenuItem>
-          <span className="text-sm font-medium">Login</span>
-        </DropdownMenuItem>
+        <OpenModal type="register">
+          <DropdownMenuItem>
+            <span className="text-sm font-medium">Register</span>
+          </DropdownMenuItem>
+        </OpenModal>
+
         <DropdownMenuItem>
           <span className="text-sm font-medium text-rose-500">Logout</span>
         </DropdownMenuItem>
