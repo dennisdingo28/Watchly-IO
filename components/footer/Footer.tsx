@@ -1,10 +1,9 @@
-import { Container } from "../Container";
-import Image from "next/image";
+import { Container } from "@/components/Container";
 import { FotLink } from "./FotLink";
 import { Mail, Phone } from "lucide-react";
 import { FaTiktok, FaInstagram, FaTwitter, FaFacebook } from "react-icons/fa";
 import Link from "next/link";
-import { Logo } from "../Logo";
+import { Logo } from "@/components/Logo";
 
 export const Footer = () => {
   return (
