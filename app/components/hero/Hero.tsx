@@ -9,7 +9,7 @@ export const Hero = () => {
     <div className="bg-gradient-to-t from-[#d9d7fe] to-white">
       <Container>
         <h1 className="text-5xl font-semibold text-center">
-        <InfoText>Track</InfoText> and <InfoText>analyze</InfoText> website <InfoText>journeys</InfoText> for unparalleled optimization.
+        <InfoText>Track</InfoText> and <InfoText>analyze</InfoText> website journeys <InfoText>for</InfoText> unparalleled <InfoText>optimization</InfoText>.
         </h1>
         <p className="mt-5 text-center mx-auto text-darkGray max-w-md">
           We blend creativity and strategy to craft digital solutions that
