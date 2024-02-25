@@ -19,6 +19,8 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { register } from "@/actions/register";
+import { signIn } from "next-auth/react";
+import { DEFAULT_LOGIN_REDIRECT } from "@/constants";
 
 interface RegisterFormProps {}
 
@@ -130,11 +132,11 @@ const RegisterForm: FC<RegisterFormProps> = ({}) => {
         <Separator />
         <Button
           type="button"
-          //   onClick={() =>
-          //     signIn("google", {
-          //       callbackUrl: callbackUrl || DEFAULT_LOGIN_REDIRECT,
-          //     })
-          //   }
+          onClick={() =>
+            signIn("google", {
+              callbackUrl: DEFAULT_LOGIN_REDIRECT,
+            })
+          }
           className="w-full bg-inherit hover:bg-inherit border-2 text-black"
         >
           <FcGoogle className="mr-2 text-xl" />
