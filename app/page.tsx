@@ -1,5 +1,5 @@
 import "./globals.css";
-import { Navbar } from "@/components/Navbar/Navbar";
+import { Navbar } from "@/components/navbar/Navbar";
 import { WaitingList } from "./components/waiting-list/WaitingList";
 import { Container } from "@/components/Container";
 import { Hero } from "./components/hero/Hero";
@@ -9,9 +9,11 @@ import { About } from "./components/about/About";
 import { OpenUrlModal } from "@/components/modals/OpenUrlModal";
 import { ModalType } from "@/hooks/use-modal";
 
-export default function Home({searchParams}: {searchParams:{modal: ModalType}}) {
-  console.log(searchParams);
-  
+export default function Home({
+  searchParams,
+}: {
+  searchParams: { modal: ModalType };
+}) {
   return (
     <main>
       <div className="pt-5">
@@ -51,7 +53,9 @@ export default function Home({searchParams}: {searchParams:{modal: ModalType}}) 
         <WaitingList />
       </Container>
 
-      {searchParams.modal?.trim()!=="" &&<OpenUrlModal modalType={searchParams.modal}/>}
+      {searchParams.modal?.trim() !== "" && (
+        <OpenUrlModal modalType={searchParams.modal} />
+      )}
     </main>
   );
 }

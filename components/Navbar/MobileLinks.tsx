@@ -6,12 +6,21 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
+  DropdownMenuLabel,
 } from "../ui/dropdown-menu";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { OpenModal } from "../modals/OpenModal";
+import { UserAvatar } from "../UserAvatar";
+import { signOut } from "next-auth/react";
 
-export const MobileLinks = () => {
+export const MobileLinks = ({
+  userImage,
+  isLoggedIn,
+}: {
+  userImage: string;
+  isLoggedIn: boolean;
+}) => {
   const [showX, setShowX] = useState(false);
   return (
     <DropdownMenu onOpenChange={() => setShowX((prevState) => !prevState)}>
@@ -19,43 +28,60 @@ export const MobileLinks = () => {
         {!showX ? <Menu className="cursor-pointer" /> : <X />}
       </DropdownMenuTrigger>
       <DropdownMenuContent className="">
-        <DropdownMenuItem>
-          <Link href="/" className="text-sm font-medium">
-            About
-          </Link>
-        </DropdownMenuItem>
-        <DropdownMenuItem>
-          <Link href="/" className="text-sm font-medium">
+        {isLoggedIn && (
+          <>
+            <DropdownMenuLabel className="flex items-center gap-2.5">
+              <UserAvatar userImage={userImage} className="w-[35px] h-[35px]" />
+              <p className="max-w-[120px] truncate text-md">Alexis Moldovan</p>
+            </DropdownMenuLabel>
+            <DropdownMenuSeparator />
+          </>
+        )}
+
+        <Link href="/" className="text-sm font-medium">
+          <DropdownMenuItem className="cursor-pointer">About</DropdownMenuItem>
+        </Link>
+        <Link href="/" className="text-sm font-medium">
+          <DropdownMenuItem className="cursor-pointer">
             Services
-          </Link>
-        </DropdownMenuItem>
-        <DropdownMenuItem>
-          <Link href="/" className="text-sm font-medium">
+          </DropdownMenuItem>
+        </Link>
+        <Link href="/" className="text-sm font-medium">
+          <DropdownMenuItem className="cursor-pointer">
             Contact
-          </Link>
-        </DropdownMenuItem>
-        <DropdownMenuItem>
-          <Link href="/" className="text-sm font-medium">
+          </DropdownMenuItem>
+        </Link>
+        <Link href="/" className="text-sm font-medium">
+          <DropdownMenuItem className="cursor-pointer">
             Pricing
-          </Link>
-        </DropdownMenuItem>
+          </DropdownMenuItem>
+        </Link>
 
         <DropdownMenuSeparator />
-        <OpenModal type="login">
-          <DropdownMenuItem>
-            <span className="text-sm font-medium">Login</span>
-          </DropdownMenuItem>
-        </OpenModal>
+        {!isLoggedIn && (
+          <OpenModal type="login">
+            <DropdownMenuItem className="cursor-pointer">
+              <span className="text-sm font-medium">Login</span>
+            </DropdownMenuItem>
+          </OpenModal>
+        )}
 
-        <OpenModal type="register">
-          <DropdownMenuItem>
-            <span className="text-sm font-medium">Register</span>
-          </DropdownMenuItem>
-        </OpenModal>
+        {!isLoggedIn && (
+          <OpenModal type="register">
+            <DropdownMenuItem className="cursor-pointer">
+              <span className="text-sm font-medium">Register</span>
+            </DropdownMenuItem>
+          </OpenModal>
+        )}
 
-        <DropdownMenuItem>
-          <span className="text-sm font-medium text-rose-500">Logout</span>
-        </DropdownMenuItem>
+        {isLoggedIn && (
+          <DropdownMenuItem
+            onClick={() => signOut()}
+            className="cursor-pointer"
+          >
+            <span className="text-sm font-medium text-rose-500">Logout</span>
+          </DropdownMenuItem>
+        )}
       </DropdownMenuContent>
     </DropdownMenu>
   );
