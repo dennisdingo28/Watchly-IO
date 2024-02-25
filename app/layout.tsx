@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={poppins.className + "bg-[#bcd4de] antialiased "}>
+      <body className={poppins.className + "antialiased min-h-screen flex flex-col justify-between"}>
         <Providers>
           {children}
           <div className="mt-10">
