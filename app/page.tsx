@@ -7,6 +7,7 @@ import { Hammer, Lightbulb, ShieldCheck } from "lucide-react";
 import { About } from "./components/about/About";
 import { OpenUrlModal } from "@/components/modals/OpenUrlModal";
 import { ModalType } from "@/hooks/use-modal";
+import { Navbar } from "@/components/navbar/Navbar";
 
 export default function Home({
   searchParams,
@@ -15,11 +16,11 @@ export default function Home({
 }) {
   return (
     <main>
-      {/* <div className="pt-5">
+      <div className="pt-5">
         <Container>
           <Navbar />
         </Container>
-      </div> */}
+      </div>
       <div className="mt-10">
         <Hero />
         <div className="bg-gradient-to-b from-[#d9d7fe] to-white pt-5">

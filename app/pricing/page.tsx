@@ -3,13 +3,14 @@ import { InfoText } from "@/components/InfoText";
 import { plans } from "@/constants";
 import { Plan } from "./components/Plan";
 import { Faq } from "./components/Faq";
+import { Navbar } from "@/components/navbar/Navbar";
 
 const PricingPage = () => {
   return (
     <Container>
-      {/* <div className="pt-5">
+      <div className="pt-5">
         <Navbar />
-      </div> */}
+      </div>
       <section className="mt-10">
         <h1 className="text-4xl font-semibold text-center">
           <InfoText>Limited offers!</InfoText>
