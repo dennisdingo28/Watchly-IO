@@ -1,6 +1,6 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { faq } from "@/constants"
-
+    
 export const Faq = () =>{
     return (
         <div>

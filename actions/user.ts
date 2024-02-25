@@ -1,6 +1,6 @@
 "use server"
 
-import db from "@/lib/db";
+import { db } from "@/lib/db";
 import { EarlyUserRequest, EarlyUserValidator } from "@/validators/user"
 
 export async function EarlyUser (user: EarlyUserRequest) {
@@ -31,5 +31,33 @@ export async function EarlyUser (user: EarlyUserRequest) {
         return {isError: true, message:"Email was not provided"};
     }catch(err){
         return {isError: true, message:"Something went wrong. Please try again later."};
+    }
+}
+
+export async function getUserById(userId: string) {
+    try{
+        const user = await db.user.findUnique({
+            where:{
+                id: userId,
+            },
+        });
+
+        return user;
+    }catch(err){
+        return null;
+    }
+}
+
+export async function getUserByEmail(email: string) {
+    try{
+        const user = await db.user.findUnique({
+            where:{
+                email,
+            },
+        });
+
+        return user;
+    }catch(err){
+        return null;
     }
 }

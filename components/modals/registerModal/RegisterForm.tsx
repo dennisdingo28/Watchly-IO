@@ -18,6 +18,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { register } from "@/actions/register";
 
 interface RegisterFormProps {}
 
@@ -39,21 +40,21 @@ const RegisterForm: FC<RegisterFormProps> = ({}) => {
     setError("");
     setSucces("");
 
-    // startTransition(() => {
-    //   register(values)
-    //     .then((data) => {
-    //       if (data.error) {
-    //         form.reset();
-    //         setError(data.error);
-    //       }
+    startTransition(() => {
+      register(values)
+        .then((data) => {
+          if (data.error) {
+            form.reset();
+            setError(data.error);
+          }
 
-    //       if (data.success) {
-    //         form.reset();
-    //         setSucces(data.success);
-    //       }
-    //     })
-    //     .catch(() => setError("Something went wrong"));
-    // });
+          if (data.success) {
+            form.reset();
+            setSucces(data.success);
+          }
+        })
+        .catch(() => setError("Something went wrong"));
+    });
   };
 
   return (

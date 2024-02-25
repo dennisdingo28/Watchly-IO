@@ -6,8 +6,12 @@ import { Hero } from "./components/hero/Hero";
 import { Card } from "./components/hero/Card";
 import { Hammer, Lightbulb, ShieldCheck } from "lucide-react";
 import { About } from "./components/about/About";
+import { OpenUrlModal } from "@/components/modals/OpenUrlModal";
+import { ModalType } from "@/hooks/use-modal";
 
-export default function Home() {
+export default function Home({searchParams}: {searchParams:{modal: ModalType}}) {
+  console.log(searchParams);
+  
   return (
     <main>
       <div className="pt-5">
@@ -46,6 +50,8 @@ export default function Home() {
         <About />
         <WaitingList />
       </Container>
+
+      {searchParams.modal?.trim()!=="" &&<OpenUrlModal modalType={searchParams.modal}/>}
     </main>
   );
 }

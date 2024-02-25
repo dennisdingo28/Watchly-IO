@@ -20,11 +20,11 @@ export const Providers = ({ children }: ProviderProps) => {
 
   return (
     <>
-      <ReactQuery>
-        {children}
-        <ModalProvider />
-        <ToasterProvider />
-      </ReactQuery>
+        <ReactQuery>
+          {children}
+          <ModalProvider />
+          <ToasterProvider />
+        </ReactQuery>
     </>
   );
 };

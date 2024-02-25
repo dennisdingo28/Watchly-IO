@@ -14,10 +14,13 @@ import { Input } from "@/components/ui/input";
 import { LoginSchema, LoginSchemaType } from "@/validators/login";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Separator } from "@radix-ui/react-dropdown-menu";
-import { FC, useState, useTransition } from "react";
+import { useState, useTransition } from "react";
 import { useForm } from "react-hook-form";
 import { FcGoogle } from "react-icons/fc";
 import { OpenModal } from "../OpenModal";
+import { login } from "@/actions/login";
+import { signIn } from "next-auth/react";
+import { DEFAULT_LOGIN_REDIRECT } from "@/constants";
 
 
 const LoginForm = () => {
@@ -36,21 +39,21 @@ const LoginForm = () => {
   const onSubmit = (values: LoginSchemaType) => {
     setError("");
     setSucces("");
-    // startTransition(() => {
-    //   login(values, callbackUrl)
-    //     .then((data) => {
-    //       console.log(data);
-    //       if (data?.success) {
-    //         form.reset();
-    //         setSucces(data?.success);
-    //       }
-    //       if (data?.error) {
-    //         form.reset();
-    //         setError(data?.error);
-    //       }
-    //     })
-    //     .catch(() => setError("Something went wrong"));
-    // });
+    startTransition(() => {
+      login(values, DEFAULT_LOGIN_REDIRECT)
+        .then((data) => {
+          console.log(data);
+          if (data?.success) {
+            form.reset();
+            setSucces(data?.success);
+          }
+          if (data?.error) {
+            form.reset();
+            setError(data?.error);
+          }
+        })
+        .catch(() => setError("Something went wrong"));
+    });
   };
 
   return (
@@ -113,11 +116,11 @@ const LoginForm = () => {
         <Separator />
         <Button
           type="button"
-          //   onClick={() =>
-          //     signIn("google", {
-          //       callbackUrl: callbackUrl || DEFAULT_LOGIN_REDIRECT,
-          //     })
-          //   }
+            onClick={() =>
+              signIn("google", {
+                callbackUrl: DEFAULT_LOGIN_REDIRECT,
+              })
+            }
           className="w-full bg-inherit hover:bg-inherit border-2 text-black"
         >
           <FcGoogle className="mr-2 text-xl" />

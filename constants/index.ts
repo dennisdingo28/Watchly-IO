@@ -16,7 +16,7 @@ export const plans: Array<Plan> = [
         oldPrice:30,
         newPrice:18,
         badge:"Best deal"
-    },
+    },  
 ];
 
 export const faq: Array<Faq> = [
@@ -25,3 +25,8 @@ export const faq: Array<Faq> = [
         answer:"We offer a seamless and secure payment experience through Stripe, a trusted and widely-used payment gateway"
     },
 ];
+
+//#ROUTES
+export const publicRoutes = ["/", "/verification", "/pricing"];
+export const apiAuthPrefix = "/api/auth"
+export const DEFAULT_LOGIN_REDIRECT = "/dashboard";
