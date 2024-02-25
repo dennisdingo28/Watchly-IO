@@ -19,3 +19,9 @@ export const plans: Array<Plan> = [
     },
 ];
 
+export const faq: Array<Faq> = [
+    {
+        question:"How can I pay?",
+        answer:"We offer a seamless and secure payment experience through Stripe, a trusted and widely-used payment gateway"
+    },
+];
