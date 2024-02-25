@@ -3,6 +3,7 @@ import { InfoText } from "@/components/InfoText";
 import { Navbar } from "@/components/navbar/Navbar";
 import { plans } from "@/constants";
 import { Plan } from "./components/Plan";
+import { Faq } from "./components/Faq";
 
 const PricingPage = () => {
   return (
@@ -19,10 +20,13 @@ const PricingPage = () => {
           offer unmatched value, tailored to meet your business needs.
         </p>
       </section>
-      <section className="mt-16 flex flex-col md:flex-row justify-center gap-6">
+      <section className="mt-10 flex flex-col md:flex-row justify-center gap-6">
         {plans.map((plan, idx) => (
           <Plan key={idx} plan={plan} />
         ))}
+      </section>
+      <section className="mt-10">
+        <Faq/>
       </section>
     </Container>
   );

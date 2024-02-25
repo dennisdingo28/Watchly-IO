@@ -7,3 +7,9 @@ export type Plan = {
     newPrice: number;
     badge?: string;
 }
+
+//Faq
+export type Faq = {
+    question: string;
+    answer: string;
+}

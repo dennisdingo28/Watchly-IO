@@ -17,8 +17,7 @@ export const NavLink: FC<LinkProps> = ({ label, where }) => {
     <Link
       href={where}
       className={cn(
-        "flex items-center gap-2 border-b-2 border-white hover:border-purple transition-colors group",
-        pathname.includes(where) && "border-b-2 border-purple"
+        "flex items-center gap-2 transition-colors group",
       )}
     >
       <Circle
@@ -27,7 +26,7 @@ export const NavLink: FC<LinkProps> = ({ label, where }) => {
           pathname.includes(where) && "text-purple"
         )}
       />
-      <span className="text-sm font-medium">{label}</span>
+      <span className={cn("text-sm font-medium group-hover:text-purple",pathname.includes(where) && "text-purple")}>{label}</span>
     </Link>
   );
 };

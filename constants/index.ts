@@ -1,4 +1,4 @@
-import { Plan } from "@/types";
+import { Faq, Plan } from "@/types";
 
 export const plans: Array<Plan> = [
     {
@@ -17,4 +17,5 @@ export const plans: Array<Plan> = [
         newPrice:18,
         badge:"Best deal"
     },
-]
+];
+
