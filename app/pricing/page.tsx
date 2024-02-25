@@ -1,6 +1,6 @@
 import { Container } from "@/components/Container";
 import { InfoText } from "@/components/InfoText";
-import { Navbar } from "@/components/navbar/Navbar";
+import { Navbar } from "@/components/Navbar/Navbar";
 import { plans } from "@/constants";
 import { Plan } from "./components/Plan";
 import { Faq } from "./components/Faq";

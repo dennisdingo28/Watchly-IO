@@ -1,5 +1,5 @@
 "use client";
-import { FC, useState } from "react";
+import { useState } from "react";
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -11,9 +11,7 @@ import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { OpenModal } from "../modals/OpenModal";
 
-interface MobileLinksProps {}
-
-export const MobileLinks: FC<MobileLinksProps> = ({}) => {
+export const MobileLinks = () => {
   const [showX, setShowX] = useState(false);
   return (
     <DropdownMenu onOpenChange={() => setShowX((prevState) => !prevState)}>
