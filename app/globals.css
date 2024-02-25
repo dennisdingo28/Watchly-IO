@@ -90,3 +90,7 @@
 .animate-move {
   animation: move .9s ease-in-out;
 }
+
+::-webkit-scrollbar{
+  width: 0 !important;
+}
