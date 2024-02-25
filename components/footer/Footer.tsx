@@ -7,11 +7,11 @@ import { Logo } from "@/components/Logo";
 
 export const Footer = () => {
   return (
-    <footer className="bg-gradient-to-t from-darkPurple to-purple">
+    <footer className="bg-darkPurple shadow-[0px_0px_10px_rgb(81,74,165)]">
       <Container className="p-2.5">
         <div className="flex flex-col sm:flex-row sm:items-start justify-around mt-5 h-full">
           <div className="flex flex-col gap-5">
-            <h1 className="text-xl text-white font-medium">Menu</h1>
+            <h1 className="text-sm text-lightGray font-medium uppercase">Watchly.IO</h1>
             <div className="space-y-2.5">
               <FotLink label="About" where="/" />
               <FotLink label="Services" where="/" />
@@ -21,31 +21,29 @@ export const Footer = () => {
           </div>
 
           <div className="mt-10 sm:mt-0 flex flex-col gap-5">
-            <h1 className="text-xl text-white font-medium">Contact</h1>
-            <div className="space-y-2.5">
-              <p className="flex items-center gap-2.5 text-lightGray">
-                <Phone /> Phone
-              </p>
-              <Link href="tel:0771616096" className="text-lightGray ml-2.5">
+            <h1 className="text-sm text-lightGray font-medium uppercase">Contact</h1>
+              <p className="flex items-center gap-2 text-lightGray">
+                <Phone />
+                <Link href="tel:0771616096" className="text-lightGray">
                 0771616096
               </Link>
-            </div>
-            <div className="space-y-2.5">
-              <p className="flex items-center gap-2.5 text-lightGray">
-                <Mail /> Email
               </p>
-              <Link
+             
+              <p className="flex items-center gap-2.5 text-lightGray">
+                <Mail /> 
+                <Link
                 href="mailto:moldovanalexismihai06@gmail.com"
-                className="text-lightGray ml-2.5"
+                className="text-lightGray"
               >
                 moldovanalexismihai06@gmail.com
               </Link>
-            </div>
+              </p>
+              
           </div>
 
           <div className="mt-10 sm:mt-0">
             <div className="flex flex-col gap-5 mb-auto">
-              <h1 className="text-xl text-white font-medium">Social Media</h1>
+              <h1 className="text-sm text-lightGray font-medium uppercase">Social Media</h1>
               <div className="flex items-center gap-5 text-lightGray">
                 <Link href="/">
                   <FaTiktok className="hover:text-darkGray transition-colors" />

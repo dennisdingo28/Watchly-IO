@@ -3,8 +3,7 @@ export type Plan = {
     name: string;
     description: string;
     benefits: Array<string>;
-    oldPrice: number;
-    newPrice: number;
+    price: number;
     badge?: string;
 }
 

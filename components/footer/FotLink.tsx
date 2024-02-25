@@ -9,8 +9,7 @@ interface FotLinkProps {
 
 export const FotLink: FC<FotLinkProps> = ({ label, where }) => {
   return (
-    <Link href={where} className="flex items-center gap-2 group text-lightGray">
-      <Circle className="h-2 w-2  group-hover:text-darkGray transition-colors" />
+    <Link href={where} className="flex items-center gap-2 group text-white">
       <span className="text-sm font-medium group-hover:text-darkGray">
         {label}
       </span>

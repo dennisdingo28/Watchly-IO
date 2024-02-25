@@ -26,7 +26,7 @@ export default async function RootLayout({
   return (
     <SessionProvider session={session}>
       <html lang="en">
-      <body className={poppins.className + "antialiased min-h-screen flex flex-col justify-between"}>
+      <body className={poppins.className + " min-h-screen flex flex-col justify-between"}>
         <Providers>
           {children}
           <div className="mt-10">

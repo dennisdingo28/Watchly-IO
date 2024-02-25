@@ -5,16 +5,14 @@ export const plans: Array<Plan> = [
         name:"Pro",
         description:"Best for getting started understanding your users",
         benefits:["Analytics", "Recorded user sessions", "User suppport", "Mail support"],
-        oldPrice:10,
-        newPrice:5,
+        price:5,
         badge:"Most popular"
     },
     {
         name:"Business",
         description:"Best for leveraging your user experience",
         benefits:["Analytics", "Recorded user sessions", "User suppport", "Custom solutions"],
-        oldPrice:30,
-        newPrice:18,
+        price:18,
         badge:"Best deal"
     },  
 ];
@@ -22,7 +20,15 @@ export const plans: Array<Plan> = [
 export const faq: Array<Faq> = [
     {
         question:"How can I pay?",
-        answer:"We offer a seamless and secure payment experience through Stripe, a trusted and widely-used payment gateway"
+        answer:"We offer a seamless and secure payment experience supporiting many of the world credit cards"
+    },
+    {
+        question:"30 days money back guarantee",
+        answer:"Yes, we offer a 30-day money-back guarantee. If you're not satisfied with our service within the first 30 days of your subscription, simply reach out to our support team, and we'll process a full refund"
+    },
+    {
+        question:"About plans",
+        answer:"Our pricing plans, Pro and Business, are designed to cater to your varying needs. The benefits and features included in each plan are clearly outlined on the pricing cards. It's worth noting that these are not fixed, and we constantly strive to enhance the value you receive. We may add more features to both the Pro and Business plans without any additional cost to you, ensuring you always get the best value for your investment. Stay tuned for updates and improvements that align with your business requirements."
     },
 ];
 
