@@ -9,10 +9,10 @@ export const Navbar = () => {
       <Logo />
 
       <div className="hidden sm:flex items-center gap-5">
-        <NavLink label="About" where="/" />
-        <NavLink label="Services" where="/" />
-        <NavLink label="Contact" where="/" />
-        <NavLink label="Pricing" where="/" />
+        <NavLink label="About" where="/about" />
+        <NavLink label="Services" where="/services" />
+        <NavLink label="Contact" where="/contact" />
+        <NavLink label="Pricing" where="/pricing" />
       </div>
 
       <div className="sm:hidden ml-auto">
