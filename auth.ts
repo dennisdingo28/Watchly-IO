@@ -3,6 +3,7 @@ import authConfig from "./auth.config";
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import { db } from "./lib/db";
 import { getUserById } from "./actions/user";
+import { generateApiKey } from "./lib/utils";
 
 export const {
   handlers: { GET, POST },
@@ -21,6 +22,7 @@ export const {
         },
       });
     },
+    
   },
   callbacks: {
     async signIn({ user, account }) {
