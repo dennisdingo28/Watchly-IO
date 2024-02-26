@@ -9,6 +9,7 @@ export const Navbar = async () => {
   
   const user = await currentUser();
 
+  console.log(user?.image)
   return (
     <nav className="flex items-center justify-between">
       <Logo theme="dark"/>
@@ -26,7 +27,7 @@ export const Navbar = async () => {
 
       {user ? (
         <div className="hidden sm:block">
-          <UserAvatar showDropDownMenu={true} userImage={user.image!} />
+          <UserAvatar showDropDownMenu={true} userImage={user?.image!} />
         </div>
       ) : (
         <OpenModal type="login">

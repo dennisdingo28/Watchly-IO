@@ -1,8 +1,6 @@
 "use client";
 import { Toaster } from "@/components/ui/sonner";
 
-export const ToasterProvider = () =>{
-    return (
-        <Toaster/>
-    )
-}
+export const ToasterProvider = () => {
+  return <Toaster />;
+};

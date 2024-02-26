@@ -16,15 +16,9 @@ export default auth((req) => {
   const isApiAuthRoute = nextUrl.pathname.startsWith(apiAuthPrefix);
   const isPublicRoute = publicRoutes.includes(nextUrl.pathname);
   
-  if(!nextUrl.pathname.startsWith(apiAuthPrefix)){
-    const routeExists = allRoutes.includes(nextUrl.pathname) || nextUrl.pathname.startsWith("/dashboard");
-    
-    if(!routeExists) return Response.redirect(
-      new URL("/", nextUrl)
-    );
-  }
+
   
-  if (isApiAuthRoute) return null;
+  if (isApiAuthRoute || nextUrl.pathname.startsWith("/api")) return null;
 
   if (!isLoggedIn && !isPublicRoute) {
     
@@ -32,6 +26,14 @@ export default auth((req) => {
       new URL(`/?modal=login`, nextUrl)
     );
   }
+
+  // if(!nextUrl.pathname.startsWith(apiAuthPrefix)){
+  //   const routeExists = allRoutes.includes(nextUrl.pathname);
+    
+  //   if(!routeExists) return Response.redirect(
+  //     new URL("/", nextUrl)
+  //   );
+  // }
   return null;
 });
 
