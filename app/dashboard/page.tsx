@@ -6,8 +6,8 @@ const DashboardPage = async () => {
   console.log(user);
 
   return (
-    <div className="relative">
-      <LeftSide />
+    <div className="">
+      
     </div>
   );
 };
