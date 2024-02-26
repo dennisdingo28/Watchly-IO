@@ -6,7 +6,6 @@ import { generateVerificationToken } from "@/actions/tokens";
 import { getUserByEmail } from "./user";
 import { sendVerificationEmail } from "@/lib/mail";
 import { RegisterSchema } from "@/validators/register";
-import { generateApiKey } from "@/lib/utils";
 
 export const register = async (values: z.infer<typeof RegisterSchema>) => {
   const validatedFields = RegisterSchema.safeParse(values);
@@ -27,7 +26,6 @@ export const register = async (values: z.infer<typeof RegisterSchema>) => {
       name,
       email,
       password: hashedPassword,
-      apiKey: generateApiKey(),
     },
   });
 

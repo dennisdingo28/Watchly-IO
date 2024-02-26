@@ -3,22 +3,22 @@ import { db } from "@/lib/db";
 import { WorkspaceValidator } from "@/validators/workspace";
 import { NextRequest, NextResponse } from "next/server";
 
-// export async function PATCH(
-//   req: NextRequest,
-//   { searchParams }: { searchParams: { apiKey: string } }
-// ) {
-//   try {
-//     const data = await req.json();
+export async function PATCH(
+  req: NextRequest,
+  { searchParams }: { searchParams: { apiKey: string } }
+) {
+  try {
+    const data = await req.json();
 
-//     const apiKey = searchParams.apiKey;
-//     if (!apiKey || apiKey.trim() === "")
-//       throw new Error("No workspace api key was provided. Please provide one.");
+    const apiKey = searchParams.apiKey;
+    if (!apiKey || apiKey.trim() === "")
+      throw new Error("No workspace api key was provided. Please provide one.");
 
-//     //update workspace
-//   } catch (err) {
-//     console.log(err);
-//   }
-// }
+    //update workspace
+  } catch (err) {
+    console.log(err);
+  }
+}
 
 export async function POST(req: NextRequest) {
   try {
@@ -36,8 +36,10 @@ export async function POST(req: NextRequest) {
       },
     });
 
+    
     return NextResponse.json(workspace);
   } catch (error) {
+    console.log(error);
     return new NextResponse("Internal Server Error", { status: 500 });
   }
 }

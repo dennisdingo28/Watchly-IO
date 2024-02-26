@@ -18,6 +18,7 @@ import axios from "axios";
 import { Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import { Workspace } from "@prisma/client";
+import { useModal } from "@/hooks/use-modal";
 
 export const CreateWorkspaceForm = () => {
   const form = useForm<WorkspaceRequest>({
@@ -27,7 +28,8 @@ export const CreateWorkspaceForm = () => {
     },
   });
 
-  //   const queryClient = useQueryClient();
+  const queryClient = useQueryClient();
+  const { onClose } = useModal();
   const { mutate: createWorkspace, isPending } = useMutation({
     mutationFn: async ({ name }: WorkspaceRequest) => {
       const payload = {
@@ -39,12 +41,13 @@ export const CreateWorkspaceForm = () => {
     },
     onSuccess: (data: Workspace, name) => {
       toast.success(`Workspace '${data.name}' was created`);
+      onClose();
     },
     onError: (err, name, context) => {
-      console.log(err);
+      toast.error(err.message);
     },
     onSettled: () => {
-      //   queryClient.invalidateQueries({ queryKey: ["workspaces"] });
+      queryClient.invalidateQueries({ queryKey: ["workspaces"] });
     },
   });
 
