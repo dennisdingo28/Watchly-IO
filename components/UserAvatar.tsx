@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import {
@@ -38,7 +38,23 @@ export const UserAvatar = ({
         <AvatarImage src={userImage} />
       )}
 
-      <AvatarFallback>CN</AvatarFallback>
+      {showDropDownMenu ? (
+        <DropdownMenu>
+          <DropdownMenuTrigger>
+            <AvatarFallback>CN</AvatarFallback>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent>
+            <DropdownMenuItem
+              onClick={() => signOut()}
+              className="cursor-pointer"
+            >
+              <span className="text-sm font-medium text-rose-500">Logout</span>
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      ) : (
+        <AvatarFallback>CN</AvatarFallback>
+      )}
     </Avatar>
   );
 };
