@@ -1,14 +1,15 @@
-import { currentUser } from "@/lib/auth"
+import { currentUser } from "@/lib/auth";
+import { LeftSide } from "./components/LeftSide";
 
 const DashboardPage = async () => {
-    const user = await currentUser();
-    console.log(user);
-    
-  return (
-    <div>
-      {user?.name}
-    </div>
-  )
-}
+  const user = await currentUser();
+  console.log(user);
 
-export default DashboardPage
+  return (
+    <div className="relative">
+      <LeftSide />
+    </div>
+  );
+};
+
+export default DashboardPage;

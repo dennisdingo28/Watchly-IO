@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/components/providers/Providers";
-import { Footer } from "@/components/footer/Footer";
 import { SessionProvider } from "next-auth/react";
 import { auth } from "@/auth";
 
@@ -29,9 +28,6 @@ export default async function RootLayout({
       <body className={poppins.className + " min-h-screen flex flex-col justify-between"}>
         <Providers>
           {children}
-          <div className="mt-10">
-            <Footer />
-          </div>
         </Providers>
       </body>
     </html>
