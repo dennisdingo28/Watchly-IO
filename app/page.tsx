@@ -8,6 +8,7 @@ import { About } from "./components/about/About";
 import { OpenUrlModal } from "@/components/modals/OpenUrlModal";
 import { ModalType } from "@/hooks/use-modal";
 import { Navbar } from "@/components/navbar/Navbar";
+import { Footer } from "@/components/footer/Footer";
 
 export default function Home({
   searchParams,
@@ -56,6 +57,10 @@ export default function Home({
       {searchParams.modal?.trim() !== "" && (
         <OpenUrlModal modalType={searchParams.modal} />
       )}
+
+      <div className="mt-10">
+        <Footer />
+      </div>
     </main>
   );
 }
