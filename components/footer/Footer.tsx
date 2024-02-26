@@ -11,7 +11,9 @@ export const Footer = () => {
       <Container className="p-2.5">
         <div className="flex flex-col sm:flex-row sm:items-start justify-around mt-5 h-full">
           <div className="flex flex-col gap-5">
-            <h1 className="text-sm text-lightGray font-medium uppercase">Watchly.IO</h1>
+            <h1 className="text-sm text-lightGray font-medium uppercase">
+              Watchly.IO
+            </h1>
             <div className="space-y-2.5">
               <FotLink label="About" where="/" />
               <FotLink label="Services" where="/" />
@@ -21,29 +23,32 @@ export const Footer = () => {
           </div>
 
           <div className="mt-10 sm:mt-0 flex flex-col gap-5">
-            <h1 className="text-sm text-lightGray font-medium uppercase">Contact</h1>
-              <p className="flex items-center gap-2 text-lightGray">
-                <Phone />
-                <Link href="tel:0771616096" className="text-lightGray">
+            <h1 className="text-sm text-lightGray font-medium uppercase">
+              Contact
+            </h1>
+            <p className="flex items-center gap-2 text-lightGray">
+              <Phone />
+              <Link href="tel:0771616096" className="text-lightGray">
                 0771616096
               </Link>
-              </p>
-             
-              <p className="flex items-center gap-2.5 text-lightGray">
-                <Mail /> 
-                <Link
+            </p>
+
+            <p className="flex items-center gap-2.5 text-lightGray">
+              <Mail />
+              <Link
                 href="mailto:moldovanalexismihai06@gmail.com"
                 className="text-lightGray"
               >
                 moldovanalexismihai06@gmail.com
               </Link>
-              </p>
-              
+            </p>
           </div>
 
           <div className="mt-10 sm:mt-0">
             <div className="flex flex-col gap-5 mb-auto">
-              <h1 className="text-sm text-lightGray font-medium uppercase">Social Media</h1>
+              <h1 className="text-sm text-lightGray font-medium uppercase">
+                Social Media
+              </h1>
               <div className="flex items-center gap-5 text-lightGray">
                 <Link href="/">
                   <FaTiktok className="hover:text-darkGray transition-colors" />
@@ -66,7 +71,7 @@ export const Footer = () => {
           </div>
         </div>
         <div className="mt-10">
-          <Logo className="text-[2em]" />
+          <Logo className="text-[2em]" theme="white" />
         </div>
       </Container>
     </footer>
