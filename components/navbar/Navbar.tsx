@@ -24,7 +24,7 @@ export const Navbar = async () => {
 
       {user ? (
         <div className="hidden sm:block">
-          <UserAvatar userImage={user.image!} />
+          <UserAvatar showDropDownMenu={true} userImage={user.image!} />
         </div>
       ) : (
         <OpenModal type="login">
