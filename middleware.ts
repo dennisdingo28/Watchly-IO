@@ -16,20 +16,22 @@ export default auth((req) => {
   const isApiAuthRoute = nextUrl.pathname.startsWith(apiAuthPrefix);
   const isPublicRoute = publicRoutes.includes(nextUrl.pathname);
   
-  if(!nextUrl.pathname.startsWith(apiAuthPrefix)){
-    const routeExists = allRoutes.includes(nextUrl.pathname);
-    
-    if(!routeExists) return Response.redirect(
-      new URL("/", nextUrl)
-    );
-  }
+
   
-  if (isApiAuthRoute) return null;
+  if (isApiAuthRoute || nextUrl.pathname.startsWith("/api")) return null;
 
   if (!isLoggedIn && !isPublicRoute) {
     
     return Response.redirect(
       new URL(`/?modal=login`, nextUrl)
+    );
+  }
+
+  if(!nextUrl.pathname.startsWith(apiAuthPrefix)){
+    const routeExists = allRoutes.includes(nextUrl.pathname);
+    
+    if(!routeExists) return Response.redirect(
+      new URL("/", nextUrl)
     );
   }
   return null;

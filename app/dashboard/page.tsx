@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { currentUser } from "@/lib/auth";
 import { ProjectFeed } from "./components/ProjectFeed";
+import { OpenModal } from "@/components/modals/OpenModal";
 
 const DashboardPage = async () => {
   const user = await currentUser();
@@ -18,7 +19,9 @@ const DashboardPage = async () => {
         <h1 className="text-5xl font-semibold">
           My Workspace <InfoText>.</InfoText>
         </h1>
-        <Button className="rounded-full">Create Project</Button>
+        <OpenModal type="createWorkspace">
+          <Button  className="rounded-full">Create Project</Button>
+        </OpenModal>
       </div>
       <Separator className="mt-5" />
 
