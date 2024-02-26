@@ -13,13 +13,34 @@ const quicksand = Quicksand({
   weight: ["300", "400", "500", "600", "700"],
 });
 
-interface LogoProps extends HTMLAttributes<HTMLHeadingElement>{};
+interface LogoProps extends HTMLAttributes<HTMLHeadingElement> {
+  theme: "black" | "white";
+}
 
-export const Logo = ({ className }: LogoProps) => {
+export const Logo = ({ className, theme }: LogoProps) => {
   return (
     <Link href={"/"} className="flex flex-col items-center">
-      <h1 className={cn(leagueSpartan.className, "text-[25px] font-bold tracking-tighter", className)}>Watchly IO</h1>
-      <p className={cn(quicksand.className, "text-black font-semibold tracking-widest text-[12px] -mt-1")}>web analytics</p>
+      <h1
+        className={cn(
+          leagueSpartan.className,
+          "text-[25px] font-bold tracking-tighter",
+          className,
+          theme === "white" && "text-lightGray",
+          theme === "black" && "text-black"
+        )}
+      >
+        Watchly IO
+      </h1>
+      <p
+        className={cn(
+          quicksand.className,
+          "text-black font-semibold tracking-widest text-[12px] -mt-1",
+          theme === "white" && "text-lightGray",
+          theme === "black" && "text-black"
+        )}
+      >
+        web analytics
+      </p>
     </Link>
   );
 };
