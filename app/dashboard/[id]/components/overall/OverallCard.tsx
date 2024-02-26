@@ -1,4 +1,3 @@
-import { cn } from "@/lib/utils";
 import { HTMLAttributes } from "react";
 
 interface OverallCardType extends HTMLAttributes<HTMLDivElement> {
@@ -9,9 +8,11 @@ interface OverallCardType extends HTMLAttributes<HTMLDivElement> {
 
 export const OverallCard = ({icon, amount, label, className}: OverallCardType) =>{
     return (
-        <div className={cn("bg-white rounded-sm p-4", className)}>
+        <div className={className}>
             <div className="flex flex-col md:flex-row items-center gap-2">
-                {icon}
+                <div className="rounded-full bg-purple/20 p-4">
+                    {icon}
+                </div>
                 <div>
                     <p className="font-bold text-center md:text-start">{String(amount)}</p>
                     <p className="text-darkGray md:text-start text-center">{label}</p>

@@ -8,7 +8,7 @@ export const Hero = () => {
   return (
     <div className="bg-gradient-to-t from-[#d9d7fe] to-white">
       <Container>
-        <h1 className="text-5xl font-semibold text-center">
+        <h1 className="text-5xl font-semibold text-center leading-normal">
         <InfoText>Track</InfoText> and <InfoText>analyze</InfoText> website journeys <InfoText>for</InfoText> unparalleled <InfoText>optimization</InfoText>.
         </h1>
         <p className="mt-5 text-center mx-auto text-darkGray max-w-md">

@@ -11,3 +11,9 @@ export function generateApiKey(){
 
   return `watchlyIO-${formattedID}`;
 }
+
+export function copyText(text: string){
+  return new Promise((resolve, reject)=>{
+    navigator.clipboard.writeText(text).then(resolve).catch(reject);
+  });
+}
