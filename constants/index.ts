@@ -48,6 +48,6 @@ export const faq: Array<Faq> = [
 
 //#ROUTES
 export const publicRoutes = ["/", "/verification", "/pricing"];
-export const allRoutes = ["/", "/verification", "/pricing", "/dashboard"];
-export const apiAuthPrefix = "/api/auth";
+export const allRoutes = ["/", "/verification", "/pricing"];
+export const apiPrefix = "/api";
 export const DEFAULT_LOGIN_REDIRECT = "/dashboard";

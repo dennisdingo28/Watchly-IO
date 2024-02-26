@@ -1,10 +1,6 @@
 import authConfig from "./auth.config";
 import NextAuth from "next-auth";
-import {
-  allRoutes,
-  apiAuthPrefix,
-  publicRoutes,
-} from "./constants";
+import { allRoutes, apiPrefix, publicRoutes } from "./constants";
 
 const { auth } = NextAuth(authConfig);
 
@@ -12,28 +8,21 @@ const { auth } = NextAuth(authConfig);
 export default auth((req) => {
   const { nextUrl } = req;
   const isLoggedIn = !!req.auth;
-  
-  const isApiAuthRoute = nextUrl.pathname.startsWith(apiAuthPrefix);
-  const isPublicRoute = publicRoutes.includes(nextUrl.pathname);
-  
 
-  
-  if (isApiAuthRoute || nextUrl.pathname.startsWith("/api")) return null;
+  const isApiAuthRoute = nextUrl.pathname.startsWith(apiPrefix);
+  const isPublicRoute = publicRoutes.includes(nextUrl.pathname);
+
+  if (isApiAuthRoute) return null;
 
   if (!isLoggedIn && !isPublicRoute) {
-    
-    return Response.redirect(
-      new URL(`/?modal=login`, nextUrl)
-    );
+    return Response.redirect(new URL(`/?modal=login`, nextUrl));
   }
 
-  // if(!nextUrl.pathname.startsWith(apiAuthPrefix)){
-  //   const routeExists = allRoutes.includes(nextUrl.pathname);
-    
-  //   if(!routeExists) return Response.redirect(
-  //     new URL("/", nextUrl)
-  //   );
-  // }
+  if (!nextUrl.pathname.startsWith(apiPrefix)) {
+    const routeExists = allRoutes.includes(nextUrl.pathname) || nextUrl.pathname.startsWith("/dashboard");
+
+    if (!routeExists) return Response.redirect(new URL("/", nextUrl));
+  }
   return null;
 });
 

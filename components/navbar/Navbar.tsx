@@ -9,7 +9,6 @@ export const Navbar = async () => {
   
   const user = await currentUser();
 
-  console.log(user?.image)
   return (
     <nav className="flex items-center justify-between">
       <Logo theme="dark"/>

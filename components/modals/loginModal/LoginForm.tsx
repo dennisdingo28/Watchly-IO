@@ -42,7 +42,6 @@ const LoginForm = () => {
     startTransition(() => {
       login(values, DEFAULT_LOGIN_REDIRECT)
         .then((data) => {
-          console.log(data);
           if (data?.success) {
             form.reset();
             setSucces(data?.success);
