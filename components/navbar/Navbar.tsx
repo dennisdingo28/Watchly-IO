@@ -6,10 +6,12 @@ import { currentUser } from "@/lib/auth";
 import { UserAvatar } from "../UserAvatar";
 
 export const Navbar = async () => {
+  
   const user = await currentUser();
+
   return (
     <nav className="flex items-center justify-between">
-      <Logo theme="black"/>
+      <Logo theme="dark"/>
 
       <div className="hidden sm:flex items-center gap-5">
         <NavLink label="About" where="/about" />

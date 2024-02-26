@@ -14,7 +14,7 @@ const quicksand = Quicksand({
 });
 
 interface LogoProps extends HTMLAttributes<HTMLHeadingElement> {
-  theme: "black" | "white";
+  theme: "dark" | "white";
 }
 
 export const Logo = ({ className, theme }: LogoProps) => {
@@ -26,7 +26,7 @@ export const Logo = ({ className, theme }: LogoProps) => {
           "text-[25px] font-bold tracking-tighter",
           className,
           theme === "white" && "text-lightGray",
-          theme === "black" && "text-black"
+          theme === "dark" && "text-black"
         )}
       >
         Watchly IO
@@ -36,7 +36,7 @@ export const Logo = ({ className, theme }: LogoProps) => {
           quicksand.className,
           "text-black font-semibold tracking-widest text-[12px] -mt-1",
           theme === "white" && "text-lightGray",
-          theme === "black" && "text-black"
+          theme === "dark" && "text-black"
         )}
       >
         web analytics

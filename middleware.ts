@@ -17,7 +17,7 @@ export default auth((req) => {
   const isPublicRoute = publicRoutes.includes(nextUrl.pathname);
   
   if(!nextUrl.pathname.startsWith(apiAuthPrefix)){
-    const routeExists = allRoutes.includes(nextUrl.pathname);
+    const routeExists = allRoutes.includes(nextUrl.pathname) || nextUrl.pathname.startsWith("/dashboard");
     
     if(!routeExists) return Response.redirect(
       new URL("/", nextUrl)
