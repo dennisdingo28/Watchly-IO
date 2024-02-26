@@ -10,21 +10,22 @@ export const WorkspaceFeed = ({
 }: {
   initialWorkspaces: WorkspaceType[];
 }) => {
-  const { data } = useQuery({
+  const { data=[] } = useQuery({
     queryKey: ["workspaces"],
     queryFn: () => getWorkspaces(),
     initialData: initialWorkspaces,
   });
 
+  console.log(data)
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
-      {data?.map((workspace) => (
+      {Array(data?.map((workspace) => (
         <Workspace
           key={workspace.id}
           name={workspace.name}
           createdAt={workspace.createdAt}
         />
-      ))}
+      )))}
     </div>
   );
 };
