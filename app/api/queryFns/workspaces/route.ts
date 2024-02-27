@@ -9,6 +9,7 @@ export async function GET(req: Request) {
         userId:"clt4occp80000yy4n00gw01cq",
       },
     });
+    
     return NextResponse.json(workspaces);
   } catch (error) {
     console.log(error);

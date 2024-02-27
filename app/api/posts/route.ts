@@ -9,7 +9,9 @@ export async function GET(req: NextRequest){
 
         const users = await db.user.findMany({})
 
-        return NextResponse.json(users);
+        return NextResponse.json(users, { headers: {
+            'Cache-Control': 'no-store', // Disable caching
+        },});
     }catch(err){
         console.log(err);
         return new NextResponse("Internal Error");
