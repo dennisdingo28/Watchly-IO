@@ -4,12 +4,10 @@ import { NextResponse } from "next/server";
 
 export async function GET(req: Request) {
   try {
-    const user = await currentUser();
-    if (!user) return new NextResponse("Unauthorized", { status: 401 });
-
+    
     const workspaces = await db.workspace.findMany({
       where: {
-        userId: user?.id,
+        userId: "clt3d07wf0003bw0zzildx39x",
       },
     });
     return NextResponse.json(workspaces);
