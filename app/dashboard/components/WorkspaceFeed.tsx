@@ -6,19 +6,16 @@ import { useQuery } from "@tanstack/react-query";
 import { getWorkspaces } from "@/lib/queryFns/getWorkspaces";
 
 export const WorkspaceFeed = ({
-  initialWorkspaces,
+  // initialWorkspaces,
 }: {
-  initialWorkspaces: WorkspaceType[];
+  // initialWorkspaces: WorkspaceType[];
 }) => {
   const { data=[] } = useQuery({
     queryKey: ["workspaces"],
     queryFn: () => getWorkspaces(),
-    initialData: initialWorkspaces,
+    // initialData: initialWorkspaces,
   });
 
-  console.log("Data", data);
-  console.log("Initial", initialWorkspaces)
-  
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
       {Array(data?.map((workspace) => (

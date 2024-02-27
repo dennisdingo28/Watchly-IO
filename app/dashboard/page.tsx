@@ -11,11 +11,11 @@ import { db } from "@/lib/db";
 const DashboardPage = async () => {
   const user = await currentUser();
 
-  const userWorkspaces = await db.workspace.findMany({
-    where: {
-      userId: user?.id,
-    },
-  });
+  // const userWorkspaces = await db.workspace.findMany({
+  //   where: {
+  //     userId: user?.id,
+  //   },
+  // });
 
   
   return (
@@ -34,7 +34,7 @@ const DashboardPage = async () => {
       <Separator className="mt-5" />
 
       <div className="mt-10">
-        <WorkspaceFeed initialWorkspaces={userWorkspaces} />
+        <WorkspaceFeed />
       </div>
     </Container>
   );
