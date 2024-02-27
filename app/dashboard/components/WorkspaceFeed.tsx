@@ -3,6 +3,7 @@ import React from "react";
 import { Workspace as WorkspaceType } from "@prisma/client";
 import { useQuery } from "@tanstack/react-query";;
 import { Workspace } from "./Workspace";
+import { getWorkspaces } from "@/lib/queryFns/getWorkspaces";
 
 
 export const WorkspaceFeed = ({
@@ -11,14 +12,9 @@ export const WorkspaceFeed = ({
   initialWorkspaces: WorkspaceType[];
 }) => {
 
-  const { data=[] } = useQuery({
+  const { data } = useQuery({
     queryKey: ["workspaces"],
-    queryFn: async()=>{
-      const res = await fetch(`https://watchly-io.vercel.app/api/queryFns/workspaces`);
-      const json = await res.json();
-
-      return json.data as WorkspaceType[];
-    },
+    queryFn: getWorkspaces,
 
     initialData: initialWorkspaces,
   });

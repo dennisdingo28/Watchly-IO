@@ -19,6 +19,7 @@ import { Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import { Workspace } from "@prisma/client";
 import { useModal } from "@/hooks/use-modal";
+import { revalidatePathname } from "@/lib/revalidatePathname";
 
 export const CreateWorkspaceForm = () => {
   const form = useForm<WorkspaceRequest>({
@@ -47,6 +48,7 @@ export const CreateWorkspaceForm = () => {
       toast.error(err.message);
     },
     onSettled: () => {
+      revalidatePathname("/dashboard");
       queryClient.invalidateQueries({ queryKey: ["workspaces"] });
     },
   });
