@@ -39,6 +39,7 @@ export async function POST(req: NextRequest) {
     
     return NextResponse.json(workspace);
   } catch (error) {
+    console.log(error)
     return new NextResponse("Internal Server Error", { status: 500 });
   }
 }
