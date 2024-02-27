@@ -6,10 +6,11 @@ import { getWorkspaces } from "@/lib/queryFns/getWorkspaces";
 import axios from "axios";
 import { Workspace } from "./Workspace";
 
+
 export const WorkspaceFeed = ({
-  // initialWorkspaces,
+  initialWorkspaces,
 }: {
-  // initialWorkspaces: WorkspaceType[];
+  initialWorkspaces: WorkspaceType[];
 }) => {
   const queryClient = useQueryClient(); 
 
@@ -20,11 +21,11 @@ export const WorkspaceFeed = ({
     queryFn: async()=>{
       const res = await fetch(`https://watchly-io.vercel.app/api/queryFns/workspaces`);
       const json = await res.json();
-      
+
       return json.data as WorkspaceType[];
     },
 
-    // initialData: initialWorkspaces,
+    initialData: initialWorkspaces,
   });
 
   console.log(data,"client")
