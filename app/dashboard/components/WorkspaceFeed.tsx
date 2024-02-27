@@ -1,9 +1,10 @@
 "use client";
 import React from "react";
-import { Workspace } from "./Workspace";
 import { Workspace as WorkspaceType } from "@prisma/client";
 import { useQuery } from "@tanstack/react-query";
 import { getWorkspaces } from "@/lib/queryFns/getWorkspaces";
+import axios from "axios";
+import { Workspace } from "./Workspace";
 
 export const WorkspaceFeed = ({
   // initialWorkspaces,
@@ -12,7 +13,11 @@ export const WorkspaceFeed = ({
 }) => {
   const { data=[] } = useQuery({
     queryKey: ["workspaces"],
-    queryFn: () => getWorkspaces(),
+    queryFn: async()=>{
+      const res = await axios.get(`/api/queryFns/workspaces`);
+
+      return res.data as WorkspaceType[];
+    },
     // initialData: initialWorkspaces,
   });
 
