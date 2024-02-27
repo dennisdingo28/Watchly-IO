@@ -29,7 +29,7 @@ const DashboardPage = async () => {
           My Workspace <InfoText>.</InfoText>
         </h1>
         <OpenModal type="createWorkspace">
-          <Button className="rounded-full">Create Project</Button>
+          <Button className="rounded-full">New workspace</Button>
         </OpenModal>
       </div>
       <Separator className="mt-5" />

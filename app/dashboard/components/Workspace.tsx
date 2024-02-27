@@ -3,7 +3,6 @@ import { Badge } from "@/components/ui/badge";
 import { formatDate } from "@/lib/formatDate";
 import { BarChart3, CalendarPlus2 } from "lucide-react";
 import Link from "next/link";
-import React from "react";
 
 export const Workspace = ({
   name,
