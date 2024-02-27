@@ -7,9 +7,12 @@ import { currentUser } from "@/lib/auth";
 import { WorkspaceFeed } from "./components/WorkspaceFeed";
 import { OpenModal } from "@/components/modals/OpenModal";
 import { db } from "@/lib/db";
+import { unstable_noStore as noStore } from 'next/cache';
 
 
 const DashboardPage = async () => {
+  noStore();
+
   const user = await currentUser();
 
   const userWorkspaces = await db.workspace.findMany({
