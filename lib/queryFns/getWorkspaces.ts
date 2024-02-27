@@ -1,3 +1,4 @@
+"use server"
 import { Workspace } from "@prisma/client";
 import axios from "axios";
 
