@@ -7,10 +7,11 @@ export async function GET(req: Request) {
   noStore();
 
   try {
-    
+    const user = await currentUser();
+    if (!user) return new NextResponse("Unauthorized", { status: 401 });
     const workspaces = await db.workspace.findMany({
       where: {
-        userId:"clt4pwp150000qt9jyuyo5q20",
+        userId:user.id,
       },
     });
     
