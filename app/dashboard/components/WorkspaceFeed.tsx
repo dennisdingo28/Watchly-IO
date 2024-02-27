@@ -18,10 +18,12 @@ export const WorkspaceFeed = ({
   const { data=[] } = useQuery({
     queryKey: ["workspaces"],
     queryFn: async()=>{
-      const res = await axios.get(`/api/queryFns/workspaces`);
-
-      return res.data as WorkspaceType[];
+      const res = await fetch(`https://watchly-io.vercel.app/api/queryFns/workspaces`);
+      const json = await res.json();
+      
+      return json.data as WorkspaceType[];
     },
+
     // initialData: initialWorkspaces,
   });
 
