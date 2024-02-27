@@ -8,7 +8,6 @@ import { WorkspaceFeed } from "./components/WorkspaceFeed";
 import { OpenModal } from "@/components/modals/OpenModal";
 import { db } from "@/lib/db";
 
-export const runtime = "edge";
 
 const DashboardPage = async () => {
   const user = await currentUser();
