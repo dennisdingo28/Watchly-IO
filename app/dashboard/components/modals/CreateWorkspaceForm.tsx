@@ -28,7 +28,7 @@ export const CreateWorkspaceForm = () => {
     },
   });
 
-  // const queryClient = useQueryClient();
+  const queryClient = useQueryClient();
   const { onClose } = useModal();
   const { mutate: createWorkspace, isPending } = useMutation({
     mutationFn: async ({ name }: WorkspaceRequest) => {
@@ -47,7 +47,7 @@ export const CreateWorkspaceForm = () => {
       toast.error(err.message);
     },
     onSettled: () => {
-      // queryClient.invalidateQueries({ queryKey: ["workspaces"] });
+      queryClient.invalidateQueries({ queryKey: ["workspaces"] });
     },
   });
 

@@ -1,8 +1,10 @@
 import { Workspace } from "@prisma/client";
-import axios from "axios";
 
 export const getWorkspaces = async () => {
-  const { data } = await axios.get("/api/queryFns/workspaces");
-  
-  return data as Workspace[];
+  const res = await fetch(
+    `https://watchly-io.vercel.app/api/queryFns/workspaces`
+  );
+  const json = await res.json();
+
+  return json.data as Workspace[];
 };
