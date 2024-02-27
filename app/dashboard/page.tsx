@@ -29,7 +29,16 @@ const DashboardPage = async () => {
         <h1 className="text-5xl font-semibold">
           My Workspaces <InfoText>.</InfoText>
         </h1>
-        <OpenModal type="createWorkspace">
+        <OpenModal
+          type="createWorkspace"
+          data={{
+            user: {
+              email: user?.email!,
+              image: user?.image!,
+              name: user?.name!,
+            },
+          }}
+        >
           <Button className="rounded-full mt-5 sm:mt-0">New workspace</Button>
         </OpenModal>
       </div>

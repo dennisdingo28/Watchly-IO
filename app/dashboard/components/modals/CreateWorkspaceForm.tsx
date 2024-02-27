@@ -65,7 +65,11 @@ export const CreateWorkspaceForm = () => {
             <FormItem>
               <FormLabel>Name</FormLabel>
               <FormControl>
-                <Input placeholder="Workspace-1" {...field} />
+                <Input
+                  placeholder="workspace-1"
+                  {...field}
+                  className="placeholder:text-darkGray"
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
