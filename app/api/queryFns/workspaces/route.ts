@@ -6,7 +6,7 @@ export async function GET(req: Request) {
 
     const workspaces = await db.workspace.findMany({
       where: {
-        userId:"clt3d07wf0003bw0zzildx39x",
+        userId:"clt4occp80000yy4n00gw01cq",
       },
     });
     return NextResponse.json(workspaces);
