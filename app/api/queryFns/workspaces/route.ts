@@ -14,6 +14,8 @@ export async function GET(req: Request) {
     });
     return NextResponse.json(workspaces);
   } catch (error) {
+    console.log(error);
+    
     return new NextResponse("Internal Error");
   }
 }

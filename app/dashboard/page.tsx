@@ -16,6 +16,8 @@ const DashboardPage = async () => {
       userId: user?.id,
     },
   });
+
+  
   return (
     <Container>
       <div className="pt-5">
