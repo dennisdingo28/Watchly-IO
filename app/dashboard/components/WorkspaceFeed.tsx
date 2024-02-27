@@ -15,14 +15,8 @@ export const WorkspaceFeed = ({
   const { data } = useQuery({
     queryKey: ["workspaces"],
     queryFn: getWorkspaces,
-
     initialData: initialWorkspaces,
   });
-
-  console.log("client", data);
-  console.log("initial", initialWorkspaces);
-  
-  
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
