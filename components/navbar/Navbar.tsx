@@ -6,12 +6,11 @@ import { currentUser } from "@/lib/auth";
 import { UserAvatar } from "../UserAvatar";
 
 export const Navbar = async () => {
-  
   const user = await currentUser();
 
   return (
     <nav className="flex items-center justify-between">
-      <Logo theme="dark"/>
+      <Logo theme="dark" />
 
       <div className="hidden sm:flex items-center gap-5">
         <NavLink label="About" where="/about" />
@@ -21,7 +20,12 @@ export const Navbar = async () => {
       </div>
 
       <div className="sm:hidden ml-auto">
-        <MobileLinks isLoggedIn={!!user?.id} userImage={user?.image!} />
+        <MobileLinks
+          isLoggedIn={!!user?.id}
+          userImage={user?.image!}
+          userName={user?.name!}
+          userEmail={user?.email!}
+        />
       </div>
 
       {user ? (

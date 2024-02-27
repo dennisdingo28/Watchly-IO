@@ -24,6 +24,7 @@ export const WorkspaceFeed = ({
         <Workspace
           key={workspace.id}
           name={workspace.name}
+          id={workspace.id}
           createdAt={workspace.createdAt}
         />
       )))}

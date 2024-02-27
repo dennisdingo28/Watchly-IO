@@ -6,14 +6,16 @@ import Link from "next/link";
 
 export const Workspace = ({
   name,
+  id,
   createdAt,
 }: {
   name: string;
+  id: string;
   createdAt: Date;
 }) => {
   return (
     <Link
-      href="/"
+      href={`/dashboard/${id}`}
       className="p-5 rounded-md border-2 border-lightGray hover:shadow-md transition-shadow"
     >
       <div className="flex items-center justify-between">

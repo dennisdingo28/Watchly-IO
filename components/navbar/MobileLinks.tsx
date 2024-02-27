@@ -16,9 +16,13 @@ import { signOut } from "next-auth/react";
 
 export const MobileLinks = ({
   userImage,
+  userName,
+  userEmail,
   isLoggedIn,
 }: {
   userImage: string;
+  userName: string;
+  userEmail: string;
   isLoggedIn: boolean;
 }) => {
   const [showX, setShowX] = useState(false);
@@ -32,7 +36,12 @@ export const MobileLinks = ({
           <>
             <DropdownMenuLabel className="flex items-center gap-2.5">
               <UserAvatar userImage={userImage} className="w-[35px] h-[35px]" />
-              <p className="max-w-[120px] truncate text-md">Alexis Moldovan</p>
+              <div className="">
+                <p className="max-w-[120px] truncate text-md">{userName}</p>
+                <p className="text-xs max-w-[135px] truncate text-darkGray">
+                  {userEmail}
+                </p>
+              </div>
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
           </>
