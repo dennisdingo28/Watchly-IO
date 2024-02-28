@@ -1,7 +1,8 @@
 "use client";
+import { OpenModal } from "@/components/modals/OpenModal";
 import { Badge } from "@/components/ui/badge";
 import { formatDate } from "@/lib/formatDate";
-import { BarChart3, CalendarPlus2 } from "lucide-react";
+import { BarChart3, CalendarPlus2, Settings } from "lucide-react";
 import Link from "next/link";
 
 export const Workspace = ({
@@ -20,9 +21,11 @@ export const Workspace = ({
     >
       <div className="flex items-center justify-between">
         <h1 className="upc">{name}</h1>
-        <Badge className="bg-[#f0fdf4] text-[#15803d] border-2 border-[#c4ebd2]">
-          active
-        </Badge>
+        <div className="flex items-center gap-2.5">
+          <Badge className="bg-[#f0fdf4] text-[#15803d] border-2 border-[#c4ebd2]">
+            active
+          </Badge>
+        </div>
       </div>
 
       <div className="flex items-center gap-5 mt-5">
