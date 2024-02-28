@@ -35,7 +35,7 @@ export const WorkspaceFeed = ({
     >
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+        className="hidden sm:block pointer-events-none absolute inset-x-0 -z-10 transform-gpu overflow-hidden blur-3xl -top-24"
       >
         <div
           style={{
@@ -61,7 +61,7 @@ export const WorkspaceFeed = ({
         )
       ) : (
         <div className="text-darkGray">
-          <Folder className="mx-auto"/>
+          <Folder className="mx-auto" />
           <p className="uppercase">No workspaces yet.</p>
         </div>
       )}

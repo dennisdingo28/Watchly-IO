@@ -62,7 +62,7 @@ export const DeleteWorkspaceModal = () => {
             className="bg-rose-500 hover:bg-[#c1314a]"
           >
             {isPending && (
-              <Loader2 className="h-4 w-4 ml-2 animate-spin mr-2" />
+              <Loader2 className="h-4 w-4 animate-spin mr-2" />
             )}
             Delete
           </Button>

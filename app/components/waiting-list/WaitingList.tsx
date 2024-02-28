@@ -17,7 +17,7 @@ export const WaitingList = () => {
           className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-56 rotate-[30deg] bg-gradient-to-tr from-purple to-darkPurple opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
         />
       </div>
-      <div className="flex items-center justify-center gap-2">
+      <div className="flex items-center justify-center gap-2.5">
         <div className="flex flex-col sm:flex-row sm:gap-3 items-center font-bold">
           <InfoText asParagraph className="text-[2.6em] animate-bounce">
             Join
@@ -28,8 +28,8 @@ export const WaitingList = () => {
         </div>
         <SendIcon className="w-7 h-7 text-purple hidden sm:block" />
       </div>
-      <div className="mt-2 w-[80px] h-[4px] bg-purple mx-auto rounded-sm" />
-      <p className="text-[.9em] text-darkGray text-center my-3 font-medium">
+      <div className="mt-2.5 w-[80px] h-[4px] bg-purple mx-auto rounded-sm" />
+      <p className="text-[.9em] text-darkGray text-center my-5 font-medium">
         Enroll now to get notified and receive a special feature on release day
         !
       </p>
