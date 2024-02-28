@@ -1,5 +1,6 @@
 import { currentUser } from "@/lib/auth";
 import { db } from "@/lib/db";
+import { generateApiKey } from "@/lib/generateApiKey";
 import { WorkspaceValidator } from "@/validators/workspace";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -33,6 +34,7 @@ export async function POST(req: NextRequest) {
       data: {
         name,
         userId: user.id,
+        apiKey: generateApiKey(),
       },
     });
 

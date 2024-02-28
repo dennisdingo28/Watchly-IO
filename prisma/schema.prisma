@@ -69,6 +69,8 @@ model Workspace {
   id        String   @id @default(cuid())
   name      String
   createdAt DateTime @default(now())
+  apiKey    String  @unique
+
 
   user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId String
