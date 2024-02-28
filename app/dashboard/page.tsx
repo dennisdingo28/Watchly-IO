@@ -8,6 +8,7 @@ import { WorkspaceFeed } from "./components/WorkspaceFeed";
 import { OpenModal } from "@/components/modals/OpenModal";
 import { db } from "@/lib/db";
 import { unstable_noStore as noStore } from "next/cache";
+import { use } from "react";
 
 const DashboardPage = async () => {
   noStore();
@@ -33,8 +34,8 @@ const DashboardPage = async () => {
           type="createWorkspace"
           data={{
             user: {
-              email: user?.email!,
               image: user?.image!,
+              email: user?.email!,
               name: user?.name!,
             },
           }}
@@ -45,7 +46,12 @@ const DashboardPage = async () => {
       <Separator className="mt-5" />
 
       <div className="mt-10">
-        <WorkspaceFeed initialWorkspaces={userWorkspaces} />
+        <WorkspaceFeed
+          userImage={user?.image!}
+          userName={user?.name!}
+          userEmail={user?.email!}
+          initialWorkspaces={userWorkspaces}
+        />
       </div>
     </Container>
   );

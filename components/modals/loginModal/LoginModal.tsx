@@ -9,7 +9,7 @@ import { Separator } from "@/components/ui/separator";
 import { useModal } from "@/hooks/use-modal";
 import LoginForm from "./LoginForm";
 
-const LoginModal = () => {
+export const LoginModal = () => {
   const { isOpen, type, onClose } = useModal();
   const isModalOpen = isOpen && type == "login";
 
@@ -28,4 +28,3 @@ const LoginModal = () => {
   );
 };
 
-export default LoginModal;
