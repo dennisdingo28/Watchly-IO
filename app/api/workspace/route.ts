@@ -6,16 +6,27 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function PATCH(
   req: NextRequest,
-  { searchParams }: { searchParams: { apiKey: string } }
 ) {
   try {
     const data = await req.json();
 
-    const apiKey = searchParams.apiKey;
+    const {searchParams} = new URL(req.url);
+    const apiKey = searchParams.get("apiKey");
+    console.log(apiKey);
+    
     if (!apiKey || apiKey.trim() === "")
       throw new Error("No workspace api key was provided. Please provide one.");
 
     //update workspace
+    return new NextResponse("OK", {
+    status: 200,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET,OPTIONS,PATCH,DELETE,POST,PUT',
+      'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+    },
+  });
+
   } catch (err) {
     console.log(err);
   }
