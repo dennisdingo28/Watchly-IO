@@ -22,17 +22,11 @@ export const Workspace = ({
   userEmail: string;
   userImage: string;
 }) => {
-  // const { onOpen } = useModal();
-
-  // const handleDotsClick = (e: any) => {
-  //   e.stopPropagation();
-  //   onOpen("deleteWorkspace");
-  // };
+ 
 
   return (
     <div
-      // href={`/dashboard/${id}`}
-      className="p-5 rounded-md border-2 border-lightGray hover:shadow-md transition-shadow"
+    className="p-5 rounded-md border-2 border-lightGray hover:shadow-md transition-shadow"
     >
       <div className="flex items-center justify-between">
         <h1 className="tracking-tight">{name}</h1>
@@ -43,6 +37,7 @@ export const Workspace = ({
           <OpenModal
             type="deleteWorkspace"
             data={{
+              workspaceName: name,
               workspaceId: id,
               user: {
                 email: userEmail,

@@ -12,6 +12,7 @@ export interface ModalData {
     email: string;
     image: string;
   };
+  workspaceName?:string
   workspaceId?: string;
 }
 

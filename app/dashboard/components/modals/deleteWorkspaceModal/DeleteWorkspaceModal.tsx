@@ -47,8 +47,11 @@ export const DeleteWorkspaceModal = () => {
         <AlertDialogHeader>
           <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
           <AlertDialogDescription className="text-darkGray">
-            This action cannot be undone. This will permanently delete your
-            workspace and remove your data from our servers.
+            This action cannot be undone. This will permanently delete your{" "}
+            <span className="underline underline-offset-4 decoration-purple">
+              {data.workspaceName}
+            </span>{" "}
+            and remove your workspace data from our servers.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
@@ -56,6 +59,7 @@ export const DeleteWorkspaceModal = () => {
           <Button
             disabled={isPending}
             onClick={() => deleteWorkspace({ workspaceId: data.workspaceId! })}
+            className="bg-rose-500 hover:bg-[#c1314a]"
           >
             {isPending && (
               <Loader2 className="h-4 w-4 ml-2 animate-spin mr-2" />
