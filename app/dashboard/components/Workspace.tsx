@@ -1,7 +1,6 @@
 "use client";
 import { OpenModal } from "@/components/modals/OpenModal";
 import { Badge } from "@/components/ui/badge";
-import { useModal } from "@/hooks/use-modal";
 import { formatDate } from "@/lib/formatDate";
 import { BarChart3, CalendarPlus2 } from "lucide-react";
 import Link from "next/link";
@@ -22,12 +21,8 @@ export const Workspace = ({
   userEmail: string;
   userImage: string;
 }) => {
- 
-
   return (
-    <div
-    className="p-5 rounded-md border-2 border-lightGray hover:shadow-md transition-shadow"
-    >
+    <div className="bg-white p-5 rounded-md border-2 border-lightGray hover:shadow-md transition-shadow">
       <div className="flex items-center justify-between">
         <h1 className="tracking-tight">{name}</h1>
         <div className="flex items-center gap-2.5">

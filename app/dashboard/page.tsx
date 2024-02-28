@@ -45,7 +45,7 @@ const DashboardPage = async () => {
       </div>
       <Separator className="mt-5" />
 
-      <div className="mt-10">
+      <div className="my-10">
         <WorkspaceFeed
           userImage={user?.image!}
           userName={user?.name!}
