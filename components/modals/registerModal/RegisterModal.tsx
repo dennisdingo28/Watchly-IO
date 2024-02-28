@@ -12,7 +12,7 @@ import RegisterForm from "./RegisterForm";
 
 interface LoginModalProps {}
 
-const RegisterModal: FC<LoginModalProps> = () => {
+export const RegisterModal: FC<LoginModalProps> = () => {
   const { isOpen, type, onClose } = useModal();
 
   const isModalOpen = isOpen && type === "register";
@@ -31,4 +31,3 @@ const RegisterModal: FC<LoginModalProps> = () => {
   );
 };
 
-export default RegisterModal;

@@ -1,13 +1,18 @@
 import { create } from "zustand";
 
-export type ModalType = "login" | "register" | "createWorkspace";
+export type ModalType =
+  | "login"
+  | "register"
+  | "createWorkspace"
+  | "deleteWorkspace";
 
 export interface ModalData {
   user?: {
-    name:string,
-    email:string,
-    image:string
+    name: string;
+    email: string;
+    image: string;
   };
+  workspaceId?: string;
 }
 
 interface ModalStore {
