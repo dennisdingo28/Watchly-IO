@@ -3,7 +3,7 @@ import { OpenModal } from "@/components/modals/OpenModal";
 import { Badge } from "@/components/ui/badge";
 import { formatDate } from "@/lib/formatDate";
 import { BarChart3, CalendarPlus2 } from "lucide-react";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { HiDotsHorizontal } from "react-icons/hi";
 
 export const Workspace = ({
@@ -21,15 +21,25 @@ export const Workspace = ({
   userEmail: string;
   userImage: string;
 }) => {
+  const router = useRouter();
+  const handleLinkClick = (e: any, workspaceId: string) => {
+    router.push(`/dashboard/${workspaceId}`);
+  };
   return (
-    <div className="bg-white p-5 rounded-md border-2 border-lightGray hover:shadow-md transition-shadow">
+    <div
+      className="bg-white z-10 p-5 rounded-md border-2 border-lightGray hover:shadow-md transition-shadow"
+      onClick={(e) => handleLinkClick(e, id)}
+    >
       <div className="flex items-center justify-between">
         <h1 className="tracking-tight">{name}</h1>
-        <div className="flex items-center gap-2.5">
+        <div className="flex items-center gap-2.5 z-50">
           <Badge className="bg-[#f0fdf4] text-[#15803d] border-2 border-[#c4ebd2]">
             active
           </Badge>
           <OpenModal
+            onClick={(e: React.MouseEvent) => {
+              e.stopPropagation();
+            }}
             type="deleteWorkspace"
             data={{
               workspaceName: name,
