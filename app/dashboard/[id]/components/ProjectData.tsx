@@ -41,16 +41,16 @@ export const ProjectData = async () => {
           </h3>
           <div className="flex">
             <div className="flex-1">
-                <div className="bg-purple rounded-tl-sm p-2">
-                    <p className="text-white text-center">All Routes</p>
-                </div>
-                <VisitedRoutes />
+              <div className="bg-purple rounded-tl-sm p-2.5">
+                <p className="text-white text-center">All Routes</p>
+              </div>
+              <VisitedRoutes />
             </div>
             <div>
-                <div className="bg-purple rounded-tr-sm p-2">
-                    <p className="text-white text-center">All Countries</p>
-                </div>
-                <VisitorsCountries />
+              <div className="bg-purple rounded-tr-sm p-2.5">
+                <p className="text-white text-center">All Countries</p>
+              </div>
+              <VisitorsCountries />
             </div>
           </div>
         </div>
