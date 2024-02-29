@@ -27,7 +27,7 @@ export const Plan = ({ plan }: { plan: PlanType }) => {
           <span className="text-sm"> /month</span>
         </p>
       </div>
-      <div className="flex justify-center items-end">
+      <div className="flex justify-center mt-auto">
         <PurchaseButton />
       </div>
     </div>

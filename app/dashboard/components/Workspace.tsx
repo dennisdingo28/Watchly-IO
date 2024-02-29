@@ -27,7 +27,7 @@ export const Workspace = ({
   };
   return (
     <div
-      className="bg-white z-10 p-5 rounded-md border-2 border-lightGray hover:shadow-md transition-shadow"
+      className="bg-white z-10 p-5 rounded-md border-2 border-lightGray hover:shadow-md transition-shadow cursor-pointer"
       onClick={(e) => handleLinkClick(e, id)}
     >
       <div className="flex items-center justify-between">
