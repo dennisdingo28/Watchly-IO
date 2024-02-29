@@ -13,10 +13,10 @@ export const Navbar = async () => {
       <Logo theme="dark" />
 
       <div className="hidden sm:flex items-center gap-5">
-        <NavLink label="About" where="/about" />
         <NavLink label="Services" where="/services" />
         <NavLink label="Contact" where="/contact" />
         <NavLink label="Pricing" where="/pricing" />
+        <NavLink label="Dashboard" where="/dashboard" />
       </div>
 
       <div className="sm:hidden ml-auto">

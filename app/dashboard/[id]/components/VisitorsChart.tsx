@@ -1,88 +1,90 @@
-"use client"
+"use client";
 
-import { AreaChart } from '@tremor/react';
+import { AreaChart } from "@tremor/react";
 
 const chartdata = [
   {
-    date: 'Jan 22',
+    date: "Jan 22",
     SemiAnalysis: 2890,
-    'The Pragmatic Engineer': 2338,
+    "The Pragmatic Engineer": 2338,
   },
   {
-    date: 'Feb 22',
+    date: "Feb 22",
     SemiAnalysis: 2756,
-    'The Pragmatic Engineer': 2103,
+    "The Pragmatic Engineer": 2103,
   },
   {
-    date: 'Mar 22',
+    date: "Mar 22",
     SemiAnalysis: 3322,
-    'The Pragmatic Engineer': 2194,
+    "The Pragmatic Engineer": 2194,
   },
   {
-    date: 'Apr 22',
+    date: "Apr 22",
     SemiAnalysis: 3470,
-    'The Pragmatic Engineer': 2108,
+    "The Pragmatic Engineer": 2108,
   },
   {
-    date: 'May 22',
+    date: "May 22",
     SemiAnalysis: 3475,
-    'The Pragmatic Engineer': 1812,
+    "The Pragmatic Engineer": 1812,
   },
   {
-    date: 'Jun 22',
+    date: "Jun 22",
     SemiAnalysis: 3129,
-    'The Pragmatic Engineer': 1726,
+    "The Pragmatic Engineer": 1726,
   },
   {
-    date: 'Jul 22',
+    date: "Jul 22",
     SemiAnalysis: 3490,
-    'The Pragmatic Engineer': 1982,
+    "The Pragmatic Engineer": 1982,
   },
   {
-    date: 'Aug 22',
+    date: "Aug 22",
     SemiAnalysis: 2903,
-    'The Pragmatic Engineer': 2012,
+    "The Pragmatic Engineer": 2012,
   },
   {
-    date: 'Sep 22',
+    date: "Sep 22",
     SemiAnalysis: 2643,
-    'The Pragmatic Engineer': 2342,
+    "The Pragmatic Engineer": 2342,
   },
   {
-    date: 'Oct 22',
+    date: "Oct 22",
     SemiAnalysis: 2837,
-    'The Pragmatic Engineer': 2473,
+    "The Pragmatic Engineer": 2473,
   },
   {
-    date: 'Nov 22',
+    date: "Nov 22",
     SemiAnalysis: 2954,
-    'The Pragmatic Engineer': 3848,
+    "The Pragmatic Engineer": 3848,
   },
   {
-    date: 'Dec 22',
+    date: "Dec 22",
     SemiAnalysis: 3239,
-    'The Pragmatic Engineer': 3736,
+    "The Pragmatic Engineer": 3736,
   },
 ];
 
 const valueFormatter = function (number: number) {
-  return '$ ' + new Intl.NumberFormat('us').format(number).toString();
+  return "$ " + new Intl.NumberFormat("us").format(number).toString();
 };
 
 export const VisitorsChart = () => {
   return (
     <>
       <h3 className="text-purple font-bold text-2xl">Visitors</h3>
-      <p className="text-tremor-metric text-tremor-content-strong dark:text-dark-tremor-content-strong font-semibold">2546</p>
+      <p className="text-tremor-metric text-tremor-content-strong dark:text-dark-tremor-content-strong font-semibold">
+        2546
+      </p>
       <AreaChart
-        className="mt-4 h-72"
+        className="mt-5 h-72"
         data={chartdata}
         index="date"
         yAxisWidth={65}
-        categories={['SemiAnalysis', 'The Pragmatic Engineer']}
-        colors={['indigo', 'cyan']}
+        categories={["SemiAnalysis", "The Pragmatic Engineer"]}
+        colors={["indigo", "cyan"]}
         valueFormatter={valueFormatter}
       />
     </>
   );
-}
+};
