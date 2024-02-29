@@ -8,27 +8,32 @@ export async function PATCH(
   req: NextRequest,
 ) {
   try {
+   
     const data = await req.json();
+    console.log(data);
 
+    if(data.path) return new NextResponse("A path was expected. No path was provided.", {status:401});
+    
     const {searchParams} = new URL(req.url);
     const apiKey = searchParams.get("apiKey");
-    console.log(apiKey);
     
     if (!apiKey || apiKey.trim() === "")
       throw new Error("No workspace api key was provided. Please provide one.");
 
+
+    const targetWorkspace = await db.workspace.findUnique({
+      where:{
+        apiKey
+      },
+    });
+
+    if(!targetWorkspace)
+
     //update workspace
-    return new NextResponse("OK", {
-    status: 200,
-    headers: {
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'GET,OPTIONS,PATCH,DELETE,POST,PUT',
-      'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-    },
-  });
+    return new NextResponse("OK");
 
   } catch (err) {
-    console.log(err);
+    return new NextResponse("Internal Server Error", { status: 500 });
   }
 }
 
@@ -51,6 +56,19 @@ export async function POST(req: NextRequest) {
 
     
     return NextResponse.json(workspace);
+  } catch (error) {
+    console.log(error)
+    return new NextResponse("Internal Server Error", { status: 500 });
+  }
+}
+
+export async function GET(req: NextRequest) {
+  try {
+ 
+    console.log("got ehre");
+    
+    
+    return NextResponse.json("getted");
   } catch (error) {
     console.log(error)
     return new NextResponse("Internal Server Error", { status: 500 });
