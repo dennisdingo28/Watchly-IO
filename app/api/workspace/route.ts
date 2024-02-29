@@ -10,7 +10,6 @@ export async function PATCH(
   try {
     
     const data = await req.json();
-    console.log(data);
     
     if(!data.path) return new NextResponse("A path was expected. No path was provided.", {status:401});
     if(!data.country || !data.country.countryCode || !data.country.countryName) return new NextResponse("No country was provided.", {status:401});
