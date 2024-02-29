@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 
 interface FeatureProps {
@@ -8,18 +9,18 @@ interface FeatureProps {
 
 export const Feature = ({ imageUrl, title, description }: FeatureProps) => {
   return (
-    <div className="rounded-sm h-fit">
-      <p className="font-bold text-center tracking-wider text-[1.8em] mb-2.5 text-purple ">
+    <div className="rounded-sm">
+      <p className="font-bold text-center tracking-wider text-[1.8em] text-purple sm:mb-2.5">
         {title}
       </p>
       <Image
         src={imageUrl}
-        width={500}
-        height={300}
-        className="w-full h-full max-h-[300px] object-cover rounded-md mx-auto"
+        width={8000}
+        height={8000}
+        className="border-2 w-full h-full max-h-[500px] max-w-[800px] object-cover rounded-md mx-auto"
         alt="user-session"
       />
-      <p className="mt-2.5 text-[1em]">{description}</p>
+      <p className="mt-2.5 text-[1em] text-darkGray">{description}</p>
     </div>
   );
 };
