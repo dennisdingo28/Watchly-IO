@@ -8,15 +8,16 @@ export async function PATCH(
   req: NextRequest,
 ) {
   try {
-   
+    
     const data = await req.json();
+    console.log(data);
     
     if(!data.path) return new NextResponse("A path was expected. No path was provided.", {status:401});
-    
+    if(!data.country || !data.country.countryCode || !data.country.countryName) return new NextResponse("No country was provided.", {status:401});
     
     const {searchParams} = new URL(req.url);
     const apiKey = searchParams.get("apiKey");
-
+    
     if (!apiKey || apiKey.trim() === "")
       throw new Error("No workspace api key was provided. Please provide one.");
 
@@ -30,11 +31,11 @@ export async function PATCH(
       },
     });
     
+    
     if(!targetWorkspace) return new NextResponse("Api key is not valid.");
-
+    
     if(targetWorkspace.routes.find(route=>route.pathname===data.path)){
       //update existing route
-      
       await db.route.update({
         where:{
           pathname_workspaceId:{
@@ -50,11 +51,13 @@ export async function PATCH(
       });
 
     }else{
-      //create new route
+      //create new route stats
       await db.route.create({
         data:{
           pathname: data.path,
           workspaceId: targetWorkspace.id,
+          country: data.country.countryName,
+          countryCode: data.country.countryCode,
         },
       });
     }

@@ -75,6 +75,8 @@ model Workspace {
 model Route {
   pathname String
   visited Int @default(1)
+  country String
+  countryCode String
   workspaceId String
   workspace Workspace @relation(fields: [workspaceId], references: [id])
 
