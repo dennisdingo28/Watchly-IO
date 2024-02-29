@@ -77,9 +77,7 @@ export const CreateWorkspaceForm = () => {
         />
         <div className="flex justify-end mt-10">
           <Button disabled={isPending} type="submit">
-            {isPending && (
-              <Loader2 className="h-4 w-4 ml-2 animate-spin mr-2" />
-            )}
+            {isPending && <Loader2 className="h-4 w-4 animate-spin mr-2" />}
             Create
           </Button>
         </div>

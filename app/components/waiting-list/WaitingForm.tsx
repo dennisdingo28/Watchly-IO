@@ -47,7 +47,7 @@ export const WaitingForm = () => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="flex flex-col sm:flex-row items-center justify-center gap-2"
+        className="flex flex-col sm:flex-row items-center justify-center gap-2.5"
       >
         <FormField
           control={form.control}
