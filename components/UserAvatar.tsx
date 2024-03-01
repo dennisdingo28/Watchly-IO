@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import {
@@ -23,7 +23,7 @@ export const UserAvatar = ({
       {showDropDownMenu ? (
         <DropdownMenu>
           <DropdownMenuTrigger>
-            <AvatarImage src={userImage} />
+            <AvatarImage src={userImage} alt="user-image" />
           </DropdownMenuTrigger>
           <DropdownMenuContent>
             <DropdownMenuItem

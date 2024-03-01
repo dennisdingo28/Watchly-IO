@@ -30,12 +30,9 @@ export const ProjectData = async () => {
       <section className="mt-10">
         <VisitorsChart />
       </section>
-      <section className="mt-10 flex items-center justify-end">
-        <div className="flex-1">
-          <VisitorsChart />
-        </div>
 
-        <div className="flex-1">
+      <section className="mt-10">
+        <div>
           <h3 className="text-purple font-bold text-2xl text-center">
             Visitors informations
           </h3>
@@ -46,15 +43,29 @@ export const ProjectData = async () => {
               </div>
               <VisitedRoutes />
             </div>
-            <div>
-              <div className="bg-purple rounded-tr-sm p-2.5">
+            <div className="flex-1">
+              <div className="bg-purple p-2.5">
                 <p className="text-white text-center">All Countries</p>
+              </div>
+              <VisitorsCountries />
+            </div>
+            <div className="flex-1">
+              <div className="bg-purple p-2.5">
+                <p className="text-white text-center">Operating Systems</p>
+              </div>
+              <VisitorsCountries />
+            </div>
+            <div className="flex-1">
+              <div className="bg-purple rounded-tr-sm p-2.5">
+                <p className="text-white text-center">Browsers</p>
               </div>
               <VisitorsCountries />
             </div>
           </div>
         </div>
       </section>
+
+      <VisitorsChart />
     </Container>
   );
 };

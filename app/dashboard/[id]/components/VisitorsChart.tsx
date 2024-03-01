@@ -41,7 +41,7 @@ export const VisitorsChart = () => {
   return (
     <div>
       <p className="text-4xl font-semibold">
-        <InfoText>Visitors</InfoText>
+        <InfoText>Visitors2</InfoText>
       </p>
 
       <Chart
