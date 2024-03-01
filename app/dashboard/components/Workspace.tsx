@@ -27,12 +27,12 @@ export const Workspace = ({
   };
   return (
     <div
-      className="bg-white z-10 p-5 rounded-md border-2 border-lightGray hover:shadow-md transition-shadow cursor-pointer"
+      className="bg-white p-5 rounded-md border-2 border-lightGray hover:shadow-md transition-shadow cursor-pointer"
       onClick={(e) => handleLinkClick(e, id)}
     >
       <div className="flex items-center justify-between">
         <h1 className="tracking-tight">{name}</h1>
-        <div className="flex items-center gap-2.5 z-50">
+        <div className="flex items-center gap-2.5">
           <Badge className="bg-[#f0fdf4] text-[#15803d] border-2 border-[#c4ebd2]">
             active
           </Badge>
