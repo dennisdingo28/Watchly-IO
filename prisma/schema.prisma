@@ -65,7 +65,7 @@ model Workspace {
   name          String
   createdAt     DateTime        @default(now())
   apiKey        String          @unique
-  roomId        String         @default(cuid())
+  roomId        String          @default(cuid())
   userId        String
   routes        Route[]
   user          User            @relation(fields: [userId], references: [id], onDelete: Cascade)
