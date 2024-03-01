@@ -8,6 +8,7 @@ import { InfoText } from "@/components/InfoText";
 import { VisitorsChart } from "../visitors/VisitorsChart";
 import { VisitorsCountries } from "../visitors/VisitorsCountries";
 import { VisitedRoutes } from "../visitors/VisitedRoutes";
+import { VisitorsBrowser } from "../visitors/VisitorsBrowser";
 
 export const WorkspaceData = async () => {
   const user = await currentUser();
@@ -59,7 +60,7 @@ export const WorkspaceData = async () => {
             <div className="bg-purple rounded-tr-sm p-2.5">
               <p className="text-white text-center">Browsers</p>
             </div>
-            <VisitorsCountries />
+            <VisitorsBrowser />
           </div>
         </div>
       </section>
