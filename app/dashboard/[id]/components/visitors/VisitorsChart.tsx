@@ -8,14 +8,12 @@ export const VisitorsChart = () => {
       name: "series1",
       data: [31, 40, 28, 51, 42, 119, 100],
     },
-    
   ];
   const options = {
     chart: {
       id: "basic-bar",
       foreColor: "#514aa5",
       colors: ["#514aa5"],
-
     },
     grid: {
       row: {
@@ -23,13 +21,13 @@ export const VisitorsChart = () => {
       },
       xaxis: {
         lines: {
-            show: true
-        }
+          show: true,
+        },
       },
       yaxis: {
         lines: {
-            show: false
-        }
+          show: false,
+        },
       },
     },
     colors: ["#776df2"],
@@ -51,7 +49,7 @@ export const VisitorsChart = () => {
   };
   return (
     <div>
-      <p className="text-4xl font-semibold">
+      <p className="text-4xl font-semibold mb-2.5">
         <InfoText>Monthly Visitors</InfoText>
       </p>
 
@@ -60,7 +58,7 @@ export const VisitorsChart = () => {
         series={series}
         type="area"
         className="w-full"
-        height="400"
+        height="500"
       />
     </div>
   );

@@ -1,6 +1,6 @@
-import { ProjectApiKey } from "./ProjectApiKey";
+import { WorkspaceApiKey } from "./WorkspaceApiKey";
 
-export const ProjectManager = () => {
+export const WorkspaceManager = () => {
   return (
     <div className="cursor-pointer bg-lightGray px-5 py-2.5 rounded-md hover:bg-transparent hover:shadow-[0px_0px_3px_rgb(119,109,242)] transition-colors">
       <div className="flex items-center gap-2">
@@ -9,7 +9,7 @@ export const ProjectManager = () => {
       </div>
       <div>
         <p className="text-sm text-darkGray">Plan: Business</p>
-        <ProjectApiKey apiKey="watchly-asfa81251@gasa2" />
+        <WorkspaceApiKey apiKey="watchly-asfa81251@gasa2" />
       </div>
     </div>
   );
