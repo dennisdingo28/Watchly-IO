@@ -65,6 +65,7 @@ model Workspace {
   name          String
   createdAt     DateTime        @default(now())
   apiKey        String          @unique
+  roomId        String          @default(cuid())
   userId        String
   routes        Route[]
   user          User            @relation(fields: [userId], references: [id], onDelete: Cascade)
@@ -86,8 +87,8 @@ model WorkspaceUser {
   id             String              @id
   joinedAt       DateTime            @default(now())
   disconnectedAt DateTime            @default(now())
-  workspaceId    String
   status         WorkspaceUserStatus @default(ONLINE)
+  workspaceId    String
   Workspace      Workspace           @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
 }
 
