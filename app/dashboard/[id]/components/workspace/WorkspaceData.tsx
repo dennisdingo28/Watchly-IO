@@ -10,6 +10,7 @@ import { VisitorsCountries } from "../visitors/VisitorsCountries";
 import { VisitedRoutes } from "../visitors/VisitedRoutes";
 import { VisitorsBrowsers } from "../visitors/VisitorsBrowsers";
 import { VisitorsSystems } from "../visitors/VisitorsSystems";
+import { Recordings } from "../recordings/Recordings";
 
 export const WorkspaceData = async () => {
   const user = await currentUser();
@@ -66,9 +67,16 @@ export const WorkspaceData = async () => {
         </div>
       </section>
 
-      <div className="mt-24 sm:mt-28">
+      <section className="mt-24 sm:mt-28">
         <VisitorsChart />
-      </div>
+      </section>
+
+      <section className="my-10">
+        <h3 className="text-purple font-bold text-2xl text-center mb-2.5">
+          Recordings
+        </h3>
+        <Recordings />
+      </section>
     </Container>
   );
 };
