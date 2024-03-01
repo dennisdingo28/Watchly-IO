@@ -9,7 +9,7 @@ export const WorkspaceApiKey = ({ apiKey }: { apiKey: string }) => {
 
   return (
     <div
-      className="mt-3 flex flex-wrap gap-2 items-center"
+      className="mt-5 flex flex-wrap gap-2 items-center"
       onClick={() =>
         copyText(apiKey)
           .then(() => setCopied(true))
