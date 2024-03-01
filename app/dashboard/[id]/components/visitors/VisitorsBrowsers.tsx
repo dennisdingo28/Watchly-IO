@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
-export const VisitorsBrowser = () => {
+export const VisitorsBrowsers = () => {
   return (
     <div className="border-r-2 border-b-2 border-purple p-1 rounded-br-sm h-full">
       <div className="flex items-center gap-2.5 py-2.5">
