@@ -6,24 +6,35 @@ export const VisitorsChart = () => {
   const series = [
     {
       name: "series1",
-      data: [31, 40, 28, 51, 42, 109, 100],
+      data: [31, 40, 28, 51, 42, 119, 100],
     },
-    {
-      name: "series2",
-      data: [11, 32, 45, 32, 34, 52, 41],
-    },
+    
   ];
   const options = {
     chart: {
       id: "basic-bar",
       foreColor: "#514aa5",
       colors: ["#514aa5"],
+
+    },
+    grid: {
+      row: {
+        colors: undefined,
+      },
+      xaxis: {
+        lines: {
+            show: true
+        }
+      },
+      yaxis: {
+        lines: {
+            show: false
+        }
+      },
     },
     colors: ["#776df2"],
-    fill: {
-      colors: ["#776df2", "#514aa5"],
-    },
     dataLabels: {
+      enabled: true,
       style: {
         colors: ["#776df2"],
       },
@@ -41,7 +52,7 @@ export const VisitorsChart = () => {
   return (
     <div>
       <p className="text-4xl font-semibold">
-        <InfoText>Visitors</InfoText>
+        <InfoText>Monthly Visitors</InfoText>
       </p>
 
       <Chart
