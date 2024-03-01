@@ -2,7 +2,7 @@ import ReactCountryFlag from "react-country-flag";
 
 export const VisitorsCountries = () => {
   return (
-    <div className="border-r-2 border-b-2 border-purple p-1 rounded-br-sm h-full">
+    <div className="border-r-2 md:border-r-0 border-l-2 md:border-l-0 md:border-b-2 border-purple p-1 md:rounded-br-none h-full">
       <div className="flex items-center gap-2.5 py-2.5">
         <ReactCountryFlag className="text-2xl" svg countryCode={"RO"} />
         <span className="text-xs text-darkGray">230 visitors avg.</span>

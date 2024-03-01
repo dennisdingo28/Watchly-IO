@@ -1,6 +1,6 @@
 export const VisitedRoutes = () => {
   return (
-    <div className="border-l-2 border-b-2 border-r-2 border-purple p-1 rounded-bl-sm h-full">
+    <div className="border-l-2 md:border-b-2 border-r-2 border-purple p-1 md:rounded-bl-sm h-full">
       <div className="flex gap-1 cursor-pointer py-2.5">
         <p className="font-bold text-sm">/pricing</p>
         <span className="text-xs text-darkGray self-end">56</span>

@@ -38,9 +38,9 @@ export const WorkspaceData = async () => {
         <h3 className="text-purple font-bold text-2xl text-center mb-2.5">
           Visitors informations
         </h3>
-        <div className="flex">
+        <div className="flex flex-col md:flex-row">
           <div className="flex-1">
-            <div className="bg-purple rounded-tl-sm p-2.5">
+            <div className="bg-purple rounded-tl-sm rounded-tr-sm md:rounded-tr-none p-2.5">
               <p className="text-white text-center">All Routes</p>
             </div>
             <VisitedRoutes />
@@ -58,7 +58,7 @@ export const WorkspaceData = async () => {
             <VisitorsSystems />
           </div>
           <div className="flex-1">
-            <div className="bg-purple rounded-tr-sm p-2.5">
+            <div className="bg-purple md:rounded-tr-sm p-2.5">
               <p className="text-white text-center">Browsers</p>
             </div>
             <VisitorsBrowsers />
@@ -66,7 +66,7 @@ export const WorkspaceData = async () => {
         </div>
       </section>
 
-      <div className="mt-28">
+      <div className="mt-24 sm:mt-28">
         <VisitorsChart />
       </div>
     </Container>
