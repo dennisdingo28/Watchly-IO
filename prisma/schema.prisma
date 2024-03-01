@@ -61,24 +61,37 @@ model PasswordResetToken {
 }
 
 model Workspace {
-  id        String   @id @default(cuid())
-  name      String
-  createdAt DateTime @default(now())
-  apiKey    String   @unique
-  userId    String
-
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  routes Route[]
+  id            String          @id @default(cuid())
+  name          String
+  createdAt     DateTime        @default(now())
+  apiKey        String          @unique
+  userId        String
+  routes        Route[]
+  user          User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  WorkspaceUser WorkspaceUser[]
 }
 
-
 model Route {
-  pathname String
-  visited Int @default(1)
-  country String
+  pathname    String
+  visited     Int       @default(1)
+  country     String
   countryCode String
   workspaceId String
-  workspace Workspace @relation(fields: [workspaceId], references: [id])
+  workspace   Workspace @relation(fields: [workspaceId], references: [id])
 
   @@id([pathname, workspaceId])
+}
+
+model WorkspaceUser {
+  id             String              @id
+  joinedAt       DateTime            @default(now())
+  disconnectedAt DateTime            @default(now())
+  workspaceId    String
+  status         WorkspaceUserStatus @default(ONLINE)
+  Workspace      Workspace           @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+}
+
+enum WorkspaceUserStatus {
+  ONLINE
+  OFFLINE
 }
