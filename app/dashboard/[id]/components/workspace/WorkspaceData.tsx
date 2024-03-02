@@ -75,7 +75,11 @@ export const WorkspaceData = async () => {
         <h3 className="text-purple font-bold text-2xl text-center mb-2.5">
           Recordings
         </h3>
-        <Recordings />
+        <Recordings
+          userImage={user?.image!}
+          userName={user?.name!}
+          userEmail={user?.email!}
+        />
       </section>
     </Container>
   );
