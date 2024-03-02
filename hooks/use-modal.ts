@@ -4,7 +4,8 @@ export type ModalType =
   | "login"
   | "register"
   | "createWorkspace"
-  | "deleteWorkspace";
+  | "deleteWorkspace"
+  | "deleteRecording";
 
 export interface ModalData {
   user?: {
@@ -12,7 +13,7 @@ export interface ModalData {
     email: string;
     image: string;
   };
-  workspaceName?:string
+  workspaceName?: string;
   workspaceId?: string;
 }
 

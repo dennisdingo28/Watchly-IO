@@ -3,7 +3,17 @@ import Image from "next/image";
 import React from "react";
 import { EditRecording } from "./EditRecording";
 
-export const Recording = () => {
+interface RecordingProps {
+  userName: string;
+  userEmail: string;
+  userImage: string;
+}
+
+export const Recording = ({
+  userName,
+  userImage,
+  userEmail,
+}: RecordingProps) => {
   return (
     <div className="">
       <div className="flex gap-2.5">
@@ -17,7 +27,11 @@ export const Recording = () => {
         <div className="flex flex-col w-full">
           <div className="flex items-center justify-between">
             <p className="text-sm">Recording 1</p>
-            <EditRecording />
+            <EditRecording
+              userImage={userImage}
+              userName={userName}
+              userEmail={userEmail}
+            />
           </div>
           <div className="flex items-center gap-2.5 text-darkGray">
             <PlayCircle className="w-[16px] h-[16px]" />
