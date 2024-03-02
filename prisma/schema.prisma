@@ -69,7 +69,7 @@ model Workspace {
   userId        String
   routes        Route[]
   user          User            @relation(fields: [userId], references: [id], onDelete: Cascade)
-  WorkspaceUser WorkspaceUser[]
+  workspaceUsers WorkspaceUser[]
 }
 
 model Route {

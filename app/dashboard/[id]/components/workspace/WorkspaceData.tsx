@@ -11,8 +11,9 @@ import { VisitedRoutes } from "../visitors/VisitedRoutes";
 import { VisitorsBrowsers } from "../visitors/VisitorsBrowsers";
 import { VisitorsSystems } from "../visitors/VisitorsSystems";
 import { Recordings } from "../recordings/Recordings";
+import { WorkspaceWithUsers } from "@/types";
 
-export const WorkspaceData = async () => {
+export const WorkspaceData = async ({workspace}:{workspace: WorkspaceWithUsers}) => {
   const user = await currentUser();
 
   return (
@@ -26,8 +27,8 @@ export const WorkspaceData = async () => {
           <InfoText>Quick overview</InfoText>
         </p>
         <div className="flex flex-col-reverse justify-between xl:flex-row gap-5">
-          <OverallData />
-          <WorkspaceManager />
+          <OverallData usersAmount={workspace.workspaceUsers.length}/>
+          <WorkspaceManager workspace={workspace}/>
         </div>
       </section>
 

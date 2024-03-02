@@ -5,7 +5,7 @@ import { PurchaseButton } from "./PurchaseButton";
 
 export const Plan = ({ plan }: { plan: PlanType }) => {
   return (
-    <div className="relative w-full bg-white cursor-pointer rounded-md p-2.5 shadow-[0px_0px_4px_rgb(119,109,242)] hover:shadow-[0px_0px_10px_rgb(119,109,242)] hover:scale-105 transition-transform">
+    <div className="relative w-full flex flex-col bg-white cursor-pointer rounded-md p-2.5 shadow-[0px_0px_4px_rgb(119,109,242)] hover:shadow-[0px_0px_10px_rgb(119,109,242)] hover:scale-105 transition-transform">
       {plan.badge ? (
         <Badge className="absolute top-1 right-1 bg-darkPurple">
           {plan.badge}
@@ -20,14 +20,14 @@ export const Plan = ({ plan }: { plan: PlanType }) => {
         ))}
       </div>
 
-      <div className="my-5">
+      <div className="my-5 flex items-end h-full">
         <p className="flex items-center gap-1">
           {" "}
           <span className="font-bold text-3xl">${plan.price}</span>{" "}
           <span className="text-sm"> /month</span>
         </p>
       </div>
-      <div className="flex justify-center mt-auto">
+      <div className="flex items-end h-full justify-center">
         <PurchaseButton />
       </div>
     </div>

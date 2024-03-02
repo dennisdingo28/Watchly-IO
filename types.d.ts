@@ -1,3 +1,5 @@
+import { Workspace, WorkspaceUser } from "@prisma/client";
+
 //Plan types
 export type Plan = {
     name: string;
@@ -12,3 +14,6 @@ export type Faq = {
     question: string;
     answer: string;
 }
+
+//Workspace
+export type WorkspaceWithUsers = Workspace & {workspaceUsers: WorkspaceUser[]};

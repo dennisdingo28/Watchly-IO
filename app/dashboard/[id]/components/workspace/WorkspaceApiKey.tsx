@@ -17,7 +17,7 @@ export const WorkspaceApiKey = ({ apiKey }: { apiKey: string }) => {
       }
     >
       <p
-        className={`text-xs text-center ${
+        className={`text-xs text-center max-w-[200px] truncate ${
           copied ? "text-black" : "text-darkGray"
         }`}
       >

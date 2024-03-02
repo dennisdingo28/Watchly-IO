@@ -8,13 +8,17 @@ export const InitSocket = ({roomId}: {roomId: string}) =>{
     const {socket, setSocket} = useSocket(state=>state);
     
     useEffect(()=>{
+        setSocket(null);
+    }, [roomId]);
+
+    useEffect(()=>{
 
         if(!socket){
             const newSocket = io("http://localhost:3002",{query:{roomId}});
             setSocket(newSocket);
         }
         
-    },[]);
+    },[socket]);
     
     return null;
 }

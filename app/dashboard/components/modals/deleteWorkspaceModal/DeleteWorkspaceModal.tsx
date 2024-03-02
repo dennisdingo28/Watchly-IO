@@ -2,7 +2,6 @@
 import { UserAvatar } from "@/components/UserAvatar";
 import {
   AlertDialog,
-  AlertDialogAction,
   AlertDialogCancel,
   AlertDialogContent,
   AlertDialogDescription,

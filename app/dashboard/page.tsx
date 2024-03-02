@@ -8,7 +8,6 @@ import { WorkspaceFeed } from "./components/WorkspaceFeed";
 import { OpenModal } from "@/components/modals/OpenModal";
 import { db } from "@/lib/db";
 import { unstable_noStore as noStore } from "next/cache";
-import { use } from "react";
 
 const DashboardPage = async () => {
   noStore();
