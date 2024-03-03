@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { WorkspaceRequest, WorkspaceValidator } from "@/validators/workspace";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useClickOutside } from "@mantine/hooks";
@@ -44,6 +44,7 @@ export const WorkspaceName = ({
     } else setIsEditing(false);
   });
 
+  const queryClient = useQueryClient();
   const { mutate: updateWorkspaceName, isPending } = useMutation({
     mutationFn: async (newName: string) => {
       const res = await axios.patch(`/api/workspace/${data.id}`, {
@@ -54,14 +55,11 @@ export const WorkspaceName = ({
     },
     onSettled: () => {
       setIsEditing(false);
-
-      // revalidatePathname(`/dashboard/${workspace.id}`);
+      queryClient.invalidateQueries({ queryKey: ["workspaceName"] });
     },
   });
 
   useEffect(() => {
-    console.log(errors);
-
     if (errors && Object.keys(errors).length !== 0) {
       setShowErrors(true);
       console.log(errors);
