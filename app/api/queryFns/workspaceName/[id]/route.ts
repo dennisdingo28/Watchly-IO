@@ -1,24 +1,24 @@
-import { db } from "@/lib/db";
-import { NextResponse } from "next/server";
-import { unstable_noStore as noStore } from "next/cache";
 import { currentUser } from "@/lib/auth";
+import { db } from "@/lib/db";
+import { unstable_noStore as noStore } from "next/cache";
+import { NextResponse } from "next/server";
 
-export async function GET(req: Request) {
+export async function GET(
+  req: Request,
+  { params }: { params: { id: string } }
+) {
   noStore();
 
   try {
     const user = await currentUser();
     if (!user) return new NextResponse("Unauthorized", { status: 401 });
-    const workspaces = await db.workspace.findMany({
+    const workspace = await db.workspace.findUnique({
       where: {
-        userId: user?.id,
-      },
-      orderBy: {
-        createdAt: "asc",
+        id: params.id,
       },
     });
 
-    return NextResponse.json(workspaces);
+    return NextResponse.json(workspace);
   } catch (error) {
     console.log(error);
 

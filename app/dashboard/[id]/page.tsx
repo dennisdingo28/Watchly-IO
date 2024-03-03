@@ -2,18 +2,20 @@ import { db } from "@/lib/db";
 import { InitSocket } from "./components/InitSocket";
 import { WorkspaceData } from "./components/workspace/WorkspaceData";
 import { redirect } from "next/navigation";
+import { unstable_noStore as noStore } from "next/cache";
 import { currentUser } from "@/lib/auth";
 import { WorkspaceCountry } from "@/types";
 
-const DashboardProjectPage = async ({params}:{params:{id: string}}) => {
+const DashboardProjectPage = async ({ params }: { params: { id: string } }) => {
+  noStore();
   const user = await currentUser();
 
   const workspace = await db.workspace.findUnique({
-    where:{
+    where: {
       id: params.id,
       userId: user?.id,
     },
-    include:{
+    include: {
       workspaceUsers: true,
     },
   });
@@ -44,7 +46,7 @@ const DashboardProjectPage = async ({params}:{params:{id: string}}) => {
       <WorkspaceData workspace={workspace} workspaceRoutes={workspaceRoutes} workspaceCountries={allWorkspaceCountries}/>
       <InitSocket roomId={workspace.roomId}/>
     </>
-  )
+  );
 };
 
 export default DashboardProjectPage;

@@ -18,6 +18,9 @@ const DashboardPage = async () => {
     where: {
       userId: user?.id,
     },
+    orderBy: {
+      createdAt: "asc",
+    },
   });
 
   return (
