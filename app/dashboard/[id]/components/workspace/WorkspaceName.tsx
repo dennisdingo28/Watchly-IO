@@ -12,6 +12,7 @@ import { useClickOutside } from "@mantine/hooks";
 import { WorkspaceWithUsers } from "@/types";
 import { getWorkspaceName } from "@/lib/queryFns/getWorkspaceName";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
+import { revalidatePathname } from "@/lib/revalidatePathname";
 
 export const WorkspaceName = ({
   workspace,
@@ -99,24 +100,12 @@ export const WorkspaceName = ({
           />
         </form>
       </Form>
-
-      // <form
-      //   ref={editRef}
-      //   onSubmit={handleSubmit((data?) => updateWorkspaceName(data?.name!))}
-      // >
-      //   <Input
-      //     disabled={isPending}
-      //     {...register("name")}
-      //     placeholder={showErrors ? errors.name?.message : ""}
-      //     className={cn(showErrors ? "bg-red-500" : null)}
-      //   />
-      // </form>
     );
   }
 
   return (
     <div onClick={() => setIsEditing(true)} className="font-bold">
-      {data?.name}
+      {data.name}
     </div>
   );
 };

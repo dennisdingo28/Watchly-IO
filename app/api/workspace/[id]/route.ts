@@ -1,6 +1,8 @@
 import { currentUser } from "@/lib/auth";
 import { db } from "@/lib/db";
+import { revalidatePathname } from "@/lib/revalidatePathname";
 import { WorkspaceValidator } from "@/validators/workspace";
+import { revalidatePath } from "next/cache";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function DELETE(
@@ -43,7 +45,7 @@ export async function PATCH(
 
     const data = await req.json();
 
-    const {name} = WorkspaceValidator.parse(data);
+    const { name } = WorkspaceValidator.parse(data);
 
     const existingWorkspace = await db.workspace.findUnique({
       where: {
@@ -58,15 +60,13 @@ export async function PATCH(
       where: {
         id: params.id,
       },
-      data:{
+      data: {
         name,
       },
     });
-
     return NextResponse.json(updatedWorkspace);
   } catch (error) {
     console.log(error);
     return new NextResponse("Internal Server Error", { status: 500 });
   }
 }
-
