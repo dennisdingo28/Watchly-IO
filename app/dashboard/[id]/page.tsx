@@ -2,12 +2,16 @@ import { db } from "@/lib/db";
 import { InitSocket } from "./components/InitSocket";
 import { WorkspaceData } from "./components/workspace/WorkspaceData";
 import { redirect } from "next/navigation";
+import { currentUser } from "@/lib/auth";
+import { WorkspaceCountry } from "@/types";
 
 const DashboardProjectPage = async ({params}:{params:{id: string}}) => {
+  const user = await currentUser();
 
   const workspace = await db.workspace.findUnique({
     where:{
       id: params.id,
+      userId: user?.id,
     },
     include:{
       workspaceUsers: true,
@@ -16,10 +20,29 @@ const DashboardProjectPage = async ({params}:{params:{id: string}}) => {
 
   if(!workspace) redirect("/dashboard");
 
+  const workspaceRoutes = await db.route.findMany({
+    where:{
+      workspaceId: workspace.id,
+    },
+  });
+
+  //countries informations
+  const allWorkspaceCountries: Array<WorkspaceCountry> = [];
+
+  for(const route of workspaceRoutes){
+    const existingCountry = allWorkspaceCountries.find(cn=>cn.country===route.country);
+    
+    if(!existingCountry){
+      allWorkspaceCountries.push({country: route.country, countryCode: route.countryCode, visitors:1});
+    }else{
+      allWorkspaceCountries.push({...existingCountry, visitors: existingCountry.visitors+1});
+    }
+  }
+  
   return (
     <>
-    <WorkspaceData workspace={workspace}/>
-    <InitSocket roomId={workspace.roomId}/>
+      <WorkspaceData workspace={workspace} workspaceRoutes={workspaceRoutes} workspaceCountries={allWorkspaceCountries}/>
+      <InitSocket roomId={workspace.roomId}/>
     </>
   )
 };

@@ -17,3 +17,8 @@ export type Faq = {
 
 //Workspace
 export type WorkspaceWithUsers = Workspace & {workspaceUsers: WorkspaceUser[]};
+export type WorkspaceCountry = {
+    country: string;
+    countryCode: string;
+    visitors: number;
+}

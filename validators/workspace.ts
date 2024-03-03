@@ -2,7 +2,7 @@ import * as z from "zod";
 
 export const WorkspaceValidator = z.object({
   name: z
-    .string()
+    .string().trim()
     .min(3, { message: "Workspace name must be at least 3 character" }),
 });
 

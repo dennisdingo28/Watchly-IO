@@ -1,6 +1,6 @@
 "use client"
 
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { WorkspaceRequest, WorkspaceValidator } from "@/validators/workspace";
@@ -11,6 +11,7 @@ import { useForm } from "react-hook-form";
 import { useClickOutside } from "@mantine/hooks";
 import { revalidatePathname } from "@/lib/revalidatePathname";
 import { WorkspaceWithUsers } from "@/types";
+import { toast } from "sonner";
 
 
 export const WorkspaceName = ({workspace}:{workspace: WorkspaceWithUsers}) =>{
@@ -19,13 +20,12 @@ export const WorkspaceName = ({workspace}:{workspace: WorkspaceWithUsers}) =>{
     const [isEditing, setIsEditing] = useState(false);
     const [showErrors, setShowErrors] = useState(false);
     
-    const {handleSubmit, register, formState:{errors}, getValues} = useForm<WorkspaceRequest>({
+    const {handleSubmit, register, formState:{errors}, getValues, setValue} = useForm<WorkspaceRequest>({
         resolver: zodResolver(WorkspaceValidator),
         defaultValues:{
             name: workspace.name,
         },
     });
-
     const editRef =  useClickOutside(()=>{
         if(getValues("name")!==workspace.name){
             updateWorkspaceName(getValues("name"));
@@ -41,8 +41,13 @@ export const WorkspaceName = ({workspace}:{workspace: WorkspaceWithUsers}) =>{
         },
         onSettled:()=>{
             setIsEditing(false);
-
-            // revalidatePathname(`/dashboard/${workspace.id}`);
+            revalidatePathname(`/dashboard/${workspace.id}`);
+        },
+        onError:(error)=>{
+            setValue("name", workspace.name);
+            if(error instanceof AxiosError)
+            toast.error(error.response?.data || "Something went wrong. Please try again later.")
+            else toast.error("Something went wrong. Please try again later.");
         }
     });
 
@@ -66,7 +71,7 @@ export const WorkspaceName = ({workspace}:{workspace: WorkspaceWithUsers}) =>{
         
         return (
             <form ref={editRef} onSubmit={handleSubmit((data)=>updateWorkspaceName(data.name))}>
-                <Input disabled={isPending} {...register("name")} placeholder={showErrors ? errors.name?.message:""} className={cn(showErrors ? "bg-red-500":null)}/>
+                <Input disabled={isPending} autoFocus {...register("name")} placeholder={showErrors ? errors.name?.message ? "Too short":"":""} className={cn(showErrors ? "focus:outline focus:outline-red-500":null)}/>
             </form>
         )
     }

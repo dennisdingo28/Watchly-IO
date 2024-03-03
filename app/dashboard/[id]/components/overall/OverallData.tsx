@@ -1,7 +1,13 @@
 import { Flag, User2 } from "lucide-react";
 import { OverallCard } from "./OverallCard";
+import { WorkspaceCountry } from "@/types";
 
-export const OverallData = ({usersAmount}: {usersAmount: number}) => {
+interface OverallDataProps {
+  usersAmount: number;
+  workspaceCountries: Array<WorkspaceCountry>;
+}
+
+export const OverallData = ({usersAmount, workspaceCountries}: OverallDataProps) => {
   return (
     <>
       <div className="grid grid-cols-2 md:items-center justify-between gap-y-5 xsBig:grid-cols-4 xsBig:gap-10">
@@ -13,7 +19,7 @@ export const OverallData = ({usersAmount}: {usersAmount: number}) => {
         />
         <OverallCard
           icon={<Flag className="text-purple w-5 h-5" />}
-          amount={115}
+          amount={workspaceCountries.length}
           label="Countries"
           className="justify-self-end xsBig:justify-self-auto"
         />

@@ -14,7 +14,7 @@ export const InitSocket = ({roomId}: {roomId: string}) =>{
     useEffect(()=>{
 
         if(!socket){
-            const newSocket = io("http://localhost:3002",{query:{roomId}});
+            const newSocket = io("http://localhost:3002/dashboard",{query:{roomId}});
             setSocket(newSocket);
         }
         

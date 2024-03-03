@@ -61,14 +61,14 @@ model PasswordResetToken {
 }
 
 model Workspace {
-  id            String          @id @default(cuid())
-  name          String
-  createdAt     DateTime        @default(now())
-  apiKey        String          @unique
-  roomId        String          @default(cuid())
-  userId        String
-  routes        Route[]
-  user          User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id             String          @id @default(cuid())
+  name           String
+  createdAt      DateTime        @default(now())
+  apiKey         String          @unique
+  roomId         String          @unique @default(cuid())
+  userId         String
+  routes         Route[]
+  user           User            @relation(fields: [userId], references: [id], onDelete: Cascade)
   workspaceUsers WorkspaceUser[]
 }
 

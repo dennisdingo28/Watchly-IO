@@ -59,14 +59,14 @@ export async function PATCH(
         id: params.id,
       },
       data:{
-        name,
+        name: name.trim(),
       },
     });
 
     return NextResponse.json(updatedWorkspace);
   } catch (error) {
     console.log(error);
-    return new NextResponse("Internal Server Error", { status: 500 });
+    return new NextResponse("Something went wrong. Please try again later.", { status: 500 });
   }
 }
 

@@ -11,9 +11,16 @@ import { VisitedRoutes } from "../visitors/VisitedRoutes";
 import { VisitorsBrowsers } from "../visitors/VisitorsBrowsers";
 import { VisitorsSystems } from "../visitors/VisitorsSystems";
 import { Recordings } from "../recordings/Recordings";
-import { WorkspaceWithUsers } from "@/types";
+import { WorkspaceCountry, WorkspaceWithUsers } from "@/types";
+import { Route } from "@prisma/client"
 
-export const WorkspaceData = async ({workspace}:{workspace: WorkspaceWithUsers}) => {
+interface WorkspaceDataProps {
+  workspace: WorkspaceWithUsers;
+  workspaceRoutes: Array<Route>;
+  workspaceCountries: Array<WorkspaceCountry>;
+}
+
+export const WorkspaceData = async ({workspace, workspaceRoutes, workspaceCountries}: WorkspaceDataProps) => {
   const user = await currentUser();
 
   return (
@@ -27,7 +34,7 @@ export const WorkspaceData = async ({workspace}:{workspace: WorkspaceWithUsers})
           <InfoText>Quick overview</InfoText>
         </p>
         <div className="flex flex-col-reverse justify-between xl:flex-row gap-5">
-          <OverallData usersAmount={workspace.workspaceUsers.length}/>
+          <OverallData usersAmount={workspace.workspaceUsers.length} workspaceCountries={workspaceCountries}/>
           <WorkspaceManager workspace={workspace}/>
         </div>
       </section>
