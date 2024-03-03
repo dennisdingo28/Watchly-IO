@@ -11,6 +11,7 @@ import { useForm } from "react-hook-form";
 import { useClickOutside } from "@mantine/hooks";
 import { WorkspaceWithUsers } from "@/types";
 import { getWorkspaceName } from "@/lib/queryFns/getWorkspaceName";
+import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 
 export const WorkspaceName = ({
   workspace,
@@ -26,28 +27,22 @@ export const WorkspaceName = ({
   const [isEditing, setIsEditing] = useState(false);
   const [showErrors, setShowErrors] = useState(false);
 
-  const {
-    handleSubmit,
-    register,
-    formState: { errors },
-    getValues,
-  } = useForm<WorkspaceRequest>({
+  const form = useForm<WorkspaceRequest>({
     resolver: zodResolver(WorkspaceValidator),
     defaultValues: {
-      name: data.name,
+      name: workspace.name,
     },
   });
 
-  const editRef = useClickOutside(() => {
-    if (getValues("name") !== data.name) {
-      updateWorkspaceName(getValues("name"));
-    } else setIsEditing(false);
-  });
+  const {
+    getValues,
+    formState: { errors },
+  } = form;
 
   const queryClient = useQueryClient();
   const { mutate: updateWorkspaceName, isPending } = useMutation({
     mutationFn: async (newName: string) => {
-      const res = await axios.patch(`/api/workspace/${data.id}`, {
+      const res = await axios.patch(`/api/workspace/${data?.id}`, {
         name: newName,
       });
 
@@ -59,10 +54,18 @@ export const WorkspaceName = ({
     },
   });
 
+  const editRef = useClickOutside(() => {
+    if (getValues("name") !== data?.name) {
+      updateWorkspaceName(getValues("name"));
+    } else setIsEditing(false);
+  });
+  const onSubmit = (values: WorkspaceRequest) => {
+    updateWorkspaceName(values.name);
+  };
+
   useEffect(() => {
     if (errors && Object.keys(errors).length !== 0) {
       setShowErrors(true);
-      console.log(errors);
     }
 
     setTimeout(() => {
@@ -72,23 +75,48 @@ export const WorkspaceName = ({
 
   if (isEditing) {
     return (
-      <form
-        ref={editRef}
-        onSubmit={handleSubmit((data) => updateWorkspaceName(data.name))}
-      >
-        <Input
-          disabled={isPending}
-          {...register("name")}
-          placeholder={showErrors ? errors.name?.message : ""}
-          className={cn(showErrors ? "bg-red-500" : null)}
-        />
-      </form>
+      <Form {...form}>
+        <form
+          ref={editRef}
+          className="mb-2.5"
+          onSubmit={form.handleSubmit(onSubmit)}
+        >
+          <FormField
+            control={form.control}
+            name="name"
+            render={({ field }) => (
+              <FormItem>
+                <FormControl>
+                  <Input
+                    {...field}
+                    disabled={isPending}
+                    placeholder={showErrors ? errors.name?.message : ""}
+                    className={cn(showErrors ? "bg-red-500" : null)}
+                  />
+                </FormControl>
+              </FormItem>
+            )}
+          />
+        </form>
+      </Form>
+
+      // <form
+      //   ref={editRef}
+      //   onSubmit={handleSubmit((data?) => updateWorkspaceName(data?.name!))}
+      // >
+      //   <Input
+      //     disabled={isPending}
+      //     {...register("name")}
+      //     placeholder={showErrors ? errors.name?.message : ""}
+      //     className={cn(showErrors ? "bg-red-500" : null)}
+      //   />
+      // </form>
     );
   }
 
   return (
     <div onClick={() => setIsEditing(true)} className="font-bold">
-      {data.name}
+      {data?.name}
     </div>
   );
 };
