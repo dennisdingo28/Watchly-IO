@@ -5,7 +5,7 @@ import Chart from "react-apexcharts";
 export const VisitorsChart = () => {
   const series = [
     {
-      name: "series1",
+      name: "Visitators",
       data: [31, 40, 28, 51, 42, 119, 100],
     },
   ];
