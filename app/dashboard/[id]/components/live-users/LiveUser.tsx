@@ -23,7 +23,7 @@ export const LiveUser = ({
           {formatJoinedDate(workspaceUser.joinedAt)}
         </p>
         <div>
-          <ReactCountryFlag className="text-2xl" svg countryCode={"RO"} />
+          <ReactCountryFlag className="text-2xl" svg countryCode={workspaceUser.countryCode} />
         </div>
         <div className="flex items-center gap-2">
             <Image src="/windows.svg" width={25} height={25} alt="browser-icon" />
