@@ -27,11 +27,15 @@ export const WorkspaceName = ({
 
   const [isEditing, setIsEditing] = useState(false);
   const [showErrors, setShowErrors] = useState(false);
+  let edited = false;
 
   const form = useForm<WorkspaceRequest>({
     resolver: zodResolver(WorkspaceValidator),
     defaultValues: {
-      name: workspace.name,
+      name:
+        data.name !== workspace.name && edited === false
+          ? workspace.name
+          : data.name,
     },
   });
 
@@ -46,18 +50,21 @@ export const WorkspaceName = ({
       const res = await axios.patch(`/api/workspace/${data?.id}`, {
         name: newName,
       });
-
+      edited = true;
       return res.data;
     },
     onSettled: () => {
       setIsEditing(false);
       queryClient.invalidateQueries({ queryKey: ["workspaceName"] });
     },
-    onError:(error)=>{
-      if(error instanceof AxiosError)
-      toast.error(error.response?.data || "Something went wrong. Please try again later.")
+    onError: (error) => {
+      if (error instanceof AxiosError)
+        toast.error(
+          error.response?.data ||
+            "Something went wrong. Please try again later."
+        );
       else toast.error("Something went wrong. Please try again later.");
-  }
+    },
   });
 
   const editRef = useClickOutside(() => {
