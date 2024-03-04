@@ -91,6 +91,8 @@ model WorkspaceUser {
   platform       String
   workspaceId    String
   Workspace      Workspace           @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
 }
 
 enum WorkspaceUserStatus {

@@ -1,8 +1,9 @@
 "use client";
 import { InfoText } from "@/components/InfoText";
+import { WorkspaceUser } from "@prisma/client";
 import Chart from "react-apexcharts";
 
-export const VisitorsChart = () => {
+export const VisitorsChart = ({ visitors }: { visitors: WorkspaceUser[] }) => {
   const series = [
     {
       name: "series1",
