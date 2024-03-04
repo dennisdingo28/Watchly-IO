@@ -65,6 +65,11 @@ export const MobileLinks = ({
             Pricing
           </DropdownMenuItem>
         </Link>
+        <Link href="/dashboard" className="text-sm font-medium">
+          <DropdownMenuItem className="cursor-pointer">
+            Dashboard
+          </DropdownMenuItem>
+        </Link>
 
         <DropdownMenuSeparator />
         {!isLoggedIn && (
