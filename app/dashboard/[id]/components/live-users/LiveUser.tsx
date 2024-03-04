@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { WorkspaceUser, WorkspaceUserStatus } from "@prisma/client";
 import ReactCountryFlag from "react-country-flag";
 import Image from "next/image";
+import { HiStatusOnline } from "react-icons/hi";
 
 export const LiveUser = ({
   workspaceUser,
@@ -12,30 +13,36 @@ export const LiveUser = ({
   workspaceUser: WorkspaceUser;
 }) => {
   return (
-    <div className="flex pr-1 gap-3 items-center justify-between border-2 border-purple rounded-md">
-      <div className="p-1 bg-purple rounded-tl-sm rounded-bl-sm">
-        <p className="text-white font-medium">{workspaceUser.id}</p>
+    <div className="flex flex-col lg:flex-row lg:pr-1 gap-3 lg:gap-10 lg:items-center justify-between border-2 border-purple rounded-md">
+      <div className="p-1 w-fit h-full bg-purple rounded-t-sm lg:rounded-tl-sm lg:rounded-bl-sm lg:rounded-br-sm">
+        <p className="text-white font-medium text-center text-sm whitespace-nowrap truncate">{workspaceUser.id}</p>
       </div>
-        <p className="text-purple">
-          {formatJoinedDate(workspaceUser.joinedAt)}
-        </p>
-        <p className="text-purple">
-          {formatJoinedDate(workspaceUser.joinedAt)}
-        </p>
-        <div>
-          <ReactCountryFlag className="text-2xl" svg countryCode={workspaceUser.countryCode} />
+        <div className="w-full flex items-center justify-evenly lg:justify-between gap-3">
+          <p className="text-purple text-center whitespace-nowrap truncate">
+            {formatJoinedDate(workspaceUser.joinedAt)}
+          </p>
+          <p className="text-purple text-center whitespace-nowrap truncate">
+            {formatJoinedDate(workspaceUser.joinedAt)}
+          </p>
         </div>
-        <div className="flex items-center gap-2">
-            <Image src="/windows.svg" width={25} height={25} alt="browser-icon" />
-            <span className="text-sm">
-                {workspaceUser.platform}
-            </span>
-        </div>
-      <div className="flex items-center gap-1">
-        <div
+       
+       <div className="w-full flex items-center justify-center lg:justify-center gap-5">
+          <div className="text-center">
+            <ReactCountryFlag className="text-2xl" svg countryCode={workspaceUser.countryCode} />
+          </div>
+          <div className="flex items-center justify-center gap-2">
+              <Image src="/windows.svg" width={25} height={25} alt="browser-icon" />
+              <span className="text-sm">
+                  {workspaceUser.platform}
+              </span>
+          </div>
+       </div>
+        
+      <div className="flex items-center justify-center lg:justify-normal gap-1">
+        <HiStatusOnline
           className={cn(
-            "w-[10px] h-[10px] rounded-full animate-pulse",
-            WorkspaceUserStatus.OFFLINE===workspaceUser.status ? "bg-red-500" : "bg-green-500"
+            "text-[20px] animate-pulse",
+            WorkspaceUserStatus.OFFLINE===workspaceUser.status ? "text-red-500" : "text-green-500"
           )}
         />
         <span className="text-sm font-medium">

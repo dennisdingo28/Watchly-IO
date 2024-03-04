@@ -16,14 +16,17 @@ export const LiveUsers = ({workspace}: {workspace: WorkspaceWithUsers}) =>{
 
         socket.on("status", (workspaceUser: WorkspaceUser)=>{
             console.log("got socket event", workspaceUser);
-            
-            setWorkspaceUsers(prev=>{
-                return prev.map(wu=>{
-                    if(wu.id===workspaceUser.id) return workspaceUser;
-                    
-                    return wu;
+            if(workspaceUsers.length===0){
+                setWorkspaceUsers([workspaceUser]);
+            }else{
+                setWorkspaceUsers(prev=>{
+                    return prev.map(wu=>{
+                        if(wu.id===workspaceUser.id) return workspaceUser;
+                        
+                        return wu;
+                    });
                 });
-            });
+            }
         });
 
 
