@@ -51,7 +51,7 @@ export const MobileLinks = ({
           </>
         )}
 
-        <Link href="/" className="text-sm font-medium">
+        <Link href="/dasboard" className="text-sm font-medium">
           <DropdownMenuItem
             className={cn(
               "cursor-pointer",
