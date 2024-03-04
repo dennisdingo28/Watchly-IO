@@ -13,6 +13,8 @@ import Link from "next/link";
 import { OpenModal } from "../modals/OpenModal";
 import { UserAvatar } from "../UserAvatar";
 import { signOut } from "next-auth/react";
+import { usePathname } from "next/navigation";
+import { cn } from "@/lib/utils";
 
 export const MobileLinks = ({
   userImage,
@@ -26,6 +28,8 @@ export const MobileLinks = ({
   isLoggedIn: boolean;
 }) => {
   const [showX, setShowX] = useState(false);
+  const pathname = usePathname();
+
   return (
     <DropdownMenu onOpenChange={() => setShowX((prevState) => !prevState)}>
       <DropdownMenuTrigger asChild>
@@ -47,21 +51,43 @@ export const MobileLinks = ({
           </>
         )}
 
-        <Link href="/" className="text-sm font-medium">
-          <DropdownMenuItem className="cursor-pointer">About</DropdownMenuItem>
+        <Link href="/dasboard" className="text-sm font-medium">
+          <DropdownMenuItem
+            className={cn(
+              "cursor-pointer",
+              pathname.includes("/dashboard") && "text-purple focus:text-purple"
+            )}
+          >
+            Dashboard
+          </DropdownMenuItem>
         </Link>
-        <Link href="/" className="text-sm font-medium">
-          <DropdownMenuItem className="cursor-pointer">
+        <Link href="/services" className="text-sm font-medium">
+          <DropdownMenuItem
+            className={cn(
+              "cursor-pointer",
+              pathname.includes("/services") && "text-purple focus:text-purple"
+            )}
+          >
             Services
           </DropdownMenuItem>
         </Link>
-        <Link href="/" className="text-sm font-medium">
-          <DropdownMenuItem className="cursor-pointer">
+        <Link href="/contact" className="text-sm font-medium">
+          <DropdownMenuItem
+            className={cn(
+              "cursor-pointer",
+              pathname.includes("/contact") && "text-purple focus:text-purple"
+            )}
+          >
             Contact
           </DropdownMenuItem>
         </Link>
-        <Link href="/" className="text-sm font-medium">
-          <DropdownMenuItem className="cursor-pointer">
+        <Link href="/pricing" className="text-sm font-medium">
+          <DropdownMenuItem
+            className={cn(
+              "cursor-pointer",
+              pathname.includes("/pricing") && "text-purple focus:text-purple"
+            )}
+          >
             Pricing
           </DropdownMenuItem>
         </Link>
