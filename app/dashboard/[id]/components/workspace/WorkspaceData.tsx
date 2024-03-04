@@ -13,6 +13,7 @@ import { VisitorsSystems } from "../visitors/VisitorsSystems";
 import { Recordings } from "../recordings/Recordings";
 import { WorkspaceCountry, WorkspaceWithUsers } from "@/types";
 import { Route } from "@prisma/client"
+import { LiveUsers } from "../live-users/LiveUsers";
 
 interface WorkspaceDataProps {
   workspace: WorkspaceWithUsers;
@@ -39,10 +40,15 @@ export const WorkspaceData = async ({workspace, workspaceRoutes, workspaceCountr
         </div>
       </section>
 
+
       <section className="mt-10">
         <VisitorsChart />
       </section>
-
+          
+      <section className="mt-10">
+        <LiveUsers workspace={workspace}/>
+      </section>
+      
       <section className="mt-10">
         <h3 className="text-purple font-bold text-2xl text-center mb-2.5">
           Visitors informations
