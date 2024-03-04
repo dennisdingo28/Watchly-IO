@@ -35,7 +35,6 @@ export const WorkspaceName = ({
       name: data.id !== workspace.id ? workspace.name : data.name,
     },
   });
-
   const {
     getValues,
     formState: { errors },
