@@ -12,7 +12,7 @@ import { VisitorsBrowsers } from "../visitors/VisitorsBrowsers";
 import { VisitorsSystems } from "../visitors/VisitorsSystems";
 import { Recordings } from "../recordings/Recordings";
 import { WorkspaceCountry, WorkspaceWithUsers } from "@/types";
-import { Route } from "@prisma/client"
+import { Route } from "@prisma/client";
 import { LiveUsers } from "../live-users/LiveUsers";
 
 interface WorkspaceDataProps {
@@ -21,7 +21,11 @@ interface WorkspaceDataProps {
   workspaceCountries: Array<WorkspaceCountry>;
 }
 
-export const WorkspaceData = async ({workspace, workspaceRoutes, workspaceCountries}: WorkspaceDataProps) => {
+export const WorkspaceData = async ({
+  workspace,
+  workspaceRoutes,
+  workspaceCountries,
+}: WorkspaceDataProps) => {
   const user = await currentUser();
 
   return (
@@ -35,20 +39,22 @@ export const WorkspaceData = async ({workspace, workspaceRoutes, workspaceCountr
           <InfoText>Quick overview</InfoText>
         </p>
         <div className="flex flex-col-reverse justify-between xl:flex-row gap-5">
-          <OverallData usersAmount={workspace.workspaceUsers.length} workspaceCountries={workspaceCountries}/>
-          <WorkspaceManager workspace={workspace}/>
+          <OverallData
+            usersAmount={workspace.workspaceUsers.length}
+            workspaceCountries={workspaceCountries}
+          />
+          <WorkspaceManager workspace={workspace} />
         </div>
       </section>
 
+      <section className="mt-10">
+        <VisitorsChart visitors={workspace.workspaceUsers} />
+      </section>
 
       <section className="mt-10">
-        <VisitorsChart />
+        <LiveUsers workspace={workspace} />
       </section>
-          
-      <section className="mt-10">
-        <LiveUsers workspace={workspace}/>
-      </section>
-      
+
       <section className="mt-10">
         <h3 className="text-purple font-bold text-2xl text-center mb-2.5">
           Visitors informations
@@ -82,7 +88,7 @@ export const WorkspaceData = async ({workspace, workspaceRoutes, workspaceCountr
       </section>
 
       <section className="mt-24 sm:mt-28">
-        <VisitorsChart />
+        <VisitorsChart visitors={workspace.workspaceUsers} />
       </section>
 
       <section className="my-10">
