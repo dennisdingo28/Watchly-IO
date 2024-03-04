@@ -27,15 +27,15 @@ const DashboardProjectPage = async ({ params }: { params: { id: string } }) => {
       workspaceId: workspace.id,
     },
   });
-
+  
   //countries informations
   const allWorkspaceCountries: Array<WorkspaceCountry> = [];
 
-  for(const route of workspaceRoutes){
-    const existingCountry = allWorkspaceCountries.find(cn=>cn.country===route.country);
+  for(const workspaceUser of workspace.workspaceUsers){
+    const existingCountry = allWorkspaceCountries.find(cn=>cn.country===workspaceUser.country);
     
     if(!existingCountry){
-      allWorkspaceCountries.push({country: route.country, countryCode: route.countryCode, visitors:1});
+      allWorkspaceCountries.push({country: workspaceUser.country, countryCode: workspaceUser.countryCode, visitors:1});
     }else{
       allWorkspaceCountries.push({...existingCountry, visitors: existingCountry.visitors+1});
     }
