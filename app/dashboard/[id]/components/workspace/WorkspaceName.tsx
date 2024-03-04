@@ -27,15 +27,12 @@ export const WorkspaceName = ({
 
   const [isEditing, setIsEditing] = useState(false);
   const [showErrors, setShowErrors] = useState(false);
-  let edited = false;
+  const [edited, setEdited] = useState(false);
 
   const form = useForm<WorkspaceRequest>({
     resolver: zodResolver(WorkspaceValidator),
     defaultValues: {
-      name:
-        data.name !== workspace.name && edited === false
-          ? workspace.name
-          : data.name,
+      name: data.id !== workspace.id ? workspace.name : data.name,
     },
   });
 
@@ -50,7 +47,7 @@ export const WorkspaceName = ({
       const res = await axios.patch(`/api/workspace/${data?.id}`, {
         name: newName,
       });
-      edited = true;
+      setEdited(true);
       return res.data;
     },
     onSettled: () => {
