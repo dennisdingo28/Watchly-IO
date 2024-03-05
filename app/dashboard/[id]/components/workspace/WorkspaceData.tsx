@@ -31,84 +31,86 @@ export const WorkspaceData = async ({
   const user = await currentUser();
 
   return (
-    <Container>
-      <header className="flex items-center justify-between pt-5">
-        <Logo theme="dark" />
-        <Link href="/dashboard" className="flex items-center gap-5">
-          <div className="flex items-center border-b-2 border-black text-sm">
-            <ChevronLeft className="w-[16px] h-[16px]" />
-            <p>Dashboard</p>
+    <div className="grainy">
+      <Container>
+        <header className="flex items-center justify-between pt-5">
+          <Logo theme="dark" />
+          <Link href="/dashboard" className="flex items-center gap-5">
+            <div className="flex items-center border-b-2 border-black text-sm">
+              <ChevronLeft className="w-[16px] h-[16px]" />
+              <p>Dashboard</p>
+            </div>
+            <UserAvatar userImage={user?.image!} showDropDownMenu />
+          </Link>
+        </header>
+        <section className="mt-10">
+          <p className="text-4xl font-semibold md:hidden text-center mb-5">
+            <InfoText>Quick overview</InfoText>
+          </p>
+          <div className="flex flex-col-reverse justify-between xl:flex-row gap-5">
+            <OverallData
+              usersAmount={workspace.workspaceUsers.length}
+              workspaceCountries={workspaceCountries}
+            />
+            <WorkspaceManager workspace={workspace} />
           </div>
-          <UserAvatar userImage={user?.image!} showDropDownMenu />
-        </Link>
-      </header>
-      <section className="mt-10">
-        <p className="text-4xl font-semibold md:hidden text-center mb-5">
-          <InfoText>Quick overview</InfoText>
-        </p>
-        <div className="flex flex-col-reverse justify-between xl:flex-row gap-5">
-          <OverallData
-            usersAmount={workspace.workspaceUsers.length}
-            workspaceCountries={workspaceCountries}
+        </section>
+
+        <section className="mt-10">
+          <VisitorsChart visitors={workspace.workspaceUsers} />
+        </section>
+
+        <section className="mt-10">
+          <LiveUsers workspace={workspace} />
+        </section>
+
+        <section className="mt-10">
+          <h3 className="text-purple font-bold text-2xl text-center mb-2.5">
+            Visitors informations
+          </h3>
+          <div className="flex flex-col md:flex-row">
+            <div className="flex-1">
+              <div className="bg-purple rounded-tl-sm rounded-tr-sm md:rounded-tr-none p-2.5">
+                <p className="text-white text-center">All Routes</p>
+              </div>
+              <VisitedRoutes />
+            </div>
+            <div className="flex-1">
+              <div className="bg-purple p-2.5">
+                <p className="text-white text-center">All Countries</p>
+              </div>
+              <VisitorsCountries />
+            </div>
+            <div className="flex-1">
+              <div className="bg-purple p-2.5">
+                <p className="text-white text-center">Operating Systems</p>
+              </div>
+              <VisitorsSystems />
+            </div>
+            <div className="flex-1">
+              <div className="bg-purple md:rounded-tr-sm p-2.5">
+                <p className="text-white text-center">Browsers</p>
+              </div>
+              <VisitorsBrowsers />
+            </div>
+          </div>
+        </section>
+
+        <section className="mt-24 sm:mt-28">
+          <VisitorsChart visitors={workspace.workspaceUsers} />
+        </section>
+
+        <section className="my-10">
+          <h3 className="text-purple font-bold text-2xl text-center mb-2.5">
+            Recordings
+          </h3>
+          <Recordings
+            userImage={user?.image!}
+            userName={user?.name!}
+            userEmail={user?.email!}
           />
-          <WorkspaceManager workspace={workspace} />
-        </div>
-      </section>
-
-      <section className="mt-10">
-        <VisitorsChart visitors={workspace.workspaceUsers} />
-      </section>
-
-      <section className="mt-10">
-        <LiveUsers workspace={workspace} />
-      </section>
-
-      <section className="mt-10">
-        <h3 className="text-purple font-bold text-2xl text-center mb-2.5">
-          Visitors informations
-        </h3>
-        <div className="flex flex-col md:flex-row">
-          <div className="flex-1">
-            <div className="bg-purple rounded-tl-sm rounded-tr-sm md:rounded-tr-none p-2.5">
-              <p className="text-white text-center">All Routes</p>
-            </div>
-            <VisitedRoutes />
-          </div>
-          <div className="flex-1">
-            <div className="bg-purple p-2.5">
-              <p className="text-white text-center">All Countries</p>
-            </div>
-            <VisitorsCountries />
-          </div>
-          <div className="flex-1">
-            <div className="bg-purple p-2.5">
-              <p className="text-white text-center">Operating Systems</p>
-            </div>
-            <VisitorsSystems />
-          </div>
-          <div className="flex-1">
-            <div className="bg-purple md:rounded-tr-sm p-2.5">
-              <p className="text-white text-center">Browsers</p>
-            </div>
-            <VisitorsBrowsers />
-          </div>
-        </div>
-      </section>
-
-      <section className="mt-24 sm:mt-28">
-        <VisitorsChart visitors={workspace.workspaceUsers} />
-      </section>
-
-      <section className="my-10">
-        <h3 className="text-purple font-bold text-2xl text-center mb-2.5">
-          Recordings
-        </h3>
-        <Recordings
-          userImage={user?.image!}
-          userName={user?.name!}
-          userEmail={user?.email!}
-        />
-      </section>
-    </Container>
+        </section>
+      </Container>
+    </div>
   );
 };

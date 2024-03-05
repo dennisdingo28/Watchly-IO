@@ -4,12 +4,26 @@ import { WorkspaceUser } from "@prisma/client";
 import Chart from "react-apexcharts";
 
 export const VisitorsChart = ({ visitors }: { visitors: WorkspaceUser[] }) => {
+  // Extract createdAt values from the visitors array
+  const createdAtData = visitors.map((visitor) => visitor.createdAt);
+
+  // Initialize monthlyVisitors array with zeros for each month
+  const monthlyVisitors: number[] = Array(12).fill(0);
+
+  // Count the number of visitors for each month
+  createdAtData.forEach((createdAt) => {
+    const month = new Date(createdAt).getMonth();
+    
+    monthlyVisitors[month]++;
+  });
+
   const series = [
     {
-      name: "series1",
-      data: [31, 40, 28, 51, 42, 119, 100],
+      name: "Visitors",
+      data: monthlyVisitors,
     },
   ];
+
   const options = {
     chart: {
       id: "basic-bar",
@@ -61,6 +75,7 @@ export const VisitorsChart = ({ visitors }: { visitors: WorkspaceUser[] }) => {
       },
     ],
   };
+
   return (
     <div>
       <p className="text-4xl font-semibold mb-2.5">
