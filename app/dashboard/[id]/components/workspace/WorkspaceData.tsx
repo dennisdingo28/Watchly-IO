@@ -14,6 +14,8 @@ import { Recordings } from "../recordings/Recordings";
 import { WorkspaceCountry, WorkspaceWithUsers } from "@/types";
 import { Route } from "@prisma/client";
 import { LiveUsers } from "../live-users/LiveUsers";
+import { ChevronLeft } from "lucide-react";
+import Link from "next/link";
 
 interface WorkspaceDataProps {
   workspace: WorkspaceWithUsers;
@@ -32,7 +34,13 @@ export const WorkspaceData = async ({
     <Container>
       <header className="flex items-center justify-between pt-5">
         <Logo theme="dark" />
-        <UserAvatar userImage={user?.image!} showDropDownMenu />
+        <Link href="/dashboard" className="flex items-center gap-5">
+          <div className="flex items-center border-b-2 border-black text-sm">
+            <ChevronLeft className="w-[16px] h-[16px]" />
+            <p>Dashboard</p>
+          </div>
+          <UserAvatar userImage={user?.image!} showDropDownMenu />
+        </Link>
       </header>
       <section className="mt-10">
         <p className="text-4xl font-semibold md:hidden text-center mb-5">

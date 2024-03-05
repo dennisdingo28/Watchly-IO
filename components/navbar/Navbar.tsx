@@ -11,14 +11,12 @@ export const Navbar = async () => {
   return (
     <nav className="flex items-center justify-between">
       <Logo theme="dark" />
-
       <div className="hidden sm:flex items-center gap-5">
         <NavLink label="Services" where="/services" />
         <NavLink label="Contact" where="/contact" />
         <NavLink label="Pricing" where="/pricing" />
         <NavLink label="Dashboard" where="/dashboard" />
       </div>
-
       <div className="sm:hidden ml-auto">
         <MobileLinks
           isLoggedIn={!!user?.id}
@@ -27,7 +25,6 @@ export const Navbar = async () => {
           userEmail={user?.email!}
         />
       </div>
-
       {user ? (
         <div className="hidden sm:block">
           <UserAvatar showDropDownMenu={true} userImage={user?.image!} />
