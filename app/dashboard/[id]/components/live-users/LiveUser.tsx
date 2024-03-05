@@ -14,8 +14,8 @@ export const LiveUser = ({
 }) => {
   return (
     <div className="flex flex-col lg:flex-row lg:pr-1 gap-3 lg:gap-10 lg:items-center justify-between border-2 border-purple rounded-md">
-      <div className="p-1 w-fit h-full bg-purple rounded-t-sm lg:rounded-tl-sm lg:rounded-bl-sm lg:rounded-br-sm">
-        <p className="text-white font-medium text-center text-sm whitespace-nowrap truncate">{workspaceUser.id}</p>
+      <div className="p-1 w-full h-full bg-purple rounded-t-sm lg:rounded-tl-sm lg:rounded-bl-sm lg:rounded-br-sm">
+        <p className="text-white max-w-full font-medium text-center text-sm whitespace-nowrap truncate">{workspaceUser.id}</p>
       </div>
         <div className="w-full flex items-center justify-evenly lg:justify-between gap-3">
           <p className="text-purple text-center whitespace-nowrap truncate">
