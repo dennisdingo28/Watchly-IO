@@ -12,8 +12,6 @@ export async function PATCH(
     const data = await req.json();
     
     if(!data.path) return new NextResponse("A path was expected. No path was provided.", {status:401});
-    if(!data.country || !data.country.countryCode || !data.country.countryName) return new NextResponse("No country was provided.", {status:401});
-    
     const {searchParams} = new URL(req.url);
     const apiKey = searchParams.get("apiKey");
     
@@ -55,8 +53,6 @@ export async function PATCH(
         data:{
           pathname: data.path,
           workspaceId: targetWorkspace.id,
-          country: data.country.countryName,
-          countryCode: data.country.countryCode,
         },
       });
     }
