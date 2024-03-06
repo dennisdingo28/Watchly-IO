@@ -21,62 +21,6 @@ export const VisitorsCountries = () => {
           <ReactCountryFlag className="text-2xl" svg countryCode={"BG"} />
           <span className="text-xs text-darkGray">230 visitors avg.</span>
         </div>
-        <div className="flex items-center gap-2.5 py-2.5">
-          <ReactCountryFlag className="text-2xl" svg countryCode={"FR"} />
-          <span className="text-xs text-darkGray">230 visitors avg.</span>
-        </div>{" "}
-        <div className="flex items-center gap-2.5 py-2.5">
-          <ReactCountryFlag className="text-2xl" svg countryCode={"FR"} />
-          <span className="text-xs text-darkGray">230 visitors avg.</span>
-        </div>{" "}
-        <div className="flex items-center gap-2.5 py-2.5">
-          <ReactCountryFlag className="text-2xl" svg countryCode={"FR"} />
-          <span className="text-xs text-darkGray">230 visitors avg.</span>
-        </div>{" "}
-        <div className="flex items-center gap-2.5 py-2.5">
-          <ReactCountryFlag className="text-2xl" svg countryCode={"FR"} />
-          <span className="text-xs text-darkGray">230 visitors avg.</span>
-        </div>{" "}
-        <div className="flex items-center gap-2.5 py-2.5">
-          <ReactCountryFlag className="text-2xl" svg countryCode={"FR"} />
-          <span className="text-xs text-darkGray">230 visitors avg.</span>
-        </div>{" "}
-        <div className="flex items-center gap-2.5 py-2.5">
-          <ReactCountryFlag className="text-2xl" svg countryCode={"FR"} />
-          <span className="text-xs text-darkGray">230 visitors avg.</span>
-        </div>{" "}
-        <div className="flex items-center gap-2.5 py-2.5">
-          <ReactCountryFlag className="text-2xl" svg countryCode={"FR"} />
-          <span className="text-xs text-darkGray">230 visitors avg.</span>
-        </div>{" "}
-        <div className="flex items-center gap-2.5 py-2.5">
-          <ReactCountryFlag className="text-2xl" svg countryCode={"FR"} />
-          <span className="text-xs text-darkGray">230 visitors avg.</span>
-        </div>{" "}
-        <div className="flex items-center gap-2.5 py-2.5">
-          <ReactCountryFlag className="text-2xl" svg countryCode={"FR"} />
-          <span className="text-xs text-darkGray">230 visitors avg.</span>
-        </div>{" "}
-        <div className="flex items-center gap-2.5 py-2.5">
-          <ReactCountryFlag className="text-2xl" svg countryCode={"FR"} />
-          <span className="text-xs text-darkGray">230 visitors avg.</span>
-        </div>{" "}
-        <div className="flex items-center gap-2.5 py-2.5">
-          <ReactCountryFlag className="text-2xl" svg countryCode={"FR"} />
-          <span className="text-xs text-darkGray">230 visitors avg.</span>
-        </div>{" "}
-        <div className="flex items-center gap-2.5 py-2.5">
-          <ReactCountryFlag className="text-2xl" svg countryCode={"FR"} />
-          <span className="text-xs text-darkGray">230 visitors avg.</span>
-        </div>{" "}
-        <div className="flex items-center gap-2.5 py-2.5">
-          <ReactCountryFlag className="text-2xl" svg countryCode={"FR"} />
-          <span className="text-xs text-darkGray">230 visitors avg.</span>
-        </div>{" "}
-        <div className="flex items-center gap-2.5 py-2.5">
-          <ReactCountryFlag className="text-2xl" svg countryCode={"FR"} />
-          <span className="text-xs text-darkGray">230 visitors avg.</span>
-        </div>
       </ScrollArea>
     </div>
   );
