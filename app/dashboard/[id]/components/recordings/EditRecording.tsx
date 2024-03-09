@@ -54,11 +54,11 @@ export const EditRecording = ({
       <DrawerTrigger asChild>
         <HiDotsHorizontal className="text-darkGray text-xl cursor-pointer z-50" />
       </DrawerTrigger>
-      <DrawerContent className="">
+      <DrawerContent className="bg-gradient-to-b from-[#d9d7fe] to-white ">
         <div className="my-5 mx-auto w-full max-w-sm">
           <DrawerHeader className="p-0 mb-5 flex items-center justify-between">
             <div className="">
-              <DrawerTitle>Edit Workspace Recording</DrawerTitle>
+              <DrawerTitle className="text-left">Edit Workspace Recording</DrawerTitle>
               <DrawerDescription>
                 Set your daily recording preferences.
               </DrawerDescription>

@@ -15,6 +15,7 @@ export default function Home({
 }: {
   searchParams: { modal: ModalType };
 }) {
+  //
   return (
     <main>
       <div className="pt-5">
