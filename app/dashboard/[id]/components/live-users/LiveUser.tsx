@@ -8,7 +8,7 @@ import Image from "next/image";
 import { HiStatusOnline } from "react-icons/hi";
 import { UserAvatar } from "@/components/UserAvatar";
 import { Dot } from "lucide-react";
-
+import { GoDotFill } from "react-icons/go";
 export const LiveUser = ({
   workspaceUser,
 }: {
@@ -17,14 +17,13 @@ export const LiveUser = ({
   return (
     <div className="flex items-center justify-between">
       <div className="flex items-center gap-2.5">
-        <UserAvatar userImage="/hero.jpg" />
+        <UserAvatar userImage="/blank_user.svg" />
         <div className="">
-          <p className="text-md text-white flex items-center gap-2.5">
-            Alexis Moldovan <Dot className="text-green-500" />
-          </p>
-          <p className="text-xs text-lightGray">
-            moldovanalexismihai06@gmail.com
-          </p>
+          <p className="text-md text-white">{workspaceUser.id} </p>
+          <div className="flex items-center gap-2.5 text-xs">
+            <p className="uppercase text-lightGray">online</p>
+            <GoDotFill className="text-green-500" />
+          </div>
         </div>
       </div>
 
@@ -38,12 +37,18 @@ export const LiveUser = ({
           svg
           countryCode={workspaceUser.countryCode}
         />{" "}
-        <span className="text-sm text-white">Moldova</span>
+        <span className="text-sm text-white">{workspaceUser.country}</span>
       </div>
 
-      <div className="flex items-center gap-2.5 text-xs text-lightGray">
-        <p>5 minutes ago</p>
-        <p>now</p>
+      <div className="flex items-center gap-5 text-lightGray">
+        <div className="flex items-center gap-1">
+          <p className="text-sm">Connected:</p>
+          <p className="text-xs">5 minutes ago</p>
+        </div>
+        <div className="flex items-center gap-1">
+          <p className="text-sm">Disconnected:</p>
+          <p className="text-xs">now</p>
+        </div>
       </div>
     </div>
   );
