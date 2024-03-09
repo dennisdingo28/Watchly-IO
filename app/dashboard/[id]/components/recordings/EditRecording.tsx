@@ -58,7 +58,9 @@ export const EditRecording = ({
         <div className="my-5 mx-auto w-full max-w-sm">
           <DrawerHeader className="p-0 mb-5 flex items-center justify-between">
             <div className="">
-              <DrawerTitle className="text-left">Edit Workspace Recording</DrawerTitle>
+              <DrawerTitle className="text-left">
+                Edit Workspace Recording
+              </DrawerTitle>
               <DrawerDescription>
                 Set your daily recording preferences.
               </DrawerDescription>

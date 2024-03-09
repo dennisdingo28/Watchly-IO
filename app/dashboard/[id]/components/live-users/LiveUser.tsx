@@ -5,10 +5,9 @@ import { cn } from "@/lib/utils";
 import { WorkspaceUser, WorkspaceUserStatus } from "@prisma/client";
 import ReactCountryFlag from "react-country-flag";
 import Image from "next/image";
-import { HiDotsHorizontal, HiStatusOnline } from "react-icons/hi";
 import { UserAvatar } from "@/components/UserAvatar";
-import { Dot } from "lucide-react";
 import { GoDotFill } from "react-icons/go";
+import { LiveUserInfo } from "./LiveUserInfo";
 export const LiveUser = ({
   workspaceUser,
 }: {
@@ -24,7 +23,13 @@ export const LiveUser = ({
           </p>
           <div className="flex items-center gap-2.5 text-xs">
             <p className="uppercase text-lightGray">online</p>
-            <GoDotFill className="text-green-500" />
+            <GoDotFill
+              className={cn(
+                workspaceUser.status === WorkspaceUserStatus.OFFLINE
+                  ? "text-rose-500"
+                  : "text-emerald-500"
+              )}
+            />
           </div>
         </div>
       </div>
@@ -49,14 +54,15 @@ export const LiveUser = ({
         </div>
         <div className="flex items-center gap-1">
           <p className="text-sm">Connected:</p>
-          <p className="text-xs">5 minutes ago</p>
+          <p className="text-xs">{formatJoinedDate(workspaceUser.joinedAt)}</p>
         </div>
         <div className="flex items-center gap-1">
           <p className="text-sm">Disconnected:</p>
           <p className="text-xs">now</p>
         </div>
       </div>
-      <HiDotsHorizontal className="ml-2.5 text-lightGray text-xl cursor-pointer xl:hidden" />
+
+      <LiveUserInfo workspaceUser={workspaceUser} />
     </div>
   );
 };
