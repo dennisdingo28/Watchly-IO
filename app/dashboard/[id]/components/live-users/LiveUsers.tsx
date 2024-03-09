@@ -15,7 +15,6 @@ export const LiveUsers = ({workspace}: {workspace: WorkspaceWithUsers}) =>{
         if(!socket) return;
 
         socket.on("status", (workspaceUser: WorkspaceUser)=>{
-            console.log("got socket event", workspaceUser);
             if(workspaceUsers.length===0){
                 setWorkspaceUsers([workspaceUser]);
             }else{

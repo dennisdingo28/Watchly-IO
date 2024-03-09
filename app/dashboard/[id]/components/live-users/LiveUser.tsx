@@ -21,9 +21,12 @@ export const LiveUser = ({
           <p className="text-purple text-center whitespace-nowrap truncate">
             {formatJoinedDate(workspaceUser.joinedAt)}
           </p>
-          <p className="text-purple text-center whitespace-nowrap truncate">
-            {formatJoinedDate(workspaceUser.joinedAt)}
+          {workspaceUser.disconnectedAt && (
+            <p className="text-purple text-center whitespace-nowrap truncate">
+            { formatJoinedDate(workspaceUser.disconnectedAt)}
           </p>
+          )}
+       
         </div>
        
        <div className="w-full flex items-center justify-center lg:justify-center gap-5">
