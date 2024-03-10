@@ -10,7 +10,7 @@ import { WorkspaceUser } from "@prisma/client";
 import React from "react";
 import { HiDotsHorizontal } from "react-icons/hi";
 
-export const LiveUserInfo = ({
+export const LiveUserMobileInfo = ({
   workspaceUser,
 }: {
   workspaceUser: WorkspaceUser;

@@ -7,7 +7,7 @@ import ReactCountryFlag from "react-country-flag";
 import Image from "next/image";
 import { UserAvatar } from "@/components/UserAvatar";
 import { GoDotFill } from "react-icons/go";
-import { LiveUserInfo } from "./LiveUserInfo";
+import { LiveUserMobileInfo } from "./LiveUserMobileInfo";
 export const LiveUser = ({
   workspaceUser,
 }: {
@@ -62,7 +62,7 @@ export const LiveUser = ({
         </div>
       </div>
 
-      <LiveUserInfo workspaceUser={workspaceUser} />
+      <LiveUserMobileInfo workspaceUser={workspaceUser} />
     </div>
   );
 };
