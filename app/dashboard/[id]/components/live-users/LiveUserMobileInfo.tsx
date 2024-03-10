@@ -69,7 +69,7 @@ export const LiveUserMobileInfo = ({
             </div>
           </div>
 
-          <div className="flex items-center text-sm">
+          <div className="flex items-center justify-around mt-5">
             <div className="flex items-center gap-1">
               <p>Connected:</p>
               <p className="text-xs">
@@ -77,7 +77,7 @@ export const LiveUserMobileInfo = ({
               </p>
             </div>
             <div className="flex items-center gap-1">
-              <p className="text-sm">Disconnected:</p>
+              <p>Disconnected:</p>
               <p className="text-xs">now</p>
             </div>
           </div>
