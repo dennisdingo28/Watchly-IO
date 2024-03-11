@@ -5,6 +5,7 @@ import { LiveUser } from "./LiveUser";
 import { useEffect, useState } from "react";
 import { WorkspaceUser } from "@prisma/client";
 import { useSocket } from "@/hooks/use-socket";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 export const LiveUsers = ({ workspace }: { workspace: WorkspaceWithUsers }) => {
   const { socket } = useSocket((state) => state);
@@ -36,10 +37,24 @@ export const LiveUsers = ({ workspace }: { workspace: WorkspaceWithUsers }) => {
   }, [socket]);
 
   return (
-    <div className="space-y-3">
-      {workspaceUsers.map((wUser, idx) => (
-        <LiveUser key={idx} workspaceUser={wUser} />
-      ))}
-    </div>
+    <ScrollArea className="h-[500px]">
+      <div className="space-y-10 pr-5">
+        {workspaceUsers.map((wUser, idx) => (
+          <>
+            <LiveUser key={idx} workspaceUser={wUser} />
+            <LiveUser key={idx} workspaceUser={wUser} />
+            <LiveUser key={idx} workspaceUser={wUser} />
+            <LiveUser key={idx} workspaceUser={wUser} />
+            <LiveUser key={idx} workspaceUser={wUser} />
+            <LiveUser key={idx} workspaceUser={wUser} />
+            <LiveUser key={idx} workspaceUser={wUser} />
+            <LiveUser key={idx} workspaceUser={wUser} />
+            <LiveUser key={idx} workspaceUser={wUser} />
+            <LiveUser key={idx} workspaceUser={wUser} />
+            <LiveUser key={idx} workspaceUser={wUser} />
+          </>
+        ))}
+      </div>
+    </ScrollArea>
   );
 };
