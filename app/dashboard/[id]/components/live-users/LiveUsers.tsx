@@ -37,24 +37,33 @@ export const LiveUsers = ({ workspace }: { workspace: WorkspaceWithUsers }) => {
   }, [socket]);
 
   return (
-    <ScrollArea className="h-[500px]">
-      <div className="space-y-10 pr-5">
-        {workspaceUsers.map((wUser, idx) => (
-          <>
-            <LiveUser key={idx} workspaceUser={wUser} />
-            <LiveUser key={idx} workspaceUser={wUser} />
-            <LiveUser key={idx} workspaceUser={wUser} />
-            <LiveUser key={idx} workspaceUser={wUser} />
-            <LiveUser key={idx} workspaceUser={wUser} />
-            <LiveUser key={idx} workspaceUser={wUser} />
-            <LiveUser key={idx} workspaceUser={wUser} />
-            <LiveUser key={idx} workspaceUser={wUser} />
-            <LiveUser key={idx} workspaceUser={wUser} />
-            <LiveUser key={idx} workspaceUser={wUser} />
-            <LiveUser key={idx} workspaceUser={wUser} />
-          </>
-        ))}
-      </div>
-    </ScrollArea>
+    <>
+      {" "}
+      {workspaceUsers.length > 0 ? (
+        <ScrollArea className="h-[500px]">
+          <div className="space-y-10 pr-5">
+            {workspaceUsers.map((wUser, idx) => (
+              <>
+                <LiveUser key={idx} workspaceUser={wUser} />
+                <LiveUser key={idx} workspaceUser={wUser} />
+                <LiveUser key={idx} workspaceUser={wUser} />
+                <LiveUser key={idx} workspaceUser={wUser} />
+                <LiveUser key={idx} workspaceUser={wUser} />
+                <LiveUser key={idx} workspaceUser={wUser} />
+                <LiveUser key={idx} workspaceUser={wUser} />
+                <LiveUser key={idx} workspaceUser={wUser} />
+                <LiveUser key={idx} workspaceUser={wUser} />
+                <LiveUser key={idx} workspaceUser={wUser} />
+                <LiveUser key={idx} workspaceUser={wUser} />
+              </>
+            ))}
+          </div>
+        </ScrollArea>
+      ) : (
+        <p className="text-lightGray text-xs">
+          No user have visited your app, yet
+        </p>
+      )}
+    </>
   );
 };
