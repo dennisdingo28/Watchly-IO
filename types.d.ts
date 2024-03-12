@@ -22,3 +22,8 @@ export type WorkspaceCountry = {
     countryCode: string;
     visitors: number;
 }
+
+export type WorkspaceSystemOperation = {
+    systemOperation:string
+    users:number
+}

@@ -11,7 +11,11 @@ import { VisitedRoutes } from "../visitors/VisitedRoutes";
 import { VisitorsBrowsers } from "../visitors/VisitorsBrowsers";
 import { VisitorsSystems } from "../visitors/VisitorsSystems";
 import { Recordings } from "../recordings/Recordings";
-import { WorkspaceCountry, WorkspaceWithUsers } from "@/types";
+import {
+  WorkspaceCountry,
+  WorkspaceSystemOperation,
+  WorkspaceWithUsers,
+} from "@/types";
 import { Route } from "@prisma/client";
 import { LiveUsers } from "../live-users/LiveUsers";
 import { ChevronLeft } from "lucide-react";
@@ -21,12 +25,14 @@ interface WorkspaceDataProps {
   workspace: WorkspaceWithUsers;
   workspaceRoutes: Array<Route>;
   workspaceCountries: Array<WorkspaceCountry>;
+  allWorkspaceSystemOperations: Array<WorkspaceSystemOperation>;
 }
 
 export const WorkspaceData = async ({
   workspace,
   workspaceRoutes,
   workspaceCountries,
+  allWorkspaceSystemOperations,
 }: WorkspaceDataProps) => {
   const user = await currentUser();
 
@@ -98,7 +104,7 @@ export const WorkspaceData = async ({
               <div className="bg-purple p-2.5">
                 <p className="text-white text-center">Operating Systems</p>
               </div>
-              <VisitorsSystems />
+              <VisitorsSystems allWorkspaceSystemOperations={allWorkspaceSystemOperations}/>
             </div>
             <div className="flex-1">
               <div className="bg-purple md:rounded-tr-sm p-2.5">
