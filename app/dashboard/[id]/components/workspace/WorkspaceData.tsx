@@ -92,7 +92,7 @@ export const WorkspaceData = async ({
               <div className="bg-purple p-2.5">
                 <p className="text-white text-center">All Countries</p>
               </div>
-              <VisitorsCountries />
+              <VisitorsCountries workspaceCountries={workspaceCountries} />
             </div>
             <div className="flex-1">
               <div className="bg-purple p-2.5">
