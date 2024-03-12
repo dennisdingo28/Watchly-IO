@@ -1,4 +1,3 @@
-import { FcLinux } from "react-icons/fc";
 import React from "react";
 import Image from "next/image";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -24,7 +23,8 @@ export const VisitorsSystems = ({
               alt="browser-icon"
             />
             <span className="text-xs text-darkGray ml-auto">
-              {systemOperation.users} users.
+              {systemOperation.users}{" "}
+              {systemOperation.users === 1 ? "user" : "users"}.
             </span>
           </div>
         ))}
