@@ -51,6 +51,7 @@ export const WorkspaceData = async ({
           </p>
           <div className="flex flex-col-reverse justify-between xl:flex-row gap-5">
             <OverallData
+              workspace={workspace}
               usersAmount={workspace.workspaceUsers.length}
               workspaceCountries={workspaceCountries}
             />
@@ -86,7 +87,7 @@ export const WorkspaceData = async ({
               <div className="bg-purple rounded-tl-sm rounded-tr-sm md:rounded-tr-none p-2.5">
                 <p className="text-white text-center">All Routes</p>
               </div>
-              <VisitedRoutes />
+              <VisitedRoutes workspaceRoutes={workspaceRoutes}/>
             </div>
             <div className="flex-1">
               <div className="bg-purple p-2.5">
