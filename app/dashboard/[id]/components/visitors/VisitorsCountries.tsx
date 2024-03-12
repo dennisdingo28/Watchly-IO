@@ -22,7 +22,8 @@ export const VisitorsCountries = ({
             />
             <p className="text-sm">{workspaceCountry.country}</p>
             <span className="text-xs text-darkGray ml-auto">
-              {workspaceCountry.visitors} visitors.
+              {workspaceCountry.visitors}{" "}
+              {workspaceCountry.visitors === 1 ? "visitor" : "visitors"}.
             </span>
           </div>
         ))}
