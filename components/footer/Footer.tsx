@@ -15,10 +15,10 @@ export const Footer = () => {
               Watchly.IO
             </h1>
             <div className="space-y-2.5">
-              <FotLink label="About" where="/" />
-              <FotLink label="Services" where="/" />
-              <FotLink label="Contact" where="/" />
-              <FotLink label="Pricing" where="/" />
+              <FotLink label="Services" where="/services" />
+              <FotLink label="Contact" where="/contact" />
+              <FotLink label="Pricing" where="/pricing" />
+              <FotLink label="Dashboard" where="/dashboard" />
             </div>
           </div>
 
