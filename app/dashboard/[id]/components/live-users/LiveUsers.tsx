@@ -40,22 +40,10 @@ export const LiveUsers = ({ workspace }: { workspace: WorkspaceWithUsers }) => {
     <>
       {" "}
       {workspaceUsers.length > 0 ? (
-        <ScrollArea className="h-[500px]">
+        <ScrollArea className="max-h-[500px]">
           <div className="space-y-10 pr-5">
             {workspaceUsers.map((wUser, idx) => (
-              <>
-                <LiveUser key={idx} workspaceUser={wUser} />
-                <LiveUser key={idx} workspaceUser={wUser} />
-                <LiveUser key={idx} workspaceUser={wUser} />
-                <LiveUser key={idx} workspaceUser={wUser} />
-                <LiveUser key={idx} workspaceUser={wUser} />
-                <LiveUser key={idx} workspaceUser={wUser} />
-                <LiveUser key={idx} workspaceUser={wUser} />
-                <LiveUser key={idx} workspaceUser={wUser} />
-                <LiveUser key={idx} workspaceUser={wUser} />
-                <LiveUser key={idx} workspaceUser={wUser} />
-                <LiveUser key={idx} workspaceUser={wUser} />
-              </>
+              <LiveUser key={idx} workspaceUser={wUser} />
             ))}
           </div>
         </ScrollArea>
