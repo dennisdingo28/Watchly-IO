@@ -22,7 +22,11 @@ export const LiveUser = ({
             {workspaceUser.id}{" "}
           </p>
           <div className="flex items-center gap-2.5 text-xs">
-            <p className="uppercase text-lightGray">online</p>
+            <p className="uppercase text-lightGray">
+              {workspaceUser.status === WorkspaceUserStatus.ONLINE
+                ? "online"
+                : "offline"}
+            </p>
             <GoDotFill
               className={cn(
                 workspaceUser.status === WorkspaceUserStatus.OFFLINE
