@@ -71,7 +71,7 @@ export const Footer = () => {
           </div>
         </div>
         <div className="mt-10">
-          <Logo className="text-[2em]" theme="white" />
+          <Logo className="text-[2em]" theme="white" footer />
         </div>
       </Container>
     </footer>

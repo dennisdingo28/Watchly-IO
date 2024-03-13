@@ -15,11 +15,18 @@ const quicksand = Quicksand({
 
 interface LogoProps extends HTMLAttributes<HTMLHeadingElement> {
   theme: "dark" | "white";
+  footer?: boolean;
 }
 
-export const Logo = ({ className, theme }: LogoProps) => {
+export const Logo = ({ className, theme, footer }: LogoProps) => {
   return (
-    <Link href={"/"} className="flex flex-col items-center">
+    <Link
+      href={"/"}
+      className={cn(
+        "flex flex-col items-center",
+        footer === true && "mx-auto w-fit"
+      )}
+    >
       <h1
         className={cn(
           leagueSpartan.className,
