@@ -91,6 +91,7 @@ model WorkspaceUser {
   platform       String
   workspaceId    String
   createdAt      DateTime            @default(now())
+  currentPath    String              @default("/")
   Workspace      Workspace           @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
 }
 

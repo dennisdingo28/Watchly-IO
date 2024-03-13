@@ -54,7 +54,7 @@ export const LiveUser = ({
       <div className="hidden xl:flex items-center gap-5 text-lightGray">
         <div className="flex items-center gap-1">
           <p className="text-sm">On:</p>
-          <p className="text-xs">/pricing</p>
+          <p className="text-xs">{workspaceUser.currentPath}</p>
         </div>
         <div className="flex items-center gap-1">
           <p className="text-sm">Connected:</p>
@@ -62,7 +62,7 @@ export const LiveUser = ({
         </div>
         <div className="flex items-center gap-1">
           <p className="text-sm">Disconnected:</p>
-          <p className="text-xs">now</p>
+          <p className="text-xs">{workspaceUser.disconnectedAt ? formatJoinedDate(workspaceUser.disconnectedAt):"-"}</p>
         </div>
       </div>
 

@@ -4,6 +4,7 @@ import { generateApiKey } from "@/lib/generateApiKey";
 import { WorkspaceValidator } from "@/validators/workspace";
 import { NextRequest, NextResponse } from "next/server";
 
+
 export async function PATCH(
   req: NextRequest,
 ) {
@@ -12,13 +13,14 @@ export async function PATCH(
     const data = await req.json();
     
     if(!data.path) return new NextResponse("A path was expected. No path was provided.", {status:401});
+    
     const {searchParams} = new URL(req.url);
     const apiKey = searchParams.get("apiKey");
     
     if (!apiKey || apiKey.trim() === "")
       throw new Error("No workspace api key was provided. Please provide one.");
 
-
+    
     const targetWorkspace = await db.workspace.findUnique({
       where:{
         apiKey,
