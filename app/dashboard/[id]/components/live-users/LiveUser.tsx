@@ -62,7 +62,11 @@ export const LiveUser = ({
         </div>
         <div className="flex items-center gap-1">
           <p className="text-sm">Disconnected:</p>
-          <p className="text-xs">{workspaceUser.disconnectedAt ? formatJoinedDate(workspaceUser.disconnectedAt):"-"}</p>
+          <p className="text-xs">
+            {workspaceUser.disconnectedAt
+              ? formatJoinedDate(workspaceUser.disconnectedAt)
+              : "-"}
+          </p>
         </div>
       </div>
 

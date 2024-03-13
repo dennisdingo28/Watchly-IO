@@ -22,7 +22,8 @@ export const VisitorsSystems = ({
                 width={25}
                 height={25}
                 alt="browser-icon"
-              />
+              />{" "}
+              <p className="text-sm">{systemOperation.systemOperation}</p>
               <span className="text-xs text-darkGray ml-auto">
                 {systemOperation.users}{" "}
                 {systemOperation.users === 1 ? "user" : "users"}.
