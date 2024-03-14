@@ -1,4 +1,4 @@
-import { Flag, User2 } from "lucide-react";
+import { Flag, Users2 } from "lucide-react";
 import { OverallCard } from "./OverallCard";
 import { WorkspaceCountry, WorkspaceWithUsers } from "@/types";
 import { ActiveUsersCard } from "./ActiveUsersCard";
@@ -14,7 +14,7 @@ export const OverallData = ({usersAmount, workspace, workspaceCountries}: Overal
     <>
       <div className="grid grid-cols-2 md:items-center justify-between gap-y-5 xsBig:grid-cols-4 xsBig:gap-10">
         <OverallCard
-          icon={<User2 className="text-purple w-5 h-5" />}
+          icon={<Users2 className="text-purple w-5 h-5" />}
           amount={usersAmount}
           label="Total Users"
           className="justify-self-start"
@@ -27,7 +27,7 @@ export const OverallData = ({usersAmount, workspace, workspaceCountries}: Overal
         />
         <ActiveUsersCard workspace={workspace}/>
         <OverallCard
-          icon={<User2 className="text-purple w-5 h-5" />}
+          icon={<Users2 className="text-purple w-5 h-5" />}
           amount={2546}
           label="Total Users"
           className="justify-self-end xsBig:justify-self-auto"

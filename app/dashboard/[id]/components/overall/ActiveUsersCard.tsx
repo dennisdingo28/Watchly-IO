@@ -18,33 +18,26 @@ export const ActiveUsersCard = ({workspace}: {workspace: WorkspaceWithUsers}) =>
     if (!socket) return;
 
     socket.on("status", (workspaceUser: WorkspaceUser) => {
-      if (workspaceUsers.length === 0) {
+      setWorkspaceUsers(prev=>{
+        return prev.map(wu=>{
+          if(wu.id===workspaceUser.id) return workspaceUser;
 
-        if(workspaceUser.status===WorkspaceUserStatus.ONLINE) setWorkspaceUsers([workspaceUser]);
-
-      } else {
-        setWorkspaceUsers((prev) => {
-            const alreadyExists = prev.find(wu=>wu.id===workspaceUser.id);
-
-            if(alreadyExists){
-                if(workspaceUser.status===WorkspaceUserStatus.OFFLINE) return prev.filter(wu=>wu.id!==workspaceUser.id);
-            }else {
-                return [...prev, workspaceUser];
-            }
-
-            return prev;
+          return wu;
         });
-      }
+      })
     });
 
     return () => {
       socket.off("status");
     };
   }, [socket]);
+
+  const onlineWorkspaceUsers = workspaceUsers.filter(wu=>wu.status===WorkspaceUserStatus.ONLINE);
+
     return (
         <OverallCard
           icon={<User2 className="text-purple w-5 h-5" />}
-          amount={workspaceUsers.length}
+          amount={onlineWorkspaceUsers.length}
           label="Active Users"
           className="justify-self-start"
         />
