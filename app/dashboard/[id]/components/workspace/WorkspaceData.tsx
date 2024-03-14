@@ -20,6 +20,7 @@ import { Route } from "@prisma/client";
 import { LiveUsers } from "../live-users/LiveUsers";
 import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
+import { VisitedRoutesChart } from "../visitors/VisitedRoutesChart";
 
 interface WorkspaceDataProps {
   workspace: WorkspaceWithUsers;
@@ -93,7 +94,7 @@ export const WorkspaceData = async ({
               <div className="bg-purple rounded-tl-sm rounded-tr-sm md:rounded-tr-none p-2.5">
                 <p className="text-white text-center">All Routes</p>
               </div>
-              <VisitedRoutes workspaceRoutes={workspaceRoutes}/>
+              <VisitedRoutes workspaceRoutes={workspaceRoutes} />
             </div>
             <div className="flex-1">
               <div className="bg-purple p-2.5">
@@ -105,7 +106,9 @@ export const WorkspaceData = async ({
               <div className="bg-purple p-2.5">
                 <p className="text-white text-center">Operating Systems</p>
               </div>
-              <VisitorsSystems allWorkspaceSystemOperations={allWorkspaceSystemOperations}/>
+              <VisitorsSystems
+                allWorkspaceSystemOperations={allWorkspaceSystemOperations}
+              />
             </div>
             <div className="flex-1">
               <div className="bg-purple md:rounded-tr-sm p-2.5">
@@ -117,7 +120,7 @@ export const WorkspaceData = async ({
         </section>
 
         <section className="mt-24 sm:mt-28">
-          <VisitorsChart visitors={workspace.workspaceUsers} />
+          <VisitedRoutesChart visitedRoutes={workspaceRoutes} />
         </section>
 
         <section className="my-10">

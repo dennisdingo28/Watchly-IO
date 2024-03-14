@@ -88,6 +88,7 @@ export const VisitorsChart = ({ visitors }: { visitors: WorkspaceUser[] }) => {
         type="area"
         className="w-full"
         height="500"
+        
       />
     </div>
   );
