@@ -25,7 +25,7 @@ export const OverallData = ({usersAmount, workspace, workspaceCountries}: Overal
           label="Countries"
           className="justify-self-end xsBig:justify-self-auto"
         />
-        <ActiveUsersCard workspace={workspace}/>
+        <ActiveUsersCard workspace={workspace} />
         <OverallCard
           icon={<Users2 className="text-purple w-5 h-5" />}
           amount={2546}
