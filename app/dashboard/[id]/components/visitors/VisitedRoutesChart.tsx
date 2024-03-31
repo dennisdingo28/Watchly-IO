@@ -72,6 +72,8 @@ export const VisitedRoutesChart = ({
     ],
   };
 
+  //visited routes
+  
   return (
     <div>
       <p className="text-4xl font-semibold mb-2.5">
