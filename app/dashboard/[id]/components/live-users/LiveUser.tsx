@@ -34,6 +34,7 @@ export const LiveUser = ({
                   : "text-emerald-500"
               )}
             />
+            {workspaceUser.browser}
           </div>
         </div>
       </div>
