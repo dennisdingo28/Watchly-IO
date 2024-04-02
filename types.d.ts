@@ -27,3 +27,8 @@ export type WorkspaceSystemOperation = {
     systemOperation:string
     users:number
 }
+
+export type Browser = {
+    browser:string
+    users:number
+}

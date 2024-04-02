@@ -4,7 +4,7 @@ import { WorkspaceData } from "./components/workspace/WorkspaceData";
 import { redirect } from "next/navigation";
 import { unstable_noStore as noStore } from "next/cache";
 import { currentUser } from "@/lib/auth";
-import { WorkspaceCountry, WorkspaceSystemOperation } from "@/types";
+import { Browser, WorkspaceCountry, WorkspaceSystemOperation } from "@/types";
 
 const DashboardProjectPage = async ({ params }: { params: { id: string } }) => {
   noStore();
@@ -72,6 +72,27 @@ const DashboardProjectPage = async ({ params }: { params: { id: string } }) => {
     }
   }
 
+  //browsers informations
+  const allBrowsers: Array<Browser> = [];
+
+  for (const workspaceUser of workspace.workspaceUsers) {
+    const existingBrowser = allBrowsers.find(
+      (br) => br.browser === workspaceUser.browser
+    );
+
+    if (!existingBrowser) {
+      allBrowsers.push({
+        browser: workspaceUser.browser,
+        users: 1,
+      });
+    } else {
+      allBrowsers.push({
+        ...existingBrowser,
+        users: existingBrowser.users + 1,
+      });
+    }
+  }
+
   return (
     <>
       <WorkspaceData
@@ -79,6 +100,7 @@ const DashboardProjectPage = async ({ params }: { params: { id: string } }) => {
         workspaceRoutes={workspaceRoutes}
         workspaceCountries={allWorkspaceCountries}
         allWorkspaceSystemOperations={allWorkspaceSystemOperations}
+        allBrowsers={allBrowsers}
       />
       <InitSocket roomId={workspace.roomId} />
     </>

@@ -12,6 +12,7 @@ import { VisitorsBrowsers } from "../visitors/VisitorsBrowsers";
 import { VisitorsSystems } from "../visitors/VisitorsSystems";
 import { Recordings } from "../recordings/Recordings";
 import {
+  Browser,
   WorkspaceCountry,
   WorkspaceSystemOperation,
   WorkspaceWithUsers,
@@ -27,6 +28,7 @@ interface WorkspaceDataProps {
   workspaceRoutes: Array<Route>;
   workspaceCountries: Array<WorkspaceCountry>;
   allWorkspaceSystemOperations: Array<WorkspaceSystemOperation>;
+  allBrowsers: Array<Browser>;
 }
 
 export const WorkspaceData = async ({
@@ -34,6 +36,7 @@ export const WorkspaceData = async ({
   workspaceRoutes,
   workspaceCountries,
   allWorkspaceSystemOperations,
+  allBrowsers,
 }: WorkspaceDataProps) => {
   const user = await currentUser();
 
@@ -114,7 +117,7 @@ export const WorkspaceData = async ({
               <div className="bg-purple md:rounded-tr-sm p-2.5">
                 <p className="text-white text-center">Browsers</p>
               </div>
-              <VisitorsBrowsers />
+              <VisitorsBrowsers allBrowsers={allBrowsers} />
             </div>
           </div>
         </section>
