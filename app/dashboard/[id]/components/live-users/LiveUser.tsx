@@ -34,7 +34,15 @@ export const LiveUser = ({
                   : "text-emerald-500"
               )}
             />
-            {workspaceUser.browser}
+            <div className="flex items-center gap-2.5 ml-5">
+              <Image
+                src={`/${workspaceUser.browser}.svg`}
+                width={25}
+                height={25}
+                alt="browser-icon"
+              />
+              <span className="text-white">{workspaceUser.browser}</span>
+            </div>
           </div>
         </div>
       </div>
