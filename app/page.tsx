@@ -9,6 +9,7 @@ import { OpenUrlModal } from "@/components/modals/OpenUrlModal";
 import { ModalType } from "@/hooks/use-modal";
 import { Navbar } from "@/components/navbar/Navbar";
 import { Footer } from "@/components/footer/Footer";
+import Script from "next/script";
 
 export default function Home({
   searchParams,
@@ -17,51 +18,67 @@ export default function Home({
 }) {
   //
   return (
-    <main>
-      <div className="pt-5">
-        <Container>
-          <Navbar />
-        </Container>
-      </div>
-      <div className="mt-10">
-        <Hero />
-        <div className="bg-gradient-to-b from-[#d9d7fe] to-white pt-5">
+    <>
+      <main>
+        <div className="pt-5">
           <Container>
-            <div className="flex flex-col sm:flex-row sm:justify-center gap-5 h-full">
-              <Card
-                title="Credibility"
-                icon={<ShieldCheck />}
-                description="We deliver on our promises every time with our guarantee."
-                color="bg-[#6ad9c6]"
-              />
-              <Card
-                title="Creativity"
-                icon={<Hammer />}
-                description="We bring innovation to every project for your bussiness."
-                color="bg-[#ffd67a]"
-              />
-              <Card
-                title="Curiosity"
-                icon={<Lightbulb />}
-                description="We stay ahead in the over-evolving digital landscapes."
-                color="bg-[#776df2]"
-              />
-            </div>
+            <Navbar />
           </Container>
         </div>
-      </div>
-      <Container>
-        <About />
-        <WaitingList />
-      </Container>
+        <div className="mt-10">
+          <Hero />
+          <div className="bg-gradient-to-b from-[#d9d7fe] to-white pt-5">
+            <Container>
+              <div className="flex flex-col sm:flex-row sm:justify-center gap-5 h-full">
+                <Card
+                  title="Credibility"
+                  icon={<ShieldCheck />}
+                  description="We deliver on our promises every time with our guarantee."
+                  color="bg-[#6ad9c6]"
+                />
+                <Card
+                  title="Creativity"
+                  icon={<Hammer />}
+                  description="We bring innovation to every project for your bussiness."
+                  color="bg-[#ffd67a]"
+                />
+                <Card
+                  title="Curiosity"
+                  icon={<Lightbulb />}
+                  description="We stay ahead in the over-evolving digital landscapes."
+                  color="bg-[#776df2]"
+                />
+              </div>
+            </Container>
+          </div>
+        </div>
+        <Container>
+          <About />
+          <WaitingList />
+        </Container>
 
-      {searchParams.modal?.trim() !== "" && (
-        <OpenUrlModal modalType={searchParams.modal} />
-      )}
+        {searchParams.modal?.trim() !== "" && (
+          <OpenUrlModal modalType={searchParams.modal} />
+        )}
 
-      <div className="mt-10">
-        <Footer />
-      </div>
-    </main>
+        <div className="mt-10">
+          <Footer />
+        </div>
+      </main>
+      <Script
+        id="HotJarAnalytics"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: ` (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:3887196,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`,
+        }}
+      />
+    </>
   );
 }
