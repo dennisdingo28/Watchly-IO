@@ -8,7 +8,6 @@ export const VisitorsBrowsers = ({
 }: {
   allBrowsers: Array<Browser>;
 }) => {
-  console.log(allBrowsers[0].browser);
   return (
     <div className="max-h-[400px] border-r-2 border-l-2 border-b-2 border-purple p-1 rounded-bl-sm md:rounded-bl-none rounded-br-sm h-full">
       <ScrollArea className="h-full">
