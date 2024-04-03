@@ -31,6 +31,18 @@ export const LiveUsers = ({ workspace }: { workspace: WorkspaceWithUsers }) => {
       }
     });
 
+    socket.on("current-route", (workspaceUser: WorkspaceUser) => {
+      
+        setWorkspaceUsers((prev) => {
+          return prev.map((wu) => {
+            if (wu.id === workspaceUser.id) return workspaceUser;
+
+            return wu;
+          });
+        });
+      
+    });
+
     return () => {
       socket.off("status");
     };
