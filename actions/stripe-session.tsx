@@ -32,7 +32,7 @@ export async function StripeSession(){
             
             redirect(stripeSession.url!);
         }catch(err){
-
+            console.log(err)
         }
 
     }catch(err){
