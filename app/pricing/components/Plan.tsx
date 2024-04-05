@@ -28,7 +28,7 @@ export const Plan = ({ plan }: { plan: PlanType }) => {
         </p>
       </div>
       <div className="flex items-end h-full justify-center">
-        <PurchaseButton />
+        <PurchaseButton priceId={plan.priceId}/>
       </div>
     </div>
   );

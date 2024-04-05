@@ -5,6 +5,7 @@ export type Plan = {
     name: string;
     description: string;
     benefits: Array<string>;
+    priceId: string;
     price: number;
     badge?: string;
 }
