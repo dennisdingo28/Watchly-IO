@@ -76,7 +76,7 @@ model Route {
   pathname    String
   visited     Int       @default(1)
   workspaceId String
-  workspace   Workspace @relation(fields: [workspaceId], references: [id])
+  workspace   Workspace @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
 
   @@id([pathname, workspaceId])
 }
