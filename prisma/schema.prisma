@@ -66,7 +66,7 @@ model Workspace {
   createdAt      DateTime        @default(now())
   apiKey         String          @unique
   roomId         String          @unique @default(cuid())
-  userId         String           @unique
+  userId         String           
   routes         Route[]
   user           User            @relation(fields: [userId], references: [id], onDelete: Cascade)
   workspaceUsers WorkspaceUser[]
@@ -75,7 +75,7 @@ model Workspace {
 model Route {
   pathname    String
   visited     Int       @default(1)
-  workspaceId String @unique
+  workspaceId String 
   workspace   Workspace @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
 
   @@id([pathname, workspaceId])
@@ -91,7 +91,7 @@ model WorkspaceUser {
   platform       String
   browser        String
   currentPath    String              @default("/")
-  workspaceId    String           @unique
+  workspaceId    String          
   createdAt      DateTime            @default(now())
   Workspace      Workspace           @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
 }
