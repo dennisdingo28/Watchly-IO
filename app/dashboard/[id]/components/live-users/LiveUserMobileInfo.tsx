@@ -48,7 +48,7 @@ export const LiveUserMobileInfo = ({
           <div className="mt-10 flex items-center justify-between text-sm">
             <div className="flex items-center gap-1">
               <p>On:</p>
-              <p className="text-xs">/pricing</p>
+              <p className="text-xs">{workspaceUser.currentPath}</p>
             </div>
             <div className="flex items-center gap-1">
               <ReactCountryFlag
