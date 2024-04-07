@@ -2,7 +2,6 @@
 
 import { currentUser } from "@/lib/auth";
 import { stripe } from "@/lib/stripe";
-import { redirect } from "next/navigation";
 
 export async function StripeSession(priceId: string) {
   try {
@@ -27,7 +26,7 @@ export async function StripeSession(priceId: string) {
         },
       ],
     });
-        return {url: stripeSession.url};
+      return {url: stripeSession.url};
     } catch (err) {
     console.log(err);
   }
