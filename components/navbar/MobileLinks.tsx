@@ -81,7 +81,7 @@ export const MobileLinks = ({
             Contact
           </DropdownMenuItem>
         </Link>
-        <Link href="/pricing" className="text-sm font-medium">
+        {/* <Link href="/pricing" className="text-sm font-medium">
           <DropdownMenuItem
             className={cn(
               "cursor-pointer",
@@ -90,7 +90,7 @@ export const MobileLinks = ({
           >
             Pricing
           </DropdownMenuItem>
-        </Link>
+        </Link> */}
 
         <DropdownMenuSeparator />
         {!isLoggedIn && (

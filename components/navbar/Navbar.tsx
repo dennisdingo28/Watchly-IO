@@ -14,7 +14,7 @@ export const Navbar = async () => {
       <div className="hidden sm:flex items-center gap-5">
         <NavLink label="Services" where="/services" />
         <NavLink label="Contact" where="/contact" />
-        <NavLink label="Pricing" where="/pricing" />
+        {/* <NavLink label="Pricing" where="/pricing" /> */}
         <NavLink label="Dashboard" where="/dashboard" />
       </div>
       <div className="sm:hidden ml-auto">
