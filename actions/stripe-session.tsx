@@ -8,6 +8,7 @@ export async function StripeSession(priceId: string) {
     const user = await currentUser();
     if (!user) return { isError: true, message: "You have to be logged in." };
 
+    // get stripe price
     const targetPrice = await stripe.prices.retrieve(priceId);
 
     if (!targetPrice) throw new Error("Invalid priceId");
