@@ -51,7 +51,7 @@ export const LiveUser = ({
         <Image src="/windows.svg" width={25} height={25} alt="browser-icon" />
         <span className="text-sm text-white">{workspaceUser.platform}</span>
       </div>
-      <div className="hidden lg:flex items-center justify-center gap-2.5">
+      <div className="hidden lg:flex flex-col items-center justify-center gap-2.5">
         <ReactCountryFlag
           className="text-2xl"
           svg

@@ -26,12 +26,6 @@ export const OverallData = ({usersAmount, workspace, workspaceCountries}: Overal
           className="justify-self-end xsBig:justify-self-auto"
         />
         <ActiveUsersCard workspace={workspace} />
-        <OverallCard
-          icon={<Users2 className="text-purple w-5 h-5" />}
-          amount={2546}
-          label="Total Users"
-          className="justify-self-end xsBig:justify-self-auto"
-        />
       </div>
     </>
   );

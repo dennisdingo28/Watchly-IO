@@ -10,7 +10,6 @@ import { VisitorsCountries } from "../visitors/VisitorsCountries";
 import { VisitedRoutes } from "../visitors/VisitedRoutes";
 import { VisitorsBrowsers } from "../visitors/VisitorsBrowsers";
 import { VisitorsSystems } from "../visitors/VisitorsSystems";
-import { Recordings } from "../recordings/Recordings";
 import {
   Browser,
   WorkspaceCountry,
@@ -22,6 +21,7 @@ import { LiveUsers } from "../live-users/LiveUsers";
 import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
 import { VisitedRoutesChart } from "../visitors/VisitedRoutesChart";
+import Docs from "../docs/Docs";
 
 interface WorkspaceDataProps {
   workspace: WorkspaceWithUsers;
@@ -53,8 +53,6 @@ export const WorkspaceData = async ({
             <UserAvatar userImage={user?.image!} showDropDownMenu />
           </Link>
         </header>
-      </Container>
-      <Container>
         <section className="mt-10">
           <p className="text-4xl font-semibold md:hidden text-center mb-5">
             <InfoText>Quick overview</InfoText>
@@ -68,26 +66,22 @@ export const WorkspaceData = async ({
             <WorkspaceManager workspace={workspace} />
           </div>
         </section>
-      </Container>
-
-      <Container>
+        <section className="mt-5">
+          <Docs/>
+        </section>
         <section className="mt-10">
           <VisitorsChart visitors={workspace.workspaceUsers} />
         </section>
-      </Container>
 
       <section className="mt-10">
         <h3 className="text-purple font-bold text-2xl text-center mb-2.5">
           Live users
         </h3>
         <div className=" bg-purple rounded-md p-5">
-          <Container>
             <LiveUsers workspace={workspace} />
-          </Container>
         </div>
       </section>
 
-      <Container>
         <section className="mt-10">
           <h3 className="text-purple font-bold text-2xl text-center mb-2.5">
             Visitors informations
@@ -124,17 +118,6 @@ export const WorkspaceData = async ({
 
         <section className="mt-24 sm:mt-28">
           <VisitedRoutesChart visitedRoutes={workspaceRoutes} />
-        </section>
-
-        <section className="my-10">
-          <h3 className="text-purple font-bold text-2xl text-center mb-2.5">
-            Recordings
-          </h3>
-          <Recordings
-            userImage={user?.image!}
-            userName={user?.name!}
-            userEmail={user?.email!}
-          />
         </section>
       </Container>
     </div>

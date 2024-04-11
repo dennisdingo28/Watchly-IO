@@ -13,12 +13,7 @@ export const WorkspaceManager = ({
         <WorkspaceName workspace={workspace} />
         <div className="w-[10px] h-[10px] rounded-full bg-green-500 animate-pulse" />
       </div>
-      <div>
-        <div className="flex items-center gap-5">
-          <p className="text-sm text-darkGray">Plan: Business</p>
-        </div>
         <WorkspaceApiKey apiKey={workspace.apiKey} />
-      </div>
     </div>
   );
 };

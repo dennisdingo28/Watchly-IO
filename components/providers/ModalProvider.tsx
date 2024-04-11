@@ -4,7 +4,6 @@ import { CreateWorkspaceModal } from "@/app/dashboard/components/modals/createWo
 import { LoginModal } from "../modals/loginModal/LoginModal";
 import { RegisterModal } from "../modals/registerModal/RegisterModal";
 import { DeleteWorkspaceModal } from "@/app/dashboard/components/modals/deleteWorkspaceModal/DeleteWorkspaceModal";
-import { DeleteRecordingModal } from "@/app/dashboard/[id]/components/recordings/DeleteRecordingModal";
 
 export const ModalProvider = () => {
   return (
@@ -13,7 +12,6 @@ export const ModalProvider = () => {
       <RegisterModal />
       <CreateWorkspaceModal />
       <DeleteWorkspaceModal />
-      <DeleteRecordingModal />
     </>
   );
 };
