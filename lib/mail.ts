@@ -13,7 +13,7 @@ export async function sendVerificationEmail(email: string,token:string) {
         from:process.env.NODEMAILER_EMAIL,
         to:email,
         subject:"Email verification",
-        text:`Visit this link to verify your account http://localhost:3000/verification?token=${token}`,
+        text:`Visit this link to verify your account https://watchly-io.vercel.app/verification?token=${token}`,
     };
     await transporter.sendMail(mailOptions);
 }
