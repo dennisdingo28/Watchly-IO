@@ -18,6 +18,7 @@ export const UserAvatar = ({
   className?: string;
   showDropDownMenu?: boolean;
 }) => {
+  console.log(userImage)
   return (
     <Avatar className={className}>
       {showDropDownMenu ? (
@@ -38,7 +39,6 @@ export const UserAvatar = ({
         <AvatarImage src={userImage} />
       )}
 
-      <AvatarFallback>CN</AvatarFallback>
     </Avatar>
   );
 };
