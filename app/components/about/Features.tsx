@@ -16,9 +16,9 @@ export const Features = () => {
         />
       </div>
       <Feature
-        title="Recorded sessions"
+        title="Live user monitoring"
         imageUrl="/about1.jpg"
-        description="Embark on a comprehensive exploration of user engagement with our recorded sessions. Immerse yourself in a visual journey that unveils the intricacies of your audience's interaction on your website. Gain profound insights into user behavior and preferences, empowering you to optimize and enhance the overall user experience."
+        description="Gain real-time insights into user behavior with our Live User Monitoring feature. Track user interactions, monitor session activities, and analyze engagement patterns instantly. Elevate your understanding of user engagement and make data-driven decisions to optimize your platform's performance like never before."
       />
       <Feature
         title="Insights"
