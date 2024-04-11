@@ -2,13 +2,13 @@
 
 import { currentUser } from "@/lib/auth";
 import { stripe } from "@/lib/stripe";
-import { redirect } from "next/navigation";
 
 export async function StripeSession(priceId: string) {
   try {
     const user = await currentUser();
     if (!user) return { isError: true, message: "You have to be logged in." };
 
+    // get stripe price
     const targetPrice = await stripe.prices.retrieve(priceId);
 
     if (!targetPrice) throw new Error("Invalid priceId");
@@ -27,7 +27,7 @@ export async function StripeSession(priceId: string) {
         },
       ],
     });
-        return {url: stripeSession.url};
+      return {url: stripeSession.url};
     } catch (err) {
     console.log(err);
   }

@@ -4,6 +4,7 @@ import "./globals.css";
 import { Providers } from "@/components/providers/Providers";
 import { SessionProvider } from "next-auth/react";
 import { auth } from "@/auth";
+import Script from "next/script";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -28,6 +29,7 @@ export default async function RootLayout({
   return (
     <SessionProvider session={session}>
       <html lang="en">
+        
         <body
           className={
             poppins.className + " min-h-screen flex flex-col justify-between"
@@ -35,6 +37,19 @@ export default async function RootLayout({
         >
           <Providers>{children}</Providers>
         </body>
+        <Script id="HotjarAnalytics" strategy="afterInteractive" dangerouslySetInnerHTML={{
+          __html:
+          `
+          (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:4941200,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+          `
+        }}/>
       </html>
     </SessionProvider>
   );
